@@ -1,0 +1,272 @@
+DataPoint 2200 Instruction Set
+---
+Also includes data for the Intel 8008 processor
+
+Where two opcodes are given separated by a forward slash the second is the 
+alternate spelling for the 8008.
+Where there is a forward slash with only one opcode given the opcode is only 
+available on either Datapoint (before slash) or 8008 (after slash).
+
+Hex Oct Opcode/8008 Opcode
+00  000 HALT/HLT    ;Halt
+01  001 HALT/HLT
+02  002 SLC/RLC     ;Shift left circular/Rotate accumulator left
+03  003 RFC         ;Return if not carry
+04  004 AD n/ADI n  ;Add immediate
+05  005 /RST &00    ;Call &0000
+06  006 LA n/LAI n  ;Load A immediate
+07  007 RETURN/RET  ;Return from subroutine. Middle octal digit is ignored on 8008, so maps to 007,017,027,037,047,057,067,077
+
+08  010 /INB        ;Inc B (Note: there is no INA or INM opcode)
+09  011 /DCB        ;Dec B (Note: there is no DCA or DCM opcode)
+0A  012 SRC/RRC     ;Shift right circular (through carry)/Rotate accumulator right
+0B  013 RFZ         ;Return if not zero
+0C  014 AC n/ACI n  ;Add immediate with carry
+0D  015 /RST &08    ;Call &0008
+0E  016 LB n/LBI n  ;Load B immediate
+
+10  020 BETA/INC    ;Switch to Beta register set. Version 2 only. (Inc C on 8008)
+11  021 /DCC        ;Dec C
+12  022 /RAL        ;Rotate accumulator left through carry
+13  023 RFS         ;Return if not sign
+14  024 SU n/SUI n  ;Subtract immediate
+15  025 /RST &10    ;Call &0010
+16  026 LC n/LCI n  ;Load C immediate
+
+18  030 ALPHA/IND   ;Switch to alpha register set. Version 2 only. (Inc D on 8008)
+19  031 /DCD        ;Dec D
+1A  032 /RRL        ;Rotate accumulator right through carry
+1B  033 RFP         ;Return if not parity
+1C  034 SB n/SBI n  ;Subtract immediate with borrow
+1D  035 /RST &18    ;Call &0018
+1E  036 LD n/LDI n  ;Load D immediate
+
+20  040 DI/INE      ;Disable interrupts. Version 2 only. (Inc E on 8008)
+21  041 /DCE        ;Dec E
+
+23  043 RTC         ;Return if carry
+24  044 ND n/NDI n  ;AND immediate
+25  045 /RST &20    ;Call &0020
+26  046 LE n/LEI n  ;Load E immediate
+
+28  050 EI/INH      ;Enable interrupts. Version 2 only. (Inc H on 8008)
+29  051 /DCH        ;Dec H
+
+2B  053 RTZ         ;Return if zero
+2C  054 XR n/XRI n  ;XOR immediate
+2D  055 /RST &28    ;Call &0028
+2E  056 LH n/LHI n  ;Load H immediate
+
+30  060 POP/INL     ;Pop HL. Version 2 only. (Inc L on 8008)
+31  061 /DCL        ;Dec L
+
+33  063 RTS         ;Return if sign
+34  064 OR n/ORI n  ;OR immediate
+35  065 /RST &30    ;Call &0030
+
+37  067 LL n/LLI n  ;Load L immediate
+38  070 PUSH/       ;Push HL. Version 2 only
+
+3B  073 RTP         ;Return if parity
+3C  074 CP n/CPI n  ;Compare immediate
+3D  075 /RST &0038  ;Call &0030
+
+3F  077 LM n/LMI n  ;To (HL) location with immediate data
+    
+    
+    
+40  100 JFC nn              ;Jump if not carry
+41  101 INPUT/INP 0         ;Reads IO bus into A/Input from port 0
+42  102 CFC nn              ;Call if not carry
+43  103 /INP 1              ;Input from port 1
+44  104 JMP nn              ;Unconditional jump. Middle octal digit is ignored on 8008, so maps to 104,114,124,134,144,154,164,174
+45  105 /INP 2              ;Input from port 2
+46  106 CALL nn             ;Subroutine call. Middle octal digit is ignored on 8008, so maps to 106,116,126,136,146,156,166,176
+47  107 /INP 3              ;Input from port 3
+48  110 JFZ nn              ;Jump if not zero
+49  111 /INP 4              ;Input from port 4
+4A  112 CFZ nn              ;Call if not zero
+4B  113 /INP 5              ;Input from port 5
+
+4D  115 /INP 6              ;Input from port 6
+
+4F  117 /INP 7              ;Input from port 7
+50  120 JFS nn              ;Jump if not sign
+51  121 EX ADR/OUT 0        ;1 Address. Selects device specified by A register. All device addresses. (Output to port 0)
+52  122 CFS nn              ;Call if not sign
+53  123 EX STATUS/OUT 1     ;2 Sense status. Connects selected device status to input lines. All device addresses (Output to port 1)
+
+55  125 EX DATA/OUT 2       ;3 Sense data. Connects selected device data to input lines. All device addresses (Output to port 2)
+
+57  127 EX WRITE/OUT 3      ;4 Write strobe. Signals selected device that output data word is on output lines. All device addresses (Output to port 3)
+58  130 JFP nn              ;Jump if not parity
+59  131 EX COM1/OUT 4       ;5 Command1. Outputs a control function to selected device. All device addresses (Output to port 4)
+5A  132 CFP nn              ;Call if not parity
+5B  133 EX COM2/OUT 5       ;6 Command2. Outputs a control function to selected device. All device addresses (Output to port 5)
+
+5D  135 EX COM3/OUT 6       ;7 Command3. Outputs a control function to selected device. All device addresses (Output to port 6)
+
+5F  137 EX COM4/OUT 7       ;8 Command4. Outputs a control function to selected device. All device addresses (Output to port 7)
+60  140 JTC nn              ;Jump if carry
+61  141 /OUT 8              ;9 EX unassigned (Output to port 8)
+62  142 CTC nn              ;Call if carry
+63  143 /OUT 9              ;10 EX unassigned (Output to port 9)
+
+65  145 /OUT 10             ;11 EX unassigned (Output to port 10)
+
+67  147 /OUT 11             ;12 EX unassigned (Output to port 11)
+68  150 JTZ nn              ;Jump if zero
+69  151 EX BEEP/OUT 12      ;13 Beep. Activates tone producing mechanism. Device address 341(octal) (Output to port 12)
+6A  152 CTZ nn              ;Call if zero
+6B  153 EX CLICK/OUT 13     ;14 Click. Activates audible click producing mechanism. Device address 341(octal) (Output to port 13)
+
+6D  155 EX DECK1/OUT 14     ;15 Select Deck 1. Connects deck 1 to I/O bus. Device address 360(octal) (Output to port 14)
+
+6F  157 EX DECK2/OUT 15     ;16 Select Deck 2. Connects deck 2 to I/O bus. Device address 360(octal) (Output to port 15)
+70  160 JTS nn              ;Jump if sign
+71  161 EX RBK/OUT 16       ;17 Read block. Enables read circuitry and sets tape in forward motion. Device address 360(octal) (Output to port 16)
+72  162 CTS nn              ;Call if sign
+73  163 EX WBK/OUT 17       ;18 Write block. Enables write circuitry and sets tape in forward motion. Device address 360(octal) (Output to port 17)
+
+75  165 /OUT 18             ;19 EX unassigned (Output to port 18)
+
+77  167 EX BSP/OUT 19       ;20 Backspace one block. Backs up the selected tape one record. Device address 360(octal) (Output to port 19)
+78  170 JTP nn              ;Jump if parity
+79  171 EX SF/OUT 20        ;21 Slew forward. Sets selected tape deck in forward motion. Device address 360(octal) (Output to port 20)
+7A  172 CTP nn              ;Call if parity
+7B  173 EX SB/OUT 21        ;22 Slew backward. Set selected tape deck in backward motion. Device address 360(octal) (Output to port 21)
+
+7D  175 EX REWIND/OUT 22    ;23 Rewind. Rewinds the selected deck to beginning of tape. Device address 360(octal) (Output to port 22)
+
+7F  177 EX TSTOP/OUT 23     ;24 Stop tape. Halts motion of the selected tape deck. Device address 360(octal) (Output to port 23)
+    
+    
+80  200 ADA     ;Add A
+81  201 ADB     ;Add B
+82  202 ADC     ;Add C
+83  203 ADD     ;Add D
+84  204 ADE     ;Add E
+85  205 ADH     ;Add H
+86  206 ADL     ;Add L
+87  207 ADM     ;Add data at (HL)
+88  210 ACA     ;Add with carry
+89  211 ACB
+8A  212 ACC
+8B  213 ACD
+8C  214 ACE
+8D  215 ACH
+8E  216 ACL
+8F  217 ACM     ;Add data at (HL)
+90  220 SUA     ;Subtract
+91  221 SUB
+92  222 SUC
+93  223 SUD
+94  224 SUE
+95  225 SUH
+96  226 SUL
+97  227 SUM     ;Data at (HL)
+98  230 SBA     ;Subtract with borrow
+99  231 SBB
+9A  232 SBC
+9B  233 SBD
+9C  234 SBE
+9D  235 SBH
+9E  236 SBL
+9F  237 SBM     ;Data at (HL)
+A0  240 NDA     ;AND
+A1  241 NDB
+A2  242 NDC
+A3  243 NDD
+A4  244 NDE
+A5  245 NDH
+A6  246 NDL
+A7  247 NDM     ;Data at (HL)
+A8  250 XRA     ;XOR
+A9  251 XRB
+AA  252 XRC
+AB  253 XRD
+AC  254 XRE
+AD  255 XRH
+AE  256 XRL
+AF  257 XRM     ;Data at (HL)
+B0  260 ORA     ;OR
+B1  261 ORB
+B2  262 ORC
+B3  263 ORD
+B4  264 ORE
+B5  265 ORH
+B6  266 ORL
+B7  267 ORM     ;Data at (HL)
+B8  270 CPA     ;Compare
+B9  271 CPB
+BA  272 CPC
+BB  273 CPD
+BC  274 CPE
+BD  275 CPH
+BE  276 CPL
+BF  277 CPM     ;Data at (HL)
+   
+C0  300 NOP     ;NOP (applies to all 'load into same register' opcodes). LAA on 8008.
+C1  301 LAB     ;<dest><source>
+C2  302 LAC
+C3  303 LAD
+C4  304 LAE
+C5  305 LAH
+C6  306 LAL
+C7  307 LAM     ;Source is (HL) location
+C8  310 LBA
+C9  311 LBB
+CA  312 LBC
+CB  313 LBD
+CC  314 LBE
+CD  315 LBH
+CE  316 LBL
+CF  317 LBM     ;Source is (HL) location
+D0  320 LCA
+D1  321 LCB
+D2  322 LCC
+D3  323 LCD
+D4  324 LCE
+D5  325 LCH
+D6  326 LCL
+D7  327 LCM     ;Source is (HL) location
+D8  330 LDA
+D9  331 LDB
+DA  332 LDC
+DB  333 LDD
+DC  334 LDE
+DD  335 LDH
+DE  336 LDL
+DF  337 LDM     ;Source is (HL) location
+E0  340 LEA
+E1  341 LEB
+E2  342 LEC
+E3  343 LED
+E4  344 LEE
+E5  345 LEH
+E6  346 LEL
+E7  347 LEM     ;Source is (HL) location
+E8  350 LHA
+E9  351 LHB
+EA  352 LHC
+EB  353 LHD
+EC  354 LHE
+ED  355 LHH
+EE  356 LHL
+EF  357 LHM     ;Source is (HL) location
+F0  360 LLA
+F1  361 LLB
+F2  362 LLC
+F3  363 LLD
+F4  364 LLE
+F5  365 LLH     
+F6  366 LLL
+F7  367 LLM     ;Source is (HL) location
+F8  370 LMA     ;Dest is memory at (HL)
+F9  371 LMB     ;Dest is memory at (HL)
+FA  372 LMC     ;Dest is memory at (HL)
+FB  373 LMD     ;Dest is memory at (HL)
+FC  374 LME     ;Dest is memory at (HL)
+FD  375 LMH     ;Dest is memory at (HL)
+FE  376 LML     ;Dest is memory at (HL)
+FF  377 HALT/HLT

@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 74LS89
+D 64-bit (16x4) static RAM with inverting outputs [obsolete]
+F https://datasheetspdf.com/pdf-file/504528/FairchildSemiconductor/74LS89/1
+$ENDCMP
+#
+$CMP 75451
+D Dual-Peripheral Drivers for High-Current, High-Speed Switching
+F https://www.ti.com/lit/ds/symlink/sn75451b.pdf
+$ENDCMP
+#
+#End Doc Library

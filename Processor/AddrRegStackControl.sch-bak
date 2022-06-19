@@ -1,0 +1,1159 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 8 12
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 5700 1800 0    50   Input ~ 0
+DO_JUMP_OR_CALL
+Text HLabel 1450 2550 1    50   Input ~ 0
+OPCODE_CALL_JUMP_~RETURN
+$Comp
+L 74xx:74LS08 Z9
+U 2 1 6248DC82
+P 1000 3550
+F 0 "Z9" H 1000 3875 50  0000 C CNN
+F 1 "74LS08" H 1000 3784 50  0000 C CNN
+F 2 "" H 1000 3550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1000 3550 50  0001 C CNN
+	2    1000 3550
+	1    0    0    -1  
+$EndComp
+Text HLabel 600  3350 1    50   Input ~ 0
+DO_JUMP_CALL_OR_RETURN
+Wire Wire Line
+	500  3650 700  3650
+Wire Wire Line
+	700  3450 600  3450
+Text HLabel 1000 3950 0    50   Input ~ 0
+W
+$Comp
+L 74xx:74LS00 Z12
+U 4 1 624C18B1
+P 2350 1550
+F 0 "Z12" H 2350 1233 50  0000 C CNN
+F 1 "74LS00" H 2350 1324 50  0000 C CNN
+F 2 "" H 2350 1550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 2350 1550 50  0001 C CNN
+	4    2350 1550
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	2050 1450 1550 1450
+Text HLabel 1000 4150 0    50   Input ~ 0
+STROBE_2
+$Comp
+L 74xx:74LS10 Z11
+U 1 1 624D3F32
+P 2350 3200
+F 0 "Z11" H 2350 2883 50  0000 C CNN
+F 1 "74LS10" H 2350 2974 50  0000 C CNN
+F 2 "" H 2350 3200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 2350 3200 50  0001 C CNN
+	1    2350 3200
+	1    0    0    1   
+$EndComp
+Text HLabel 1000 3850 0    50   Input ~ 0
+AW
+Wire Wire Line
+	2050 3200 1950 3200
+Wire Wire Line
+	1650 3300 2050 3300
+Wire Wire Line
+	1650 1650 2050 1650
+$Comp
+L 74xx:74LS10 Z11
+U 2 1 624E0DDC
+P 2350 2650
+F 0 "Z11" H 2350 2333 50  0000 C CNN
+F 1 "74LS10" H 2350 2424 50  0000 C CNN
+F 2 "" H 2350 2650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 2350 2650 50  0001 C CNN
+	2    2350 2650
+	1    0    0    1   
+$EndComp
+Text HLabel 1000 4250 0    50   Input ~ 0
+STROBE_4
+Wire Wire Line
+	2050 2750 1950 2750
+$Comp
+L 74xx:74LS03 Z89
+U 2 1 6266E12E
+P 8850 4550
+F 0 "Z89" H 8850 4875 50  0000 C CNN
+F 1 "74LS03" H 8850 4784 50  0000 C CNN
+F 2 "" H 8850 4550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 8850 4550 50  0001 C CNN
+	2    8850 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS10 Z13
+U 2 1 6267AF57
+P 8850 5950
+F 0 "Z13" H 8850 6275 50  0000 C CNN
+F 1 "74LS10" H 8850 6184 50  0000 C CNN
+F 2 "" H 8850 5950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 8850 5950 50  0001 C CNN
+	2    8850 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS00 Z12
+U 3 1 62686D26
+P 2350 2100
+F 0 "Z12" H 2350 2425 50  0000 C CNN
+F 1 "74LS00" H 2350 2334 50  0000 C CNN
+F 2 "" H 2350 2100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 2350 2100 50  0001 C CNN
+	3    2350 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 2000 1750 2000
+Wire Wire Line
+	1750 2650 2050 2650
+Wire Wire Line
+	1850 2200 2050 2200
+$Comp
+L 74xx:74LS30 Z10
+U 1 1 6269A573
+P 3500 1550
+F 0 "Z10" H 3500 1850 50  0000 C CNN
+F 1 "74LS30" H 3500 1750 50  0000 C CNN
+F 2 "" H 3500 1550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS30" H 3500 1550 50  0001 C CNN
+	1    3500 1550
+	1    0    0    -1  
+$EndComp
+Text HLabel 3100 850  1    50   Input ~ 0
+INC_P
+Text Notes 3050 800  1    50   ~ 0
+P5B-6
+Wire Wire Line
+	3100 850  3100 1250
+Text HLabel 3150 4900 2    50   Output ~ 0
+A
+$Comp
+L power:+5V #PWR?
+U 1 1 626A7F85
+P 3100 1450
+F 0 "#PWR?" H 3100 1300 50  0001 C CNN
+F 1 "+5V" H 3115 1623 50  0000 C CNN
+F 2 "" H 3100 1450 50  0001 C CNN
+F 3 "" H 3100 1450 50  0001 C CNN
+	1    3100 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 1450 3200 1450
+Text HLabel 2900 1450 1    50   Input ~ 0
+~STEP_OVER_ADDR
+Wire Wire Line
+	2700 1650 2700 1550
+Wire Wire Line
+	2700 1550 2650 1550
+Wire Wire Line
+	2700 1750 2700 2100
+Wire Wire Line
+	2700 2100 2650 2100
+Wire Wire Line
+	2800 1850 2800 2650
+Wire Wire Line
+	2800 2650 2650 2650
+Wire Wire Line
+	2650 3200 2900 3200
+Wire Wire Line
+	2900 1950 3200 1950
+Text HLabel 3900 1450 1    50   Output ~ 0
+~ADDR.COUNT
+Wire Wire Line
+	3200 1250 3100 1250
+Text HLabel 4100 600  0    50   Input ~ 0
+PHASE_CLOCK
+Text Notes 4500 550  2    50   ~ 0
+P5B-T
+$Comp
+L 74xx:74LS08 Z9
+U 1 1 62800F83
+P 1000 5450
+F 0 "Z9" H 1000 5775 50  0000 C CNN
+F 1 "74LS08" H 1000 5684 50  0000 C CNN
+F 2 "" H 1000 5450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1000 5450 50  0001 C CNN
+	1    1000 5450
+	1    0    0    -1  
+$EndComp
+Text HLabel 600  5350 1    50   Input ~ 0
+~MEM.RD
+Text HLabel 600  5550 3    50   Input ~ 0
+~MEM.WR
+$Comp
+L 74xx:74LS10 Z13
+U 1 1 62849A40
+P 2600 5350
+F 0 "Z13" H 2600 5675 50  0000 C CNN
+F 1 "74LS10" H 2600 5584 50  0000 C CNN
+F 2 "" H 2600 5350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 2600 5350 50  0001 C CNN
+	1    2600 5350
+	1    0    0    1   
+$EndComp
+Text HLabel 2100 6050 0    50   Input ~ 0
+CW
+$Comp
+L 74xx:74LS04 Z102
+U 6 1 628702E1
+P 3400 5350
+F 0 "Z102" H 3400 5667 50  0000 C CNN
+F 1 "74LS04" H 3400 5576 50  0000 C CNN
+F 2 "" H 3400 5350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3400 5350 50  0001 C CNN
+	6    3400 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS04 Z30
+U 6 1 6288811D
+P 1800 5450
+F 0 "Z30" H 1800 5767 50  0000 C CNN
+F 1 "74LS04" H 1800 5676 50  0000 C CNN
+F 2 "" H 1800 5450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 1800 5450 50  0001 C CNN
+	6    1800 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS03 Z29
+U 4 1 6289E182
+P 2600 6950
+F 0 "Z29" H 2600 7275 50  0000 C CNN
+F 1 "74LS03" H 2600 7184 50  0000 C CNN
+F 2 "" H 2600 6950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 2600 6950 50  0001 C CNN
+	4    2600 6950
+	1    0    0    1   
+$EndComp
+$Comp
+L 74xx:74LS04 Z30
+U 1 1 628CC51A
+P 3400 6950
+F 0 "Z30" H 3400 7267 50  0000 C CNN
+F 1 "74LS04" H 3400 7176 50  0000 C CNN
+F 2 "" H 3400 6950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3400 6950 50  0001 C CNN
+	1    3400 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 5350 4300 5350
+$Comp
+L 74xx:74LS04 Z49
+U 4 1 62D26936
+P 8050 3250
+F 0 "Z49" H 8050 3567 50  0000 C CNN
+F 1 "74LS04" H 8050 3476 50  0000 C CNN
+F 2 "" H 8050 3250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 8050 3250 50  0001 C CNN
+	4    8050 3250
+	1    0    0    -1  
+$EndComp
+Text HLabel 3700 6150 0    50   Input ~ 0
+~JUMP_CALL_FLAG
+$Comp
+L 74xx:74LS00 Z88
+U 4 1 62D9FB49
+P 7250 3250
+F 0 "Z88" H 7250 3575 50  0000 C CNN
+F 1 "74LS00" H 7250 3484 50  0000 C CNN
+F 2 "" H 7250 3250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 7250 3250 50  0001 C CNN
+	4    7250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS10 Z33
+U 1 1 62DD1584
+P 4700 6850
+F 0 "Z33" H 4700 6533 50  0000 C CNN
+F 1 "74LS10" H 4700 6624 50  0000 C CNN
+F 2 "" H 4700 6850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 4700 6850 50  0001 C CNN
+	1    4700 6850
+	1    0    0    1   
+$EndComp
+Text HLabel 5100 6950 3    50   Output ~ 0
+~MEM.STOP
+Wire Wire Line
+	5100 6850 5000 6850
+Wire Wire Line
+	7750 3250 7550 3250
+$Comp
+L 74xx:74LS03 Z103
+U 4 1 63A40309
+P 8950 3150
+F 0 "Z103" H 8950 3475 50  0000 C CNN
+F 1 "74LS03" H 8950 3384 50  0000 C CNN
+F 2 "" H 8950 3150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 8950 3150 50  0001 C CNN
+	4    8950 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 3050 8450 3050
+Wire Wire Line
+	9350 3150 9250 3150
+$Comp
+L Device:R R49
+U 1 1 63B6328D
+P 9450 2900
+F 0 "R49" V 9550 2800 50  0000 L CNN
+F 1 "470" V 9450 2800 50  0000 L CNN
+F 2 "" V 9380 2900 50  0001 C CNN
+F 3 "~" H 9450 2900 50  0001 C CNN
+	1    9450 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 63B63895
+P 9450 2750
+F 0 "#PWR?" H 9450 2600 50  0001 C CNN
+F 1 "+5V" H 9600 2800 50  0000 C CNN
+F 2 "" H 9450 2750 50  0001 C CNN
+F 3 "" H 9450 2750 50  0001 C CNN
+	1    9450 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 3050 9450 3150
+Wire Wire Line
+	9450 3150 9350 3150
+Connection ~ 9350 3150
+Text HLabel 9350 2600 1    50   Output ~ 0
+ST.WE
+$Comp
+L 74xx:74LS03 Z103
+U 1 1 63BB1F8C
+P 8850 5100
+F 0 "Z103" H 8850 5425 50  0000 C CNN
+F 1 "74LS03" H 8850 5334 50  0000 C CNN
+F 2 "" H 8850 5100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 8850 5100 50  0001 C CNN
+	1    8850 5100
+	1    0    0    -1  
+$EndComp
+Text HLabel 8150 5000 0    50   Input ~ 0
+DIV64_CLK
+Wire Wire Line
+	8150 5000 8550 5000
+$Comp
+L 74xx:74LS00 Z88
+U 3 1 63BDA07F
+P 8850 6500
+F 0 "Z88" H 8850 6825 50  0000 C CNN
+F 1 "74LS00" H 8850 6734 50  0000 C CNN
+F 2 "" H 8850 6500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 8850 6500 50  0001 C CNN
+	3    8850 6500
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	8150 5200 8550 5200
+Wire Wire Line
+	6750 3150 6950 3150
+Text HLabel 9450 5100 2    50   Output ~ 0
+ADDR_SEL.STACK
+Wire Wire Line
+	9250 5100 9150 5100
+$Comp
+L Device:R R51
+U 1 1 63D77689
+P 9350 4850
+F 0 "R51" V 9450 4750 50  0000 L CNN
+F 1 "2k2" V 9350 4750 50  0000 L CNN
+F 2 "" V 9280 4850 50  0001 C CNN
+F 3 "~" H 9350 4850 50  0001 C CNN
+	1    9350 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 63D77B4D
+P 9350 4700
+F 0 "#PWR?" H 9350 4550 50  0001 C CNN
+F 1 "+5V" H 9365 4873 50  0000 C CNN
+F 2 "" H 9350 4700 50  0001 C CNN
+F 3 "" H 9350 4700 50  0001 C CNN
+	1    9350 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 5000 9350 5100
+$Comp
+L 74xx:74LS08 Z116
+U 3 1 63ED660E
+P 9650 6200
+F 0 "Z116" H 9650 5883 50  0000 C CNN
+F 1 "74LS08" H 9650 5974 50  0000 C CNN
+F 2 "" H 9650 6200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 9650 6200 50  0001 C CNN
+	3    9650 6200
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9250 6100 9350 6100
+$Comp
+L 74xx:74LS40 U117
+U 1 1 63F8B232
+P 10450 5600
+F 0 "U117" H 10450 5975 50  0000 C CNN
+F 1 "74LS40" H 10450 5884 50  0000 C CNN
+F 2 "" H 10450 5600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS40" H 10450 5600 50  0001 C CNN
+	1    10450 5600
+	1    0    0    -1  
+$EndComp
+Text HLabel 10050 5550 0    50   Input ~ 0
+~RST_JUMP_CALL_FLAG
+Wire Wire Line
+	10150 5650 10050 5650
+Wire Wire Line
+	10050 6200 9950 6200
+Wire Wire Line
+	10050 5750 10150 5750
+$Comp
+L 74xx:74LS04 Z102
+U 2 1 64102559
+P 11150 5600
+F 0 "Z102" H 11150 5917 50  0000 C CNN
+F 1 "74LS04" H 11150 5826 50  0000 C CNN
+F 2 "" H 11150 5600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 11150 5600 50  0001 C CNN
+	2    11150 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10850 5600 10750 5600
+Text HLabel 11550 5500 1    50   Output ~ 0
+~ADDR.LOAD
+Wire Wire Line
+	11550 5500 11550 5600
+Wire Wire Line
+	11550 5600 11450 5600
+Wire Wire Line
+	6850 2800 6950 2800
+Connection ~ 6850 2800
+Wire Wire Line
+	6650 2800 6850 2800
+Wire Wire Line
+	6850 2050 6850 2800
+Wire Wire Line
+	6650 1700 6950 1700
+Connection ~ 6650 1700
+Wire Wire Line
+	6650 2600 6950 2600
+Wire Wire Line
+	6650 1700 6650 2600
+Wire Wire Line
+	6400 1700 6650 1700
+$Comp
+L 74xx:74LS03 Z89
+U 3 1 626195D6
+P 7250 2700
+F 0 "Z89" H 7250 2383 50  0000 C CNN
+F 1 "74LS03" H 7250 2474 50  0000 C CNN
+F 2 "" H 7250 2700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 7250 2700 50  0001 C CNN
+	3    7250 2700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	7750 2150 7550 2150
+Wire Wire Line
+	6550 1600 6550 2250
+$Comp
+L 74xx:74LS10 Z13
+U 3 1 62622E71
+P 7250 2150
+F 0 "Z13" H 7250 2475 50  0000 C CNN
+F 1 "74LS10" H 7250 2384 50  0000 C CNN
+F 2 "" H 7250 2150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 7250 2150 50  0001 C CNN
+	3    7250 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 2050 6850 2050
+Wire Wire Line
+	6550 2250 6950 2250
+Wire Wire Line
+	9350 2250 9350 1700
+Wire Wire Line
+	9250 2250 9350 2250
+$Comp
+L 74xx:74LS03 Z89
+U 1 1 6281B807
+P 8950 2250
+F 0 "Z89" H 8950 2575 50  0000 C CNN
+F 1 "74LS03" H 8950 2484 50  0000 C CNN
+F 2 "" H 8950 2250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 8950 2250 50  0001 C CNN
+	1    8950 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 2150 8550 2150
+Wire Wire Line
+	8550 2150 8550 2350
+Wire Wire Line
+	8550 2350 8650 2350
+Connection ~ 8550 2150
+Wire Wire Line
+	8550 2150 8350 2150
+Wire Wire Line
+	6750 1500 6950 1500
+Wire Wire Line
+	7650 1600 7750 1600
+Connection ~ 7650 1600
+Wire Wire Line
+	7650 1200 8550 1200
+Wire Wire Line
+	7650 1600 7650 1200
+Wire Wire Line
+	7550 1600 7650 1600
+Wire Wire Line
+	9450 1700 9350 1700
+Wire Wire Line
+	9450 1600 9450 1700
+Connection ~ 9350 1700
+Text HLabel 9450 1600 1    50   Output ~ 0
+ST.COUNT
+Wire Wire Line
+	9350 1700 9250 1700
+Wire Wire Line
+	8650 1800 8450 1800
+Wire Wire Line
+	8650 1600 8350 1600
+$Comp
+L 74xx:74LS03 Z89
+U 4 1 627D93BD
+P 8950 1700
+F 0 "Z89" H 8950 1383 50  0000 C CNN
+F 1 "74LS03" H 8950 1474 50  0000 C CNN
+F 2 "" H 8950 1700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS03" H 8950 1700 50  0001 C CNN
+	4    8950 1700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9350 1100 9250 1100
+Wire Wire Line
+	9350 1000 9350 1100
+Text HLabel 9350 1000 1    50   Output ~ 0
+ST.DIR
+Connection ~ 8550 1200
+Wire Wire Line
+	8550 1200 8650 1200
+Wire Wire Line
+	8550 1000 8550 1200
+Wire Wire Line
+	8650 1000 8550 1000
+$Comp
+L 74xx:74LS00 Z68
+U 3 1 626D6655
+P 8950 1100
+F 0 "Z68" H 8950 1425 50  0000 C CNN
+F 1 "74LS00" H 8950 1334 50  0000 C CNN
+F 2 "" H 8950 1100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 8950 1100 50  0001 C CNN
+	3    8950 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS04 Z30
+U 3 1 62667F1F
+P 8050 2150
+F 0 "Z30" H 8050 2467 50  0000 C CNN
+F 1 "74LS04" H 8050 2376 50  0000 C CNN
+F 2 "" H 8050 2150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 8050 2150 50  0001 C CNN
+	3    8050 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS04 Z49
+U 5 1 6250C357
+P 8050 1600
+F 0 "Z49" H 8050 1917 50  0000 C CNN
+F 1 "74LS04" H 8050 1826 50  0000 C CNN
+F 2 "" H 8050 1600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 8050 1600 50  0001 C CNN
+	5    8050 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 1600 6550 1600
+$Comp
+L 74xx:74LS10 Z11
+U 3 1 624EA4C8
+P 7250 1600
+F 0 "Z11" H 7250 1283 50  0000 C CNN
+F 1 "74LS10" H 7250 1374 50  0000 C CNN
+F 2 "" H 7250 1600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 7250 1600 50  0001 C CNN
+	3    7250 1600
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	5700 1800 5800 1800
+Wire Wire Line
+	5800 1600 5700 1600
+$Comp
+L 74xx:74LS08 Z9
+U 3 1 6248470D
+P 6100 1700
+F 0 "Z9" H 6100 2025 50  0000 C CNN
+F 1 "74LS08" H 6100 1934 50  0000 C CNN
+F 2 "" H 6100 1700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6100 1700 50  0001 C CNN
+	3    6100 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 1800 8450 3050
+Connection ~ 8450 1800
+Wire Wire Line
+	6750 1500 6750 3150
+Wire Wire Line
+	6150 2150 6950 2150
+$Comp
+L Device:R R50
+U 1 1 62EA6B45
+P 9450 2000
+F 0 "R50" V 9550 1900 50  0000 L CNN
+F 1 "2k2" V 9450 1900 50  0000 L CNN
+F 2 "" V 9380 2000 50  0001 C CNN
+F 3 "~" H 9450 2000 50  0001 C CNN
+	1    9450 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62EA6F43
+P 9450 1850
+F 0 "#PWR?" H 9450 1700 50  0001 C CNN
+F 1 "+5V" H 9600 1950 50  0000 C CNN
+F 2 "" H 9450 1850 50  0001 C CNN
+F 3 "" H 9450 1850 50  0001 C CNN
+	1    9450 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 2150 9450 2250
+Wire Wire Line
+	9450 2250 9350 2250
+Connection ~ 9350 2250
+Wire Wire Line
+	7550 2700 9350 2700
+Connection ~ 9350 2700
+Wire Wire Line
+	9350 2600 9350 2700
+Wire Wire Line
+	9350 2700 9350 3150
+Wire Wire Line
+	8350 3250 8650 3250
+Wire Notes Line
+	5550 700  9700 700 
+Wire Notes Line
+	9700 3450 5550 3450
+Wire Notes Line
+	5550 3450 5550 700 
+Text Notes 7200 800  0    50   ~ 0
+Stack Control
+Wire Wire Line
+	2900 5350 3000 5350
+Wire Wire Line
+	3000 5350 3000 4900
+Connection ~ 3000 5350
+Wire Wire Line
+	3000 5350 3100 5350
+Wire Wire Line
+	700  5350 600  5350
+Wire Wire Line
+	600  5550 700  5550
+$Comp
+L 74xx:74LS05 Z?
+U 6 1 62633F45
+P 900 7200
+AR Path="/62510F55/62633F45" Ref="Z?"  Part="6" 
+AR Path="/624845CC/62633F45" Ref="Z48"  Part="6" 
+F 0 "Z48" H 900 7517 50  0000 C CNN
+F 1 "74LS05" H 900 7426 50  0000 C CNN
+F 2 "" H 900 7200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS05" H 900 7200 50  0001 C CNN
+	6    900  7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 62633F4B
+P 1300 6950
+AR Path="/62510F55/62633F4B" Ref="R?"  Part="1" 
+AR Path="/624845CC/62633F4B" Ref="R54"  Part="1" 
+F 0 "R54" V 1200 6850 50  0000 L CNN
+F 1 "2k2" V 1300 6850 50  0000 L CNN
+F 2 "" V 1230 6950 50  0001 C CNN
+F 3 "~" H 1300 6950 50  0001 C CNN
+	1    1300 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62633F51
+P 1300 6800
+AR Path="/62510F55/62633F51" Ref="#PWR?"  Part="1" 
+AR Path="/624845CC/62633F51" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1300 6650 50  0001 C CNN
+F 1 "+5V" H 1250 6950 50  0000 C CNN
+F 2 "" H 1300 6800 50  0001 C CNN
+F 3 "" H 1300 6800 50  0001 C CNN
+	1    1300 6800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 7100 1300 7200
+Connection ~ 1300 7200
+Wire Wire Line
+	1300 7200 1200 7200
+Wire Wire Line
+	2900 6950 3000 6950
+Wire Wire Line
+	1750 2000 1750 2650
+Wire Wire Line
+	1650 1650 1650 3300
+Connection ~ 1750 2650
+Wire Wire Line
+	1950 2750 1950 3200
+Connection ~ 1950 3200
+Connection ~ 1650 3300
+Wire Wire Line
+	2900 1950 2900 3200
+Wire Wire Line
+	6850 3350 6850 4300
+Wire Wire Line
+	6850 3350 6950 3350
+Connection ~ 6750 3150
+Wire Wire Line
+	1750 2650 1750 4250
+Text HLabel 1000 4050 0    50   Input ~ 0
+STROBE_1
+Connection ~ 3000 6950
+Wire Wire Line
+	3000 6950 3100 6950
+Wire Wire Line
+	10050 5550 10150 5550
+Text Label 2500 3550 0    50   ~ 0
+DO_RETURN
+Text Label 6400 1700 0    50   ~ 0
+DO_CALL
+Text Notes 5700 2150 0    50   ~ 0
+DO RETURN
+Text HLabel 500  3550 1    50   Input ~ 0
+OPCODE_RETURN
+Text HLabel 1450 3100 0    50   Input ~ 0
+IMM_BYTE
+Text HLabel 5700 1600 0    50   Input ~ 0
+OPCODE_CALL_~JUMP
+Wire Wire Line
+	1950 3200 1950 3850
+Text Label 2000 7050 2    50   ~ 0
+~MEM_RD_OR_WR
+Text Label 2100 5450 0    50   ~ 0
+MEM_RD_OR_WR
+Wire Wire Line
+	1850 2200 1850 3550
+Wire Wire Line
+	1450 2550 2050 2550
+Wire Wire Line
+	1450 3100 2050 3100
+Wire Wire Line
+	1300 7200 3000 7200
+Wire Wire Line
+	3000 6950 3000 7200
+Wire Wire Line
+	2100 6050 2200 6050
+Wire Wire Line
+	4000 6250 4400 6250
+Wire Wire Line
+	4300 5350 4400 5350
+Wire Wire Line
+	4000 5550 4400 5550
+Wire Wire Line
+	4200 6450 4400 6450
+Wire Wire Line
+	4100 6350 4400 6350
+Connection ~ 5200 6300
+Wire Wire Line
+	5200 6400 5200 6300
+Connection ~ 7350 5450
+Wire Wire Line
+	5850 6100 5850 6000
+Text Notes 5050 5300 0    50   ~ 0
+Cleared on reboot\nCleared when we load addr \nfrom memory\nSet when we load addr from HL
+Connection ~ 5450 5450
+Wire Wire Line
+	7350 5700 7450 5700
+Wire Wire Line
+	7350 5450 7350 5700
+Wire Wire Line
+	7450 5900 7350 5900
+$Comp
+L 74xx:74LS08 Z116
+U 2 1 63DFA71D
+P 7750 5800
+F 0 "Z116" H 7750 6125 50  0000 C CNN
+F 1 "74LS08" H 7750 6034 50  0000 C CNN
+F 2 "" H 7750 5800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 7750 5800 50  0001 C CNN
+	2    7750 5800
+	1    0    0    -1  
+$EndComp
+Connection ~ 6650 5900
+Wire Wire Line
+	6750 5900 6650 5900
+$Comp
+L 74xx:74LS04 Z102
+U 3 1 63DA2AE6
+P 7050 5900
+F 0 "Z102" H 7050 6217 50  0000 C CNN
+F 1 "74LS04" H 7050 6126 50  0000 C CNN
+F 2 "" H 7050 5900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 7050 5900 50  0001 C CNN
+	3    7050 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 5900 6550 5900
+Text HLabel 6650 6250 3    50   Output ~ 0
+AA
+Wire Wire Line
+	5850 6000 5950 6000
+Text HLabel 5850 6100 3    50   Input ~ 0
+WORD_SELECT
+Wire Wire Line
+	5950 5800 5750 5800
+$Comp
+L 74xx:74LS00 Z88
+U 2 1 639F7D16
+P 6250 5900
+F 0 "Z88" H 6250 6225 50  0000 C CNN
+F 1 "74LS00" H 6250 6134 50  0000 C CNN
+F 2 "" H 6250 5900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 6250 5900 50  0001 C CNN
+	2    6250 5900
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5750 6000
+Wire Wire Line
+	5450 6300 5450 6200
+Wire Wire Line
+	5200 6300 5450 6300
+Connection ~ 6450 5450
+Wire Wire Line
+	5450 5450 5450 5600
+Text HLabel 5050 5900 3    50   Input ~ 0
+~POR_IN
+Wire Wire Line
+	5150 5800 4950 5800
+$Comp
+L power:GND #PWR?
+U 1 1 638E8003
+P 4950 5800
+F 0 "#PWR?" H 4950 5550 50  0001 C CNN
+F 1 "GND" H 4955 5627 50  0001 C CNN
+F 2 "" H 4950 5800 50  0001 C CNN
+F 3 "" H 4950 5800 50  0001 C CNN
+	1    4950 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS74 Z70
+U 1 1 638E5E8C
+P 5450 5900
+F 0 "Z70" H 5600 6250 50  0000 C CNN
+F 1 "74LS74" H 5650 6150 50  0000 C CNN
+F 2 "" H 5450 5900 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 5450 5900 50  0001 C CNN
+	1    5450 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 6300 5000 6300
+Text HLabel 5200 6400 3    50   Output ~ 0
+~MEM.START
+$Comp
+L 74xx:74LS40 U14
+U 1 1 62D27701
+P 4700 6300
+F 0 "U14" H 4700 6675 50  0000 C CNN
+F 1 "74LS40" H 4700 6584 50  0000 C CNN
+F 2 "" H 4700 6300 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS40" H 4700 6300 50  0001 C CNN
+	1    4700 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 5450 5450 5450
+Wire Wire Line
+	6450 5350 6450 5450
+Text HLabel 6450 5350 1    50   Output ~ 0
+~ADDR_SEL.HL
+$Comp
+L 74xx:74LS00 Z88
+U 1 1 62CB2FCE
+P 4700 5450
+F 0 "Z88" H 4700 5133 50  0000 C CNN
+F 1 "74LS00" H 4700 5224 50  0000 C CNN
+F 2 "" H 4700 5450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 4700 5450 50  0001 C CNN
+	1    4700 5450
+	1    0    0    1   
+$EndComp
+Connection ~ 4300 5350
+Wire Wire Line
+	4000 5550 4000 6250
+Wire Wire Line
+	4000 4250 4000 5550
+Connection ~ 4000 5550
+Wire Wire Line
+	2900 1550 3200 1550
+Wire Wire Line
+	2900 1450 2900 1550
+Wire Wire Line
+	3150 4900 3000 4900
+Wire Wire Line
+	1550 1450 1550 3950
+Wire Wire Line
+	4100 3950 4100 6350
+Wire Wire Line
+	8450 3850 8450 4650
+Wire Wire Line
+	8450 4650 8550 4650
+Wire Wire Line
+	9150 4550 9250 4550
+Wire Wire Line
+	9250 5100 9350 5100
+Connection ~ 9350 5100
+Wire Wire Line
+	9350 5100 9450 5100
+Wire Wire Line
+	9250 4550 9250 5100
+Wire Wire Line
+	8050 5800 8150 5800
+Connection ~ 8150 5800
+Wire Wire Line
+	8450 5850 8550 5850
+Wire Wire Line
+	8350 5950 8550 5950
+Wire Wire Line
+	9150 5950 9250 5950
+Wire Wire Line
+	9250 5950 9250 6100
+Wire Wire Line
+	1650 3300 1650 4150
+Connection ~ 9250 5100
+Wire Wire Line
+	8250 4150 8250 6050
+Connection ~ 6550 2250
+Wire Wire Line
+	6550 2250 6550 3850
+Wire Wire Line
+	3900 4050 3900 6750
+Wire Wire Line
+	1000 4050 3900 4050
+Wire Wire Line
+	5100 6950 5100 6850
+Wire Wire Line
+	3900 6750 4400 6750
+Wire Wire Line
+	3800 6850 4400 6850
+Wire Wire Line
+	3800 6850 3800 4150
+Wire Wire Line
+	1300 5450 1400 5450
+Connection ~ 1400 5450
+Wire Wire Line
+	1400 5450 1500 5450
+Wire Wire Line
+	3700 6950 4400 6950
+Wire Wire Line
+	2700 1350 2700 1550
+Wire Wire Line
+	3200 1650 2700 1650
+Wire Wire Line
+	3200 1750 2700 1750
+Wire Wire Line
+	3200 1850 2800 1850
+Wire Wire Line
+	1000 4150 1650 4150
+Wire Wire Line
+	1000 4250 1750 4250
+Wire Wire Line
+	1000 3850 1950 3850
+Wire Wire Line
+	1300 3550 1850 3550
+Wire Wire Line
+	1000 3950 1550 3950
+Wire Wire Line
+	8450 600  8450 1800
+Wire Wire Line
+	6150 2150 6150 3550
+Wire Wire Line
+	6750 3150 6750 4150
+Wire Wire Line
+	6650 2800 6650 4050
+Wire Wire Line
+	4300 4300 4300 5350
+Connection ~ 6150 3550
+Wire Wire Line
+	6150 3550 8350 3550
+Connection ~ 6550 3850
+Wire Wire Line
+	6550 3850 8450 3850
+Connection ~ 6750 4150
+Wire Wire Line
+	6750 4150 8250 4150
+Wire Wire Line
+	1400 7050 2300 7050
+Wire Wire Line
+	1400 5450 1400 7050
+Wire Wire Line
+	2200 5250 2200 4250
+Wire Wire Line
+	2200 5250 2300 5250
+Wire Wire Line
+	2100 5450 2300 5450
+Wire Wire Line
+	2200 5350 2200 6050
+Wire Wire Line
+	2200 5350 2300 5350
+Wire Wire Line
+	2200 6850 2300 6850
+Connection ~ 2200 6050
+Wire Wire Line
+	2200 6050 2200 6850
+Connection ~ 8450 4650
+Connection ~ 8350 4450
+Wire Wire Line
+	8350 4450 8350 3550
+Wire Wire Line
+	8350 4450 8350 5950
+Wire Wire Line
+	8450 4650 8450 5850
+Wire Wire Line
+	8150 5200 8150 5800
+Wire Wire Line
+	8150 6600 8550 6600
+Wire Wire Line
+	8150 5800 8150 6600
+Wire Wire Line
+	8250 6050 8250 6400
+Wire Wire Line
+	8250 6400 8550 6400
+Connection ~ 8250 6050
+Wire Wire Line
+	6650 6250 6650 5900
+Wire Wire Line
+	9150 6500 9250 6500
+Wire Wire Line
+	9250 6500 9250 6300
+Wire Wire Line
+	9250 6300 9350 6300
+Wire Wire Line
+	8550 4450 8350 4450
+Wire Wire Line
+	8550 6050 8250 6050
+Wire Wire Line
+	6450 5450 7350 5450
+Wire Wire Line
+	10050 5650 10050 5750
+Connection ~ 10050 5750
+Wire Wire Line
+	7350 5450 10150 5450
+Wire Wire Line
+	10050 5750 10050 6200
+Wire Notes Line
+	9700 700  9700 3450
+Wire Wire Line
+	3700 6150 4400 6150
+Wire Wire Line
+	5050 5900 5150 5900
+Wire Wire Line
+	5000 5450 5450 5450
+Wire Wire Line
+	600  3350 600  3450
+Wire Wire Line
+	500  3550 500  3650
+Connection ~ 500  3650
+Wire Wire Line
+	500  3650 500  7200
+Connection ~ 2200 4250
+Connection ~ 2700 1550
+Connection ~ 2700 1650
+Wire Wire Line
+	2700 1650 2700 1750
+Connection ~ 2700 1750
+Connection ~ 3800 4150
+Connection ~ 3900 4050
+Wire Wire Line
+	4100 600  4200 600 
+Wire Wire Line
+	3900 4050 6650 4050
+Wire Wire Line
+	2200 4250 4000 4250
+Connection ~ 1550 3950
+Connection ~ 1650 4150
+Connection ~ 1750 4250
+Connection ~ 1850 3550
+Connection ~ 1950 3850
+Wire Wire Line
+	1550 3950 4100 3950
+Wire Wire Line
+	1750 4250 2200 4250
+Wire Wire Line
+	1850 3550 6150 3550
+Wire Wire Line
+	1950 3850 6550 3850
+Wire Wire Line
+	1650 4150 3800 4150
+Wire Wire Line
+	3900 1450 3900 1550
+Wire Wire Line
+	3900 1550 3800 1550
+Connection ~ 4200 600 
+Wire Wire Line
+	4200 600  8450 600 
+Wire Wire Line
+	3000 1350 3000 4900
+Wire Wire Line
+	3000 1350 3200 1350
+Connection ~ 3000 4900
+Wire Wire Line
+	4300 4300 6850 4300
+Wire Wire Line
+	3800 4150 6750 4150
+Wire Wire Line
+	4200 600  4200 6450
+Wire Wire Line
+	600  7200 500  7200
+$EndSCHEMATC
