@@ -880,7 +880,7 @@ Wire Wire Line
 	11900 2450 11900 3850
 Connection ~ 11900 2450
 Text GLabel 11800 2750 3    50   Input ~ 0
-Z7_8
+~STEP9
 Wire Wire Line
 	12000 1350 11800 1350
 Wire Wire Line
@@ -901,65 +901,60 @@ Connection ~ 11900 1900
 $Comp
 L 74xx:74LS00 Z17
 U 1 1 62862E15
-P 13100 2650
-F 0 "Z17" H 13100 2333 50  0000 C CNN
-F 1 "74LS00" H 13100 2424 50  0000 C CNN
-F 2 "" H 13100 2650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 13100 2650 50  0001 C CNN
-	1    13100 2650
+P 13100 2850
+F 0 "Z17" H 13100 2533 50  0000 C CNN
+F 1 "74LS00" H 13100 2624 50  0000 C CNN
+F 2 "" H 13100 2850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 13100 2850 50  0001 C CNN
+	1    13100 2850
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	12800 2550 12600 2550
-Wire Wire Line
 	12600 3100 12700 3100
 Wire Wire Line
-	12700 3100 12700 2750
+	12700 3100 12700 2950
 Wire Wire Line
-	12700 2750 12800 2750
+	12700 2950 12800 2950
 $Comp
 L 74xx:74LS04 Z12
 U 3 1 62875C77
-P 13900 2650
-F 0 "Z12" H 13900 2967 50  0000 C CNN
-F 1 "74LS04" H 13900 2876 50  0000 C CNN
-F 2 "" H 13900 2650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 13900 2650 50  0001 C CNN
-	3    13900 2650
+P 13900 2600
+F 0 "Z12" H 13900 2917 50  0000 C CNN
+F 1 "74LS04" H 13900 2826 50  0000 C CNN
+F 2 "" H 13900 2600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 13900 2600 50  0001 C CNN
+	3    13900 2600
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74LS04 Z12
 U 2 1 62877734
-P 13900 3150
-F 0 "Z12" H 13900 3467 50  0000 C CNN
-F 1 "74LS04" H 13900 3376 50  0000 C CNN
-F 2 "" H 13900 3150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 13900 3150 50  0001 C CNN
-	2    13900 3150
+P 13900 3100
+F 0 "Z12" H 13900 3417 50  0000 C CNN
+F 1 "74LS04" H 13900 3326 50  0000 C CNN
+F 2 "" H 13900 3100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 13900 3100 50  0001 C CNN
+	2    13900 3100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	13400 2650 13500 2650
+	13500 2600 13500 2850
 Wire Wire Line
-	13500 2650 13500 3150
+	13500 3100 13600 3100
 Wire Wire Line
-	13500 3150 13600 3150
-Connection ~ 13500 2650
+	13500 2600 13600 2600
 Wire Wire Line
-	13500 2650 13600 2650
+	14200 2600 14300 2600
 Wire Wire Line
-	14200 2650 14300 2650
+	14300 2600 14300 3100
 Wire Wire Line
-	14300 2650 14300 3150
-Wire Wire Line
-	14300 3150 14200 3150
-Text HLabel 14300 3250 3    50   Output ~ 0
+	14300 3100 14200 3100
+Text HLabel 14300 3200 3    50   Output ~ 0
 PHI1_REG
 Wire Wire Line
-	14300 3250 14300 3150
-Connection ~ 14300 3150
-Text Notes 14250 3350 1    50   ~ 0
+	14300 3200 14300 3100
+Connection ~ 14300 3100
+Text Notes 14250 3300 1    50   ~ 0
 6
 Text HLabel 12700 2100 3    50   Output ~ 0
 EN_COMP
@@ -1114,11 +1109,11 @@ Connection ~ 11900 6400
 Wire Wire Line
 	11900 6400 11900 6550
 Wire Wire Line
-	7800 5500 8500 5500
+	7800 5500 8000 5500
 Wire Wire Line
-	8500 5500 8500 6750
+	8000 5500 8000 6750
 Wire Wire Line
-	8500 6750 12000 6750
+	8000 6750 12000 6750
 Connection ~ 7900 6000
 Text HLabel 12700 6750 3    50   Output ~ 0
 PHI1_MEM
@@ -1139,16 +1134,16 @@ H
 $Comp
 L 74xx:74LS04 Z12
 U 4 1 629ED35F
-P 10700 7150
-F 0 "Z12" H 10700 7467 50  0000 C CNN
-F 1 "74LS04" H 10700 7376 50  0000 C CNN
-F 2 "" H 10700 7150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 10700 7150 50  0001 C CNN
-	4    10700 7150
+P 8400 7150
+F 0 "Z12" H 8400 7467 50  0000 C CNN
+F 1 "74LS04" H 8400 7376 50  0000 C CNN
+F 2 "" H 8400 7150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 8400 7150 50  0001 C CNN
+	4    8400 7150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8500 7150 10400 7150
+	8000 7150 8100 7150
 $Comp
 L 74xx:74LS04 Z12
 U 5 1 62A1B54D
@@ -1225,7 +1220,7 @@ Wire Wire Line
 Wire Wire Line
 	12000 7800 11750 7800
 Wire Wire Line
-	11000 7150 11950 7150
+	8700 7150 11950 7150
 Wire Wire Line
 	11950 7150 11950 7600
 Wire Wire Line
@@ -1236,7 +1231,7 @@ Wire Wire Line
 	11950 8150 12000 8150
 Connection ~ 11950 7600
 Text GLabel 11850 8250 1    50   Output ~ 0
-Z7_8
+~STEP9
 Connection ~ 11850 8350
 Wire Wire Line
 	11850 8350 11750 8350
@@ -1332,10 +1327,10 @@ Wire Wire Line
 	10300 5250 10300 6500
 Wire Wire Line
 	10100 4800 10100 4950
-Connection ~ 8500 6750
+Connection ~ 8000 6750
 Connection ~ 10300 6500
 Wire Wire Line
-	8500 6750 8500 7150
+	8000 6750 8000 7150
 Wire Wire Line
 	10300 6500 10300 8250
 Connection ~ 10200 7700
@@ -1403,4 +1398,63 @@ Wire Wire Line
 Connection ~ 8000 4950
 Text Notes 9200 2900 0    50   ~ 0
 Z2 configured as \nBCD counter (0..9)
+Text Label 7950 3850 0    50   ~ 0
+T0
+Text Label 7950 4400 0    50   ~ 0
+T1
+Text Label 7950 4950 0    50   ~ 0
+T2
+Text Label 7950 5500 0    50   ~ 0
+T3
+Text Label 8700 3850 0    50   ~ 0
+~T0
+Text Label 8700 5300 0    50   ~ 0
+~T2
+Text Label 11900 3750 0    50   ~ 0
+~C0
+Text Label 11150 4700 0    50   ~ 0
+~STEP8or9_T2
+Text Notes 12250 3750 0    50   ~ 0
+Low on step 0
+Text Notes 12100 4600 0    50   ~ 0
+Set on steps 8 or 9, T2
+Text Notes 12650 4850 0    50   ~ 0
+Reset on steps 0 to 7, except T0
+Text Notes 12700 5500 0    50   ~ 0
+STROBE3 high between step 0, T1 \nand step 8 T2
+Text Notes 12950 6400 0    50   ~ 0
+Clocks active when INH_MEM low on steps 0 to 7
+Text Notes 12950 6200 0    50   ~ 0
+Low on T1
+Text Notes 12950 6950 0    50   ~ 0
+Low on T3
+Text Label 8700 7150 0    50   ~ 0
+~T3
+Text Label 11750 7800 0    50   ~ 0
+~STEP8
+Text Notes 12900 7950 0    50   ~ 0
+High on Step 8 T3
+Text Notes 12900 8450 0    50   ~ 0
+High on Step 9 T3
+Text Notes 12850 1700 0    50   ~ 0
+High on step 9, T1
+Text Notes 12850 2200 0    50   ~ 0
+High on step 0, T0
+Text Label 12600 2550 0    50   ~ 0
+STEPS1TO8
+Wire Wire Line
+	12800 2750 12700 2750
+Wire Wire Line
+	12700 2750 12700 2550
+Wire Wire Line
+	12700 2550 12600 2550
+Wire Wire Line
+	13400 2850 13500 2850
+Connection ~ 13500 2850
+Wire Wire Line
+	13500 2850 13500 3100
+Text Notes 12550 3200 0    50   ~ 0
+Clocks during T0
+Text Notes 14400 3300 0    50   ~ 0
+Clocks during steps 1 to 8, T0
 $EndSCHEMATC

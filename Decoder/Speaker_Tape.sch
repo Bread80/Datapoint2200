@@ -536,8 +536,6 @@ Connection ~ 5500 3300
 Wire Wire Line
 	5500 3300 5500 3400
 Connection ~ 4600 3300
-Text Notes 5600 2100 0    50   ~ 0
-Incorrect pinout!!
 $Comp
 L 74xx:74LS04 Z13
 U 4 1 64214E9B
@@ -549,8 +547,6 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 8950 3300 50  0001 C CNN
 	4    8950 3300
 	1    0    0    -1  
 $EndComp
-Text Notes 9450 4050 0    50   ~ 0
-Incorrect pinout!!
 Wire Wire Line
 	9450 3300 9250 3300
 Text HLabel 9300 2950 1    50   Input ~ 0
