@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 8 12
+Sheet 12 12
 Title ""
 Date ""
 Rev ""
@@ -35,7 +35,7 @@ Wire Wire Line
 Wire Wire Line
 	700  3450 600  3450
 Text HLabel 1000 3950 0    50   Input ~ 0
-W
+MEM_RW
 $Comp
 L 74xx:74LS00 Z12
 U 4 1 624C18B1
@@ -194,9 +194,9 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1000 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text HLabel 600  5350 1    50   Input ~ 0
-~MEM.RD
+~IMM_RD
 Text HLabel 600  5550 3    50   Input ~ 0
-~MEM.WR
+~IMM_WR
 $Comp
 L 74xx:74LS10 Z13
 U 1 1 62849A40
@@ -777,9 +777,9 @@ OPCODE_CALL_~JUMP
 Wire Wire Line
 	1950 3200 1950 3850
 Text Label 2000 7050 2    50   ~ 0
-~MEM_RD_OR_WR
+~IMM_RD_OR_WR
 Text Label 2100 5450 0    50   ~ 0
-MEM_RD_OR_WR
+IMM_RD_OR_WR
 Wire Wire Line
 	1850 2200 1850 3550
 Wire Wire Line
@@ -845,7 +845,7 @@ $EndComp
 Wire Wire Line
 	6650 5900 6550 5900
 Text HLabel 6650 6250 3    50   Output ~ 0
-AA
+~MEM_INDIRECT
 Wire Wire Line
 	5850 6000 5950 6000
 Text HLabel 5850 6100 3    50   Input ~ 0

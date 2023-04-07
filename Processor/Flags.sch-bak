@@ -77,7 +77,7 @@ F 3 "http://www.ti.com/lit/gpn/sn74ls02" H 3100 4150 50  0001 C CNN
 $EndComp
 Connection ~ 2500 2900
 Text HLabel 800  750  0    50   Input ~ 0
-W
+MEM_RW
 Wire Wire Line
 	2700 4050 2800 4050
 $Comp

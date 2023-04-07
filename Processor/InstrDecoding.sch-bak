@@ -64,22 +64,20 @@ $EndComp
 $Comp
 L 74xx:74LS10 Z5
 U 2 1 6258D092
-P 9050 4550
-F 0 "Z5" H 9050 4233 50  0000 C CNN
-F 1 "74LS10" H 9050 4324 50  0000 C CNN
-F 2 "" H 9050 4550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 9050 4550 50  0001 C CNN
-	2    9050 4550
-	1    0    0    1   
+P 9050 4350
+F 0 "Z5" H 9050 4033 50  0000 C CNN
+F 1 "74LS10" H 9050 4124 50  0000 C CNN
+F 2 "" H 9050 4350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 9050 4350 50  0001 C CNN
+	2    9050 4350
+	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8650 4650 8750 4650
 Text HLabel 3150 5300 2    50   Output ~ 0
 OPCODE_REG
-Text HLabel 9450 4550 2    50   Output ~ 0
+Text HLabel 9450 4350 2    50   Output ~ 0
 CW
 Wire Wire Line
-	9450 4550 9350 4550
+	9450 4350 9350 4350
 $Comp
 L 74xx:74LS02 Z8
 U 4 1 625EA09F
@@ -463,38 +461,36 @@ F 1 "74LS02" H 6950 4484 50  0000 C CNN
 F 2 "" H 6950 4250 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls02" H 6950 4250 50  0001 C CNN
 	4    6950 4250
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
-Text HLabel 6100 4150 0    50   Input ~ 0
+Text HLabel 6100 4350 0    50   Input ~ 0
 ~ALU_SHIFT
-Wire Wire Line
-	6100 4150 6650 4150
 Text HLabel 7550 4000 2    50   Output ~ 0
 OPCODE_SHIFT
 $Comp
 L 74xx:74LS10 Z?
 U 2 1 6263FF43
-P 9100 5800
+P 9100 6000
 AR Path="/624845CC/6263FF43" Ref="Z?"  Part="2" 
 AR Path="/62510F55/6263FF43" Ref="Z36"  Part="2" 
 AR Path="/625379F4/6263FF43" Ref="Z36"  Part="2" 
-F 0 "Z36" H 9100 6125 50  0000 C CNN
-F 1 "74LS10" H 9100 6034 50  0000 C CNN
-F 2 "" H 9100 5800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 9100 5800 50  0001 C CNN
-	2    9100 5800
-	1    0    0    -1  
+F 0 "Z36" H 9100 6325 50  0000 C CNN
+F 1 "74LS10" H 9100 6234 50  0000 C CNN
+F 2 "" H 9100 6000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 9100 6000 50  0001 C CNN
+	2    9100 6000
+	1    0    0    1   
 $EndComp
-Text HLabel 8100 6200 0    50   Input ~ 0
+Text HLabel 8100 6400 0    50   Input ~ 0
 STROBE_3
-Text HLabel 8850 6050 2    50   Output ~ 0
+Text HLabel 8500 5750 2    50   Output ~ 0
 RA.PAR_~SER
-Text HLabel 9500 5700 1    50   Output ~ 0
+Text HLabel 9500 5900 1    50   Output ~ 0
 IO.RD
 Wire Wire Line
-	9500 5700 9500 5800
+	9500 5900 9500 6000
 Wire Wire Line
-	9500 5800 9400 5800
+	9500 6000 9400 6000
 $Comp
 L 74xx:74LS02 Z?
 U 4 1 6263FF4F
@@ -507,10 +503,8 @@ F 1 "74LS02" H 7950 4224 50  0000 C CNN
 F 2 "" H 7950 4450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls02" H 7950 4450 50  0001 C CNN
 	4    7950 4450
-	1    0    0    1   
+	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8500 5700 8800 5700
 Wire Wire Line
 	7250 4850 7550 4850
 $Comp
@@ -550,62 +544,33 @@ Wire Wire Line
 Wire Wire Line
 	7450 6000 7650 6000
 Wire Wire Line
-	8250 5900 8700 5900
+	8250 5900 8350 5900
 Connection ~ 7550 5350
 Wire Wire Line
 	7550 5350 7550 5800
 Wire Wire Line
-	8850 6050 8700 6050
+	8500 5750 8350 5750
 Wire Wire Line
 	8250 5250 8450 5250
-Connection ~ 8700 5900
-Wire Wire Line
-	8700 5900 8700 6050
-Connection ~ 8450 5250
-Wire Wire Line
-	7350 4350 7650 4350
 Connection ~ 7350 5450
 Wire Wire Line
 	7550 4850 7550 5350
-Wire Wire Line
-	7450 4550 7650 4550
-Connection ~ 7450 4250
-Wire Wire Line
-	7450 4250 7450 4550
-Wire Wire Line
-	8450 5250 8450 5350
-Wire Wire Line
-	7350 5450 8550 5450
 $Comp
 L 74xx:74LS02 Z?
 U 3 1 6263FF85
-P 9100 5250
+P 9100 5350
 AR Path="/624845CC/6263FF85" Ref="Z?"  Part="3" 
 AR Path="/62510F55/6263FF85" Ref="Z47"  Part="3" 
 AR Path="/625379F4/6263FF85" Ref="Z47"  Part="3" 
-F 0 "Z47" H 9100 4933 50  0000 C CNN
-F 1 "74LS02" H 9100 5024 50  0000 C CNN
-F 2 "" H 9100 5250 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74ls02" H 9100 5250 50  0001 C CNN
-	3    9100 5250
-	1    0    0    1   
+F 0 "Z47" H 9100 5033 50  0000 C CNN
+F 1 "74LS02" H 9100 5124 50  0000 C CNN
+F 2 "" H 9100 5350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls02" H 9100 5350 50  0001 C CNN
+	3    9100 5350
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8450 5350 8800 5350
-Wire Wire Line
-	8550 5450 8550 5150
-Wire Wire Line
-	8550 5150 8800 5150
-Wire Wire Line
-	8700 5900 8800 5900
-Wire Wire Line
-	8500 5700 8500 6200
-Wire Wire Line
-	8500 6200 8100 6200
-Wire Wire Line
-	6300 3550 6300 4350
-Wire Wire Line
-	6300 4350 6650 4350
+	6550 3550 6550 4150
 Wire Wire Line
 	6200 3450 6200 4950
 Wire Wire Line
@@ -615,21 +580,17 @@ Wire Wire Line
 Text Label 6400 4600 1    50   ~ 0
 ~IR0
 Text HLabel 7000 6300 0    50   Input ~ 0
-W
-Wire Wire Line
-	8750 4550 8550 4550
-Wire Wire Line
-	8650 4650 8650 3250
+MEM_RW
 Wire Wire Line
 	6200 3450 8550 3450
 Wire Wire Line
-	8550 3450 8550 4550
+	8550 3450 8550 4350
 Connection ~ 6200 3450
 Wire Wire Line
-	9800 5250 9800 5650
+	9800 5350 9800 5650
 Connection ~ 9800 5650
 Wire Wire Line
-	9400 5250 9800 5250
+	9400 5350 9800 5350
 Wire Wire Line
 	9800 5650 9800 6000
 Entry Wire Line
@@ -822,10 +783,10 @@ Wire Bus Line
 Wire Bus Line
 	1150 3050 1700 3050
 Wire Wire Line
-	1500 3550 6300 3550
+	1500 3550 6550 3550
 Wire Wire Line
-	8450 3550 6300 3550
-Connection ~ 6300 3550
+	8450 3550 6550 3550
+Connection ~ 6550 3550
 Wire Wire Line
 	3150 4750 3250 4750
 Wire Wire Line
@@ -863,7 +824,7 @@ Connection ~ 7450 6000
 Wire Wire Line
 	7000 6300 7450 6300
 Wire Wire Line
-	8600 6300 8600 5800
+	8600 6300 8600 6000
 Wire Wire Line
 	7450 6000 7450 6300
 Connection ~ 7450 6300
@@ -872,15 +833,11 @@ Wire Wire Line
 Wire Wire Line
 	7450 5150 7450 6000
 Wire Wire Line
-	8600 5800 8800 5800
-Wire Wire Line
 	7550 4000 7450 4000
 Wire Wire Line
 	7450 4000 7450 4250
 Wire Wire Line
 	8250 4450 8750 4450
-Wire Wire Line
-	7350 4350 7350 5450
 Text HLabel 3950 2800 2    50   Output ~ 0
 ~IR3
 Entry Wire Line
@@ -891,6 +848,43 @@ Wire Wire Line
 	3750 2800 3950 2800
 Text Label 3750 2900 1    50   ~ 0
 ~IR3
+Wire Wire Line
+	7350 4550 7650 4550
+Wire Wire Line
+	7350 4550 7350 5450
+Wire Wire Line
+	7450 4250 7450 4350
+Connection ~ 7450 4250
+Wire Wire Line
+	7450 4350 7650 4350
+Wire Wire Line
+	6650 4150 6550 4150
+Wire Wire Line
+	6100 4350 6650 4350
+Wire Wire Line
+	8750 4250 8650 4250
+Wire Wire Line
+	8650 4250 8650 3250
+Wire Wire Line
+	8750 4350 8550 4350
+Connection ~ 8450 5250
+Wire Wire Line
+	8450 5250 8800 5250
+Wire Wire Line
+	8350 5750 8350 5900
+Connection ~ 8350 5900
+Wire Wire Line
+	8350 5900 8800 5900
+Wire Wire Line
+	8800 6000 8600 6000
+Wire Wire Line
+	8700 6400 8700 6100
+Wire Wire Line
+	8700 6100 8800 6100
+Wire Wire Line
+	8100 6400 8700 6400
+Wire Wire Line
+	7350 5450 8800 5450
 Wire Bus Line
 	5500 2650 5500 5450
 Wire Bus Line

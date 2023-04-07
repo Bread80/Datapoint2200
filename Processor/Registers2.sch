@@ -29,7 +29,7 @@ Wire Wire Line
 Wire Wire Line
 	950  1500 1500 1500
 Text HLabel 850  2950 0    50   Input ~ 0
-W
+MEM_RW
 Wire Wire Line
 	1500 1600 1050 1600
 Wire Wire Line

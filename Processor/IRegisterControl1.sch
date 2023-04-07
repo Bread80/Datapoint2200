@@ -532,7 +532,7 @@ F 3 "" H 4950 6100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Text HLabel 5550 4450 2    50   Output ~ 0
-~MEM.RD
+~IMM_RD
 Text HLabel 5550 4650 2    50   Output ~ 0
 ~RH.RD
 Wire Wire Line
@@ -544,7 +544,7 @@ Wire Wire Line
 NoConn ~ 5450 5350
 NoConn ~ 5450 5250
 Text HLabel 5650 6300 2    50   Output ~ 0
-~MEM.WR
+~IMM_WR
 Text HLabel 5550 6500 2    50   Output ~ 0
 ~RL.WR
 Wire Wire Line

@@ -1,5 +1,5 @@
 # Datapoint2200
- Datapount 2200 Schematics and Documents
+ Datapoint 2200 Schematics and Documents
  ===
  
 Schematics for the Datapoint 2200 processor (version 1, serial) transcribed from original documents. Also contains various original documents.
@@ -25,13 +25,14 @@ Schematics for each board are in a separate folder.
 
 The following lists the key boards of the Datapoint 2200 and the files making up each board.
 
-Decoder:
+Decoder
 ---
 Board A4: This board generates the system clock, T-states and various processor/system timing signals, does I/O decoding and generates the sound signals to be sent to the speaker.
-*    Decoder: The main overview.
-*    IODecorder: Output signal decoding.
-*    Scheduler: System clock and timing signals generation.
-*    Speaker_Tape: Sound generation and misc tape signal logic.
+
+* Decoder: The main overview.
+* IODecorder: Output signal decoding.
+* Scheduler: System clock and timing signals generation.
+* Speaker_Tape: Sound generation and misc tape signal logic.
     
 Deflection Amplifier
 ---
@@ -77,18 +78,19 @@ Power Supply, Regulator
 Board A1.
 Not transcribed.
 
-Processor:
+Processor
 ---
 Board A5: The processor itself.
-*    AddressRegister: The address register (counter).
-*    AddrRegAndStackControl: Controls reading data into the address register and program counter, incrementing the program counter, and the stack.
-*    ALU: The ALU and carry flag.
-*    ARegister: The A register and I/O bus.
-*    Flags: The flags (other than carry) and conditional jump/call/return handling.
-*    InstrDecdoing: Instruction decoding.
-*    IRegister: The instruction register and register decoding.
-*    Processor: The main overview.
-*    Registers1: The H and L registers and data bus logic.
-*    Registers2: The B, C, D and E registers.
-*    Stack: The stack and stack pointer, and memory card selection.
-*    Timing: Fetch-execute cycle, memory word sync, HALTing and running, clocking and miscellaneous.
+
+* AddressRegister: The address register (counter).
+* AddrRegAndStackControl: Controls reading data into the address register and program counter, incrementing the program counter, and the stack.
+* ALU: The ALU and carry flag.
+* ARegister: The A register and I/O bus.
+* Flags: The flags (other than carry) and conditional jump/call/return handling.
+* InstrDecdoing: Instruction decoding.
+* IRegister: The instruction register and register decoding.
+* Processor: The main overview.
+* Registers1: The H and L registers and data bus logic.
+* Registers2: The B, C, D and E registers.
+* Stack: The stack and stack pointer, and memory card selection.
+* Timing: Fetch-execute cycle, memory word sync, HALTing and running, clocking and miscellaneous.

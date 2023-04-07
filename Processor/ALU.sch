@@ -1719,7 +1719,7 @@ IR3
 Text Label 5750 8350 2    50   ~ 0
 ~IR3
 Text HLabel 7350 7800 0    50   Input ~ 0
-W
+MEM_RW
 Wire Bus Line
 	9200 5750 2700 5750
 Connection ~ 2700 5750

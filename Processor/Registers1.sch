@@ -298,10 +298,10 @@ Wire Wire Line
 	7400 3200 7400 1700
 Wire Wire Line
 	7400 1700 7800 1700
-Text HLabel 3350 3200 0    50   Input ~ 0
-W
+Text HLabel 3250 3200 0    50   Input ~ 0
+MEM_RW
 Wire Wire Line
-	3450 3200 3350 3200
+	3450 3200 3250 3200
 Wire Wire Line
 	7300 3100 7300 1600
 Wire Wire Line

@@ -1139,12 +1139,12 @@ F 3 "http://www.ti.com/lit/gpn/sn74ls37" H 3450 2850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3150 2750 2700 2750
-Text HLabel 2950 2950 0    50   Input ~ 0
-AA
+Text HLabel 3050 2950 3    50   Input ~ 0
+~MEM_INDIRECT
 Wire Wire Line
-	2950 2950 3150 2950
+	3050 2950 3150 2950
 Text HLabel 3850 2750 1    50   Output ~ 0
-W
+MEM_RW
 Wire Wire Line
 	3850 2850 3750 2850
 $Comp
@@ -1198,7 +1198,7 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS40" H 10100 1800 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 Text HLabel 9700 1950 0    50   Input ~ 0
-~MEM.RD
+~IMM_RD
 Wire Wire Line
 	9050 4850 9550 4850
 Wire Wire Line
@@ -2017,7 +2017,7 @@ OPCODE_ENABLE
 Text GLabel 5550 7250 1    50   Output ~ 0
 OPCODE_ENABLE
 Text GLabel 4000 7450 0    50   Input ~ 0
-W
+MEM_RW
 Text Notes 13600 2950 0    100  ~ 0
 Run/Halt
 Text Notes 7200 900  0    100  ~ 0
