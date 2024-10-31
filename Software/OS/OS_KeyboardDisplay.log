@@ -1,0 +1,167 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_KeyboardDisplay.asm
+4: 1E00             		set	017000
+keyin$ = 1E00
+19: 1E00 06E1       keyin$*	la	0341	;Address the keyboard
+20: 1E02 51         		ex	adr
+21: 1E03 CA         		lbc			;Load the max count into the current count
+22: 1E04 0610       		la	020		;Turn on the cursor
+23: 1E06 59         		ex	com1
+kiloop = 1E07
+24: 1E07 46D61E     kiloop:	call cwait	;Make sure the display is ready
+kwloop = 1E0A
+25: 1E0A 53         kwloop:	ex	status	;Get a character from the keyboard
+26: 1E0B 41         		in
+27: 1E0C 2402       		nd	2
+28: 1E0E 680A1E     		jtz	kwloop
+29: 1E11 55         		ex	data
+30: 1E12 41         		in
+31: 1E13 3C08       		cp	010		;Catch backspace
+32: 1E15 68451E     		jtz	kbsp
+33: 1E18 3C18       		cp	030		;Catch delete
+34: 1E1A 684B1E     		jtz	kdel
+35: 1E1D 3C40       		cp	0100	;Reverse the shift key function
+36: 1E1F 70241E     		jts	kstore
+37: 1E22 2C20       		xr	040
+kstore = 1E24
+38: 1E24 F8         kstore:	lma			;Store the character
+39: 1E25 3C0D       		cp	015		;Catch the enter key
+40: 1E27 68421E     		jtz	kend
+41: 1E2A 57         		ex	write	;Else display the character
+42: 1E2B C3         		lad			;Catch cursor at screen boundary
+43: 1E2C 3C4F       		cp	79
+44: 1E2E 50071E     		jfs	kiloop
+45: 1E31 C1         		lab			;Decrement the character count
+46: 1E32 1401       		su	1
+47: 1E34 70071E     		jts	kiloop	;Already above the maximum
+48: 1E37 C8         		lba
+49: 1E38 C3         		lad			;Bump the cursor position for real
+50: 1E39 0401       		ad	1
+51: 1E3B D8         		lda
+52: 1E3C 46EB1E     		call inchl	;Bump the memory location
+53: 1E3F 44071E     		jmp	kiloop	;Do the next character
+kend = 1E42
+55: 1E42 A8         kend:	xra			;Turn off the cursor
+56: 1E43 59         		ex	com1
+57: 1E44 07         		ret
+kbsp = 1E45
+59: 1E45 46541E     kbsp:	call kbspr	;Backspace one character
+60: 1E48 44071E     		jmp	kiloop
+kdel = 1E4B
+62: 1E4B 46541E     kdel:	call kbspr	;Backspace to the beginning of the entry
+63: 1E4E 484B1E     		jfz	kdel
+64: 1E51 44071E     		jmp	kiloop
+kbspr = 1E54
+66: 1E54 C1         kbspr:	lab			;Increment the character counter
+67: 1E55 BA         		cpc			;Unless at the beginning of the entry
+68: 1E56 2B         		rtz
+69: 1E57 0401       		ad	1
+70: 1E59 C8         		lba
+71: 1E5A C3         		lad			;Decrement the screen position
+72: 1E5B 1401       		su	1
+73: 1E5D D8         		lda
+74: 1E5E 46F41E     		call dechl	;Decrement the memory pointer
+75: 1E61 46D61E     		call cwait	;Make sure the display is ready
+76: 1E64 0620       		la	040		;Erase the character
+77: 1E66 57         		ex	write
+78: 1E67 B0         		ora			;Return with zero condition false
+79: 1E68 07         		ret
+dsply$ = 1E69
+104: 1E69 06E1      dsply$*	la	0341	;Address the display
+105: 1E6B 51        		ex	adr
+106: 1E6C A8        		xra			;Turn off the cursor
+docom = 1E6D
+107: 1E6D 59        docom:	ex	com1	;Do the control command
+dloop = 1E6E
+108: 1E6E 46D61E    dloop:	call cwait	;Make sure the display is ready
+109: 1E71 CF        		lbm			;Get a character from the string
+110: 1E72 46EB1E    		call inchl	;Bump the string pointer
+111: 1E75 C1        		lab			;Check for control characters
+112: 1E76 247F      		nd	0177		;Strip any parity
+113: 1E78 3C03      		cp	3
+114: 1E7A 68B51E    		jtz	endos	;End of string
+115: 1E7D 3C09      		cp	011
+116: 1E7F 68C01E    		jtz	phorz	;Position horizontally
+117: 1E82 3C0B      		cp	013
+118: 1E84 68BC1E    		jtz	pvert	;Position vertically
+119: 1E87 3C0D      		cp	015
+120: 1E89 68A51E    		jtz	endol	;End of line
+121: 1E8C 3C11      		cp	021
+122: 1E8E 68C71E    		jtz	eeof	;Erase to the end of the frame
+123: 1E91 3C12      		cp	022
+124: 1E93 68CC1E    		jtz	eeol	;Erase to the end of the line
+125: 1E96 3C13      		cp	023
+126: 1E98 68D11E    		jtz	rollup	;Roll up the screen
+127: 1E9B 57        		ex	write	;Put out the character
+128: 1E9C C3        		lad			;Bump the cursor position
+129: 1E9D 3C4F      		cp	79		;Unless at the end of the line
+130: 1E9F 0C00      		ac	0
+131: 1EA1 D8        		lda
+132: 1EA2 446E1E    		jmp	dloop
+endol = 1EA5
+134: 1EA5 1E00      endol:	ld	0		;Return the cursor to start of next line
+135: 1EA7 C4        		lae			;Bump the line counter
+136: 1EA8 0401      		ad	1
+137: 1EAA E0        		lea
+138: 1EAB 3C0C      		cp	12
+139: 1EAD 70B51E    		jts	endos	;There is room for the next line
+140: 1EB0 260B      		le	11		;Else keep the line counter at eleven
+141: 1EB2 0608      		la	010		;And roll the screen up one line
+142: 1EB4 59        		ex	com1
+endos = 1EB5
+143: 1EB5 46D61E    endos:	call cwait	;Make sure the display is ready
+144: 1EB8 0610      		la	020		;Turn on the cursor
+145: 1EBA 59        		ex	com1
+146: 1EBB 07        		ret			;return
+pvert = 1EBC
+148: 1EBC E7        pvert:	lem			;Set the vertical position
+149: 1EBD 44C11E    		jmp	nchar
+phorz = 1EC0
+151: 1EC0 DF        phorz:	ldm			;Set the horizontal position
+nchar = 1EC1
+152: 1EC1 46EB1E    nchar:	call inchl	;Bump the string pointer to the next char
+153: 1EC4 446E1E    		jmp	dloop
+eeof = 1EC7
+155: 1EC7 0604      eeof:	la	4
+156: 1EC9 446D1E    		jmp	docom
+eeol = 1ECC
+158: 1ECC 0602      eeol:	la	2
+159: 1ECE 446D1E    		jmp	docom
+rollup = 1ED1
+161: 1ED1 0608      rollup:	la	010
+162: 1ED3 446D1E    		jmp	docom
+cwait = 1ED6
+164: 1ED6 53        cwait:	ex	status	;Wait for the display to be ready
+165: 1ED7 41        		in
+166: 1ED8 0A        		src
+167: 1ED9 40D61E    		jfc	cwait
+168: 1EDC C3        		lad			;Make sure the cursor is in the correct position
+169: 1EDD B0        		ora			;Prevent cursor positions out of range
+170: 1EDE 33        		rts
+171: 1EDF 3C50      		cp	80
+172: 1EE1 13        		rfs
+173: 1EE2 5B        		ex	com2
+174: 1EE3 C4        		lae
+175: 1EE4 B0        		ora
+176: 1EE5 33        		rts
+177: 1EE6 3C0C      		cp	12
+178: 1EE8 13        		rfs
+179: 1EE9 5D        		ex	com3
+180: 1EEA 07        		ret
+inchl = 1EEB
+182: 1EEB C6        inchl*	lal			;Bump memory pointer up
+183: 1EEC 0401      		ad	1
+184: 1EEE F0        		lla
+185: 1EEF C5        		lah
+186: 1EF0 0C00      		ac	0
+187: 1EF2 E8        		lha
+188: 1EF3 07        		ret
+dechl = 1EF4
+190: 1EF4 C6        dechl*	lal			;Bump memory pointer down
+191: 1EF5 1401      		su	1
+192: 1EF7 F0        		lla
+193: 1EF8 C5        		lah
+194: 1EF9 1C00      		sb	0
+195: 1EFB E8        		lha
+196: 1EFC 07        		ret
+Assembly successful
+253 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_KeyboardDisplay.bin

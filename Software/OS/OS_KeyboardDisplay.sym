@@ -1,0 +1,4 @@
+dsply$               equ 7785
+inchl                equ 7915
+dechl                equ 7924
+keyin$               equ 7680

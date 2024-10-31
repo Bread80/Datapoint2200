@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name DataPoint_2200)(type KiCad)(uri C:/Dropbox/InfoLaptop/Bread80/Datapoint2200/Datapoint2200.pretty)(options "")(descr ""))
+  (lib (name RP2040)(type KiCad)(uri C:/Dropbox/InfoLaptop/Bread80/Datapoint2200/rp2040_stamp_footprints/KiCad5/RP2040_Stamp.pretty)(options "")(descr ""))
 )

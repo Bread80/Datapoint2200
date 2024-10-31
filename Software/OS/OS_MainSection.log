@@ -1,0 +1,1001 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_MaiNSection.asm
+                    load$                equ 64
+                    run$                 equ 61
+                    boot$                equ 52
+                    load2$               equ 74
+                    		include "OS_Loader.sym"
+                    dsply$               equ 7785
+                    inchl                equ 7915
+                    dechl                equ 7924
+                    keyin$               equ 7680
+                    		include "OS_KeyboardDisplay.sym"
+                    incswp               equ 8181
+                    symbol               equ 8058
+                    cat                  equ 7944
+                    alpfn                equ 8057
+                    maut2$               equ 8074
+                    catw                 equ 7940
+                    lookup               equ 8116
+                    mload$               equ 8080
+                    mauto$               equ 8065
+                    blktfr               equ 8165
+                    		include "OS_Catalog_Linker.sym"		
+                    tfnr$                equ 6177
+                    ssfr$                equ 6147
+                    trw$                 equ 6174
+                    cpfn$                equ 6171
+                    ssfw$                equ 6156
+                    peof$                equ 6159
+                    err$                 equ 6183
+                    tfnw$                equ 6180
+                    snfw$                equ 6153
+                    cpdn$                equ 6168
+                    snfr$                equ 6144
+                    bsp$                 equ 6165
+                    sbfw$                equ 6150
+                    pbof$                equ 6162
+                    		include "OS_FileHandling.sym"
+                    debug$               equ 7296
+                    		include "OS_Debugger.sym"
+12: 0A00            		set 05000
+13: 0A00 0E01       		lb	1		;Load the tape directory
+14: 0A02 464000     		call load$
+15: 0A05 400F0A     		jfc	goodl	;It loaded okay
+16: 0A08 36012E0B   		hl	bdcmsg	;Else print cat un-loadable msg
+17: 0A0C 44260A     		jmp	nocat
+goodl = 0A0F
+19: 0A0F 06E1       goodl:	la	0341	;Keyboard switch overrides auto-load
+20: 0A11 51         		ex	adr
+21: 0A12 41         		in
+22: 0A13 2404       		nd	4
+23: 0A15 48220A     		jfz	os$
+24: 0A18 36792E1F   		hl	alpfn	;Run any auto-load program
+25: 0A1C C7         		lam
+26: 0A1D B0         		ora
+27: 0A1E C8         		lba
+28: 0A1F 48811F     		jfz	mauto$
+os$ = 0A22
+29: 0A22 36C32E0A   os$*	hl	osmsg	;Print the start up message
+nocat = 0A26
+30: 0A26 46691E     nocat:	call dsply$
+nxtcmd = 0A29
+31: 0A29 36F72E0A   nxtcmd:	hl	rdymsg	;Print 'Ready'
+32: 0A2D 46691E     		call dsply$
+33: 0A30 36692E0D   		hl	cmdbuf	;Input the command
+34: 0A34 260B1E00   		de	11		;Position the cursor for entry
+35: 0A38 1614       		lc	20		;Only accept 20 character
+36: 0A3A 46001E     		call keyin$
+37: 0A3D 36F22E0A   		hl	crlf
+38: 0A41 46691E     		call dsply$	;Do CRLF after command entry
+39: 0A44 A8         		xra			;Keep the cursor off
+40: 0A45 59         		ex	com1
+41: 0A46 36682E0D   		hl	inptr	;Initialise the scanner pointer
+42: 0A4A 0669       		la	cmdbuf
+43: 0A4C F8         		lma
+44: 0A4D 46CE0B     		call getsym	;Get the command symbol
+45: 0A50 36802E1F   		hl	symbol+6	;Check the terminating character
+46: 0A54 C7         		lam
+47: 0A55 3C0D       		cp	015		;It must be an enter
+48: 0A57 68640A     		jtz	fndcmd
+49: 0A5A 3C2D       		cp	'-'		;A dash
+50: 0A5C 68640A     		jtz	fndcmd
+51: 0A5F 3C20       		cp	' '		;Or a space
+52: 0A61 48B40A     		jfz	badcmd
+fndcmd = 0A64
+53: 0A64 367D2E1F   fndcmd:	hl	symbol+3	;Use only the first three characters
+54: 0A68 0E20       		lb	' '
+55: 0A6A 1603       		lc	3
+56: 0A6C 46200C     		call blkset
+57: 0A6F 26001E0D   		de	cmdlst	;Look it up in the command list
+58: 0A73 46B41F     		call lookup
+59: 0A76 C6         		lal			;Point the memory pointer to the
+60: 0A77 24F8       		nd	0370	;branch address
+61: 0A79 0406       		ad	6
+62: 0A7B F0         		lla
+63: 0A7C E7         		lem
+64: 0A7D 46EB1E     		call inchl
+65: 0A80 DF         		ldm
+66: 0A81 368C2E0A   		hl	cbi+1	;Pit the address in the jump instruction
+67: 0A85 FC         		lme
+68: 0A86 368D2E0A   		hl	cbi+2
+69: 0A8A FB         		lmd
+cbi = 0A8B
+70: 0A8B 46B40A     cbi:	call badcmd
+71: 0A8E 44290A     		jmp	nxtcmd
+namreq = 0A91
+75: 0A91 363B2E0B   namreq:	hl	nrqmsg
+76: 0A95 44B80A     		jmp	badspl
+noname = 0A98
+78: 0A98 36492E0B   noname:	hl	nonmsg
+79: 0A9C 44B80A     		jmp	badspl
+badnam = 0A9F
+81: 0A9F 36192E0B   badnam:	hl	bdnmsg
+82: 0AA3 44B80A     		jmp	badspl
+catful = 0AA6
+84: 0AA6 36222E0B   catful:	hl	cflmsg
+85: 0AAA 44B80A     		jmp	badspl
+dupnam = 0AAD
+87: 0AAD 362F2E0B   dupnam:	hl	dupmsg
+88: 0AB1 44B80A     		jmp	badspl
+badcmd = 0AB4
+90: 0AB4 368F2E0B   badcmd:	hl	bcmsg
+badspl = 0AB8
+91: 0AB8 1E00       badspl:	ld	0
+92: 0ABA 260B       		le	11
+93: 0ABC 46691E     		call dsply$
+94: 0ABF 69         		ex	beep
+95: 0AC0 44290A     		jmp	nxtcmd
+osmsg = 0AC3
+97: 0AC3 09000B00 1109170B 0Bosmsg:	dc	011,0,013,0,021,011,23,013,11
+98: 0ACC 434F4D50 55544552 20544552 4D494E41 4C204F50 45524154 494E4720 53595354 454D1313 130D		dc	'COMPUTER TERMINAL OPERATING SYSTEM',023,023,023,015
+crlf = 0AF2
+99: 0AF2 09000B0B 0Dcrlf:	dc	011,0,013,11,015
+rdymsg = 0AF7
+100: 0AF7 09000B0B 52454144 590Drdymsg:	dc	011,0,013,11,'READY',015
+bdcmsg = 0B01
+101: 0B01 09000B0B 12434154 414C4F47 20554E4C 4F414441 424C450Dbdcmsg:	dc	011,0,013,11,022,'CATALOG UNLOADABLE',015
+bdnmsg = 0B19
+102: 0B19 42414420 4E414D45 0Dbdnmsg:	dc	'BAD NAME',015
+cflmsg = 0B22
+103: 0B22 4C494252 41525920 46554C4C 0Dcflmsg:	dc	'LIBRARY FULL',015
+dupmsg = 0B2F
+104: 0B2F 4E414D45 20494E20 5553450Ddupmsg:	dc	'NAME IN USE',015
+nrqmsg = 0B3B
+105: 0B3B 4E414D45 20524551 55495245 440Dnrqmsg:	dc	'NAME REQUIRED',015
+nonmsg = 0B49
+106: 0B49 4E4F2053 55434820 4E414D45 0Dnonmsg:	dc	'NO SUCH NAME',015
+noamsg = 0B56
+107: 0B56 4155544F 204E4F54 20534554 0Dnoamsg:	dc	'AUTO NOT SET',015
+autmsg = 0B63
+108: 0B63 4155544F 20534554 20544F20autmsg:	dc	'AUTO SET TO '
+autent = 0B6F
+109: 0B6F 20202020 20200Dautent:	dc	'      ',015
+cbtmsg = 0B76
+110: 0B76 09000B0B 1246524F 4E542054 41504520 53435241 5443483F 0Dcbtmsg:	dc	011,0,013,11,022,'FRONT TAPE SCRATCH?',015
+bcmsg = 0B8F
+111: 0B8F 57484154 3F0Dbcmsg:	dc	'WHAT?',015
+d1pkt = 0B95
+113: 0B95 01        d1pkt:	dc	1			;Decck one is logical file one
+114: 0B96 020E      		da	tfrbuf
+115: 0B98 00        		dc	0
+d2pkt = 0B99
+116: 0B99 02        d2pkt:	dc	2			;Deck two is logical file two
+117: 0B9A 020E      		da	tfrbuf
+118: 0B9C 00        		dc	0
+catpak = 0B9D
+119: 0B9D 03        catpak:	dc	3			;Catalogue is logical file three
+120: 0B9E 041F      		da	catw
+121: 0BA0 76        		dc	alpfn-catw+1
+objpkt = 0BA1
+122: 0BA1 05        objpkt:	dc	5			;Object file is logical file five
+123: 0BA2 020E      		da	tfrbuf
+124: 0BA4 00        		dc	0
+ncalc = 0BA5
+128: 0BA5 1408      ncalc:	su	cat
+129: 0BA7 0A        		src
+130: 0BA8 0A        		src
+131: 0BA9 0A        		src
+132: 0BAA 0402      		ad	2
+133: 0BAC 07        		ret
+getnam = 0BAD
+137: 0BAD 46CE0B    getnam*	call getsym	;Get the name
+getnan = 0BB0
+138: 0BB0 3C0D      getnan:	cp	015
+139: 0BB2 489F0A    		jfz	badnam	;Terminating character must be an 015
+140: 0BB5 367A      		ll	symbol	;Get the first character
+141: 0BB7 C7        		lam
+142: 0BB8 3C20      		cp	' '
+143: 0BBA 68910A    		jtz	namreq	;There must be a name
+getnax = 0BBD
+144: 0BBD 26081E1F  getnax:	de	cat		;Look it up in the catalogue
+145: 0BC1 46B41F    		call lookup
+146: 0BC4 C6        		lal
+147: 0BC5 2407      		nd	7
+148: 0BC7 68980A    		jtz	noname	;It isn't there
+149: 0BCA C6        		lal			;Set table pointer to beginning of entry
+150: 0BCB 24F8      		nd	0370
+151: 0BCD 07        		ret
+getsym = 0BCE
+155: 0BCE 0E20      getsym:	lb	' '		;Blank the symbol message
+156: 0BD0 1607      		lc	7
+157: 0BD2 367A2E1F  		hl	symbol
+158: 0BD6 46200C    		call blkset
+159: 0BD9 167A      		lc	symbol	;Initialize the symbol storage pointer
+160: 0BDB 46080C    		call getch	;Get the first character
+getltr = 0BDE
+161: 0BDE 3C41      getltr:	cp	'A'		;Or between A and Z
+162: 0BE0 70020C    		jts	geterm
+163: 0BE3 3C5B      		cp	'Z'+1
+164: 0BE5 50020C    		jfs	geterm
+getnbr = 0BE8
+165: 0BE8 2E1F      getnbr:	lh	symbol>8	;Store the character
+166: 0BEA F2        		llc
+167: 0BEB F8        		lma
+168: 0BEC C2        		lac			;Bump the storage index
+169: 0BED 3C80      		cp	symbol+6	;Unless it is at the end of the storage
+170: 0BEF 0C00      		ac	0
+171: 0BF1 D0        		lca
+172: 0BF2 46080C    		call getch	;Get the next character
+173: 0BF5 3C30      		cp	'0'		;Check it's range between 0 and 9
+174: 0BF7 70020C    		jts	geterm
+175: 0BFA 3C3A      		cp	'9'+1
+176: 0BFC 70E80B    		jts	getnbr
+177: 0BFF 44DE0B    		jmp	getltr
+geterm = 0C02
+178: 0C02 36802E1F  geterm:	hl	symbol+6	;Store the terminating character
+179: 0C06 F8        		lma
+180: 0C07 07        		ret
+getch = 0C08
+184: 0C08 36682E0D  getch:	hl	inptr		;Get the input pointer
+185: 0C0C C7        		lam
+186: 0C0D C8        		lba				;Save it
+187: 0C0E 0401      		ad	1			;Bump it to the next character
+188: 0C10 F8        		lma
+189: 0C11 F1        		llb				;Get the character pointed to
+190: 0C12 C7        		lam
+191: 0C13 3C0D      		cp	015			;Exit if not CR
+192: 0C15 0B        		rfz
+193: 0C16 3668      		ll	inptr		;Else decrement the character pointer
+194: 0C18 C7        		lam
+195: 0C19 1401      		su	1
+196: 0C1B F8        		lma
+197: 0C1C A8        		xra				;And exit with zero condition true
+198: 0C1D 060D      		la	015			;And with A 015
+199: 0C1F 07        		ret
+blkset = 0C20
+204: 0C20 F9        blkset:	lmb
+205: 0C21 46EB1E    		call inchl
+206: 0C24 C2        		lac
+207: 0C25 1401      		su	1
+208: 0C27 D0        		lca
+209: 0C28 48200C    		jfz	blkset
+210: 0C2B 07        		ret
+214: 0D00           		tp
+cmdlst = 0D00
+215: 0D00 43415420 2020cmdlst:	dc	'CAT   '	;Command list
+216: 0D06 000F      		da	catcmd
+217: 0D08 4E414D20 2020		dc	'NAM   '
+218: 0D0E 570F      		da	namcmd
+219: 0D10 52554E20 2020		dc	'RUN   '
+220: 0D16 B712      		da	runcmd
+221: 0D18 494E2020 2020		dc	'IN    '
+222: 0D1E B30F      		da	incmd
+223: 0D20 4F555420 2020		dc	'OUT   '
+224: 0D26 1E10      		da	outcmd
+225: 0D28 44454C20 2020		dc	'DEL   '
+226: 0D2E 6711      		da	delcmd
+227: 0D30 52455020 2020		dc	'REP   '
+228: 0D36 E110      		da	repcmd
+229: 0D38 41555420 2020		dc	'AUT   '
+230: 0D3E E412      		da	autcmd
+231: 0D40 4D414E20 2020		dc	'MAN   '
+232: 0D46 1913      		da	mancmd
+233: 0D48 50524520 2020		dc	'PRE   '
+234: 0D4E 3B13      		da	precmd
+235: 0D50 48455820 2020		dc	'HEX   '
+236: 0D56 A813      		da	hexcmd
+237: 0D58 44454220 2020		dc	'DEB   '
+238: 0D5E 801C      		da	debug$
+239: 0D60 20202020 2020		dc	'      '
+240: 0D66 B40A      		da	badcmd
+inptr = 0D68
+241: 0D68 00        inptr:	dc	0			;Input scanner index
+cmdbuf = 0D69
+242: 0D7F           cmdbuf:	skip	22
+catptr = 0D7F
+243: 0D7F 00        catptr:	dc	0		;Library catalogue pointer
+cscptr = 0D80
+244: 0D80 00        cscptr:	dc	0		;Catalog screen pointer
+catsps = 0D81
+245: 0D81 20202020 20202020 03catsps:	dc	'        ',3	;Catalogue name print string
+entsav = 0D8A
+246: 0D8A 00        entsav:	dc	0		;Catalogue entry address storage
+pfnsel = 0D8B
+247: 0D8B 00        pfnsel:	dc	0		;Physical file number selected
+pfnctr = 0D8C
+248: 0D8C 00        pfnctr:	dc	0		;Physical file number counter
+249: 0E00           		tp
+250: 0E00 0000      		dc	0,0		;Parity storage for I/O routines
+tfrbuf = 0E02
+251: 0F00           tfrbuf:	skip	254	;I/O transfer buffer
+catcmd = 0F00
+255: 0F00 367F2E0D  catcmd:	hl	catptr	;Initialize the catalogue pointer
+256: 0F04 0608      		la	cat
+257: 0F06 F8        		lma
+258: 0F07 3680      		ll	cscptr	;Initialize the screen position
+259: 0F09 A8        		xra
+260: 0F0A F8        		lma
+catlop = 0F0B
+261: 0F0B 367F2E0D  catlop:	hl	catptr	;Get the address of the next cat entry
+262: 0F0F F7        		llm
+263: 0F10 2E1F      		lh	cat>8
+264: 0F12 C7        		lam			;Get the first character
+265: 0F13 3C20      		cp	' '
+266: 0F15 684F0F    		jtz	catend	;Listing is finished if it is a space
+267: 0F18 3C2A      		cp	'*'
+268: 0F1A 684F0F    		jtz	catend	;Ot an asterisk
+269: 0F1D 26811E0D  		de	catsps	;Transfer name into print string
+270: 0F21 1606      		lc	6
+271: 0F23 46E51F    		call blktfr
+272: 0F26 36802E0D  		hl	cscptr	;Get the cursor position
+273: 0F2A DF        		ldm
+274: 0F2B C3        		lad			;See if we need to go to a new line
+275: 0F2C 3C49      		cp	73
+276: 0F2E 70380F    		jts	catmor
+277: 0F31 36F22E0A  		hl	crlf	;Put out CR LF if so
+278: 0F35 46691E    		call dsply$
+catmor = 0F38
+279: 0F38 260B      catmor:	le	11		;Always print on line 11
+280: 0F3A 36812E0D  		hl	catsps	;Print the name
+281: 0F3E 46691E    		call dsply$
+282: 0F41 36802E0D  		hl	cscptr	;Update the cursor position
+283: 0F45 FB        		lmd
+284: 0F46 367F      		ll	catptr	;Update the catalogue entry position
+285: 0F48 C7        		lam
+286: 0F49 0408      		ad	8
+287: 0F4B F8        		lma
+288: 0F4C 440B0F    		jmp	catlop	;Do next entry
+catend = 0F4F
+290: 0F4F 36F22E0A  catend:	hl	crlf	;Make room for next command
+291: 0F53 46691E    		call dsply$
+292: 0F56 07        		ret
+namcmd = 0F57
+296: 0F57 46CE0B    namcmd:	call getsym	;Get the old name
+297: 0F5A 3C2C      		cp	','
+298: 0F5C 489F0A    		jfz	badnam	;It must be terminated by a comma
+299: 0F5F 367A      		ll	symbol
+300: 0F61 C7        		lam
+301: 0F62 3C20      		cp	' '
+302: 0F64 68910A    		jtz	namreq	;There must be a name
+303: 0F67 26081E1F  		de	cat		;Look it up
+304: 0F6B 46B41F    		call lookup
+305: 0F6E C6        		lal
+306: 0F6F 2407      		nd	7
+307: 0F71 68980A    		jtz	noname	;It must be in catalogue
+308: 0F74 DD        		ldh			;Save the catalogue pointer
+309: 0F75 C6        		lal
+310: 0F76 24F8      		nd	0370
+311: 0F78 367F2E0D  		hl	catptr
+312: 0F7C F8        		lma
+313: 0F7D 3680      		ll	cscptr
+314: 0F7F FB        		lmd
+315: 0F80 46CE0B    		call getsym	;Get the new name
+316: 0F83 3C0D      		cp	015
+317: 0F85 489F0A    		jfz	badnam	;The new name must be terminated by 015
+318: 0F88 367A2E1F  		hl	symbol
+319: 0F8C C7        		lam
+320: 0F8D 3C20      		cp	' '
+321: 0F8F 68910A    		jtz	namreq	;There must be a new name
+322: 0F92 26081E1F  		de	cat		;It must not be in the catalogue
+323: 0F96 46B41F    		call lookup
+324: 0F99 C6        		lal
+325: 0F9A 2407      		nd	7
+326: 0F9C 48AD0A    		jfz	dupnam
+327: 0F9F 367F2E0D  		hl	catptr	;Restore the catalogue pointer
+328: 0FA3 E7        		lem
+329: 0FA4 3680      		ll	cscptr
+330: 0FA6 DF        		ldm
+331: 0FA7 367A2E1F  		hl	symbol	;Transfer the symbol into the catalogue
+332: 0FAB 1606      		lc	6
+333: 0FAD 46E51F    		call blktfr
+334: 0FB0 442C13    		jmp	upcat	;Update the catalogue file
+incmd = 0FB3
+338: 0FB3 46C00F    incmd:	call inget	;Do the part common with hexcmd
+339: 0FB6 26A11E0B  		de	objpkt	;Get to the beginning of the input file
+340: 0FBA 461218    		call pbof$
+341: 0FBD 443E11    		jmp	repfil
+inget = 0FC0
+343: 0FC0 46CE0B    inget:	call getsym	;Get the name symbol
+344: 0FC3 3C0D      		cp	015
+345: 0FC5 489F0A    		jfz	badnam	;Termionating character must be 015
+346: 0FC8 367A      		ll	symbol	;Get the first character
+347: 0FCA C7        		lam
+348: 0FCB 3C20      		cp	' '
+349: 0FCD 68910A    		jtz	namreq	;There must be a name
+350: 0FD0 26081E1F  		de	cat		;Look up the name in the catalogue
+inext = 0FD4
+351: 0FD4 46B41F    inext:	call lookup
+352: 0FD7 3C2A      		cp	'*'
+353: 0FD9 68A60A    		jtz	catful	;Catalogue full is first character is *
+354: 0FDC C6        		lal
+355: 0FDD 2407      		nd	7
+356: 0FDF 48AD0A    		jfz	dupnam	;Entry must not be in the table
+357: 0FE2 DD        		ldh			;Put the new name in catalogue
+358: 0FE3 C6        		lal			;Bump memory pointer to start of entry
+359: 0FE4 24F8      		nd	0370
+360: 0FE6 E0        		lea
+361: 0FE7 368A2E0D  		hl	entsav	;Save the catalogue address
+362: 0FEB F8        		lma
+363: 0FEC 367A2E1F  		hl	symbol
+364: 0FF0 1606      		lc	6
+365: 0FF2 46E51F    		call blktfr
+366: 0FF5 368A2E0D  		hl	entsav	;Calculate the selected file number - 1
+367: 0FF9 C7        		lam
+368: 0FFA 46A50B    		call ncalc
+369: 0FFD F8        		lma			;Save the selected file number
+370: 0FFE 1401      		su	1
+371: 1000 26951E0B  		de	d1pkt	;Position deck one to that file
+372: 1004 461B18    		call cpfn$
+373: 1007 26951E0B  		de	d1pkt
+374: 100B 461218    		call pbof$
+375: 100E 26951E0B  		de	d1pkt	;Get to the end of that file
+376: 1012 460F18    		call peof$	;so ready to append the new one
+377: 1015 368A2E0D  		hl	entsav	;after the new file marker record
+378: 1019 C7        		lam
+379: 101A 467C13    		call d1fnw
+380: 101D 07        		ret
+outcmd = 101E
+384: 101E 46CE0B    outcmd:	call getsym	;Get the element name
+385: 1021 3C2A      		cp	'*'		;Check the terminating char
+386: 1023 687610    		jtz	outall	;Copy whole system tape if *
+387: 1026 3C24      		cp	'$'
+388: 1028 687610    		jtz	outall	;Copy all but OS and cat if $
+389: 102B 46B00B    		call getnan	;Else do tthe rest of getnam
+390: 102E 46A50B    		call ncalc	;Calculate the physical file number
+391: 1031 26951E0B  		de	d1pkt	;Position system tape to that file
+392: 1035 461B18    		call cpfn$
+393: 1038 26951E0B  		de	d1pkt
+394: 103C 461218    		call pbof$
+395: 103F 463B13    		call precmd	;Prep the data tape
+396: 1042 26A11E0B  		de	objpkt	;Position the output file
+397: 1046 461218    		call pbof$
+outtfr = 1049
+398: 1049 26951E0B  outtfr:	de	d1pkt	;Put out the file
+399: 104D 460018    		call snfr$	;Read a record from the system tape
+400: 1050 606510    		jtc	outend	;Catch end of file
+401: 1053 C6        		lal			;Calculate the length
+402: 1054 1402      		su	tfrbuf
+403: 1056 36A42E0B  		hl	objpkt+3	;Put it in the output file length
+404: 105A F8        		lma
+405: 105B 26A11E0B  		de	objpkt	;Write out the record
+406: 105F 460618    		call sbfw$
+407: 1062 444910    		jmp	outtfr	;Do the next record
+outend = 1065
+409: 1065 26991E0B  outend:	de	d2pkt	;Put file marker 127 on output file
+410: 1069 067F      		la	127
+411: 106B 461B18    		call cpfn$
+412: 106E 26991E0B  		de	d2pkt
+413: 1072 462418    		call tfnw$
+414: 1075 07        		ret
+outall = 1076
+416: 1076 367A      outall:	ll	symbol	;There must not have been a name
+417: 1078 C7        		lam
+418: 1079 3C20      		cp	' '
+419: 107B 489F0A    		jfz	badnam
+420: 107E 36762E0B  		hl	cbtmsg	;Make sure the front tape is scratch
+421: 1082 46691E    		call dsply$
+422: 1085 69        		ex	beep
+423: 1086 FF        		halt
+424: 1087 06F0      		la	0360	;Access deck 2
+425: 1089 51        		ex	adr
+426: 108A 466614    		call dwait
+427: 108D 6F        		ex	deck2
+428: 108E 466614    		call dwait
+429: 1091 7D        		ex	rewnd	;Rewind the tape
+430: 1092 466614    		call dwait
+431: 1095 36002E16  		hl	boots	;Write the boot block
+432: 1099 26001E18  		de	boote
+433: 109D 468B13    		call wblok
+434: 10A0 466614    		call dwait
+435: 10A3 36802E1F  		hl	symbol+6	;See if this is a full copy
+436: 10A7 C7        		lam			;or just files 2 to the end
+437: 10A8 1424      		su	'$'
+438: 10AA 68AF10    		jtz	outsys	;Start copying from file zero
+439: 10AD 0602      		la	2		;Start copying from file two
+outsys = 10AF
+440: 10AF 26951E0B  outsys:	de	d1pkt
+441: 10B3 461B18    		call cpfn$
+442: 10B6 26951E0B  		de	d1pkt
+443: 10BA 461218    		call pbof$
+444: 10BD 368C2E0D  		hl	pfnctr	;Copy the tape using first half of update
+445: 10C1 06FF      		la	-1
+446: 10C3 F8        		lma			;Set up to start writing file markers at z
+447: 10C4 46E611    		call updat0
+448: 10C7 067F      		la	127		;Terminate the tape
+449: 10C9 26991E0B  		de	d2pkt	;with file marker 127
+450: 10CD 461B18    		call cpfn$
+451: 10D0 26991E0B  		de	d2pkt
+452: 10D4 462418    		call tfnw$
+453: 10D7 466614    		call dwait
+454: 10DA 7D        		ex	rewnd	;Rewind deck 2
+455: 10DB 466614    		call dwait
+456: 10DE 442C13    		jmp upcat
+repcmd = 10E1
+460: 10E1 46AD0B    repcmd:	call getnam	;Get the file name
+461: 10E4 368A2E0D  		hl	entsav	;Save the catalogue entry address
+462: 10E8 0408      		ad	8
+463: 10EA F8        		lma
+464: 10EB 1408      		su	8
+465: 10ED 46A50B    		call ncalc	;Calculate the physical file number
+466: 10F0 368B2E0D  		hl	pfnsel	;Save it
+467: 10F4 F8        		lma
+468: 10F5 26A11E0B  		de	objpkt	;Position to the input file
+469: 10F9 461218    		call pbof$
+470: 10FC 368A2E0D  		hl	entsav	;See if this is the last entry in the data
+471: 1100 F7        		llm
+472: 1101 2E1F      		lh	cat>8
+473: 1103 C7        		lam
+474: 1104 3C20      		cp	' '
+475: 1106 682B11    		jtz	repup	;Do special update if it is
+476: 1109 3C2A      		cp	'*'
+477: 110B 682B11    		jtz	repup
+478: 110E 26A11E0B  		de	objpkt	;Position to the end of the input file
+479: 1112 460F18    		call peof$
+480: 1115 368B2E0D  		hl	pfnsel	;Put out a file marker after it
+481: 1119 C7        		lam
+482: 111A 26991E0B  		de	d2pkt
+483: 111E 461B18    		call cpfn$
+484: 1121 26991E0B  		de	d2pkt
+485: 1125 462418    		call tfnw$
+486: 1128 443612    		jmp	update	;And then do the normal update
+repup = 112B
+488: 112B 368B2E0D  repup:	hl	pfnsel	;Get the selected file number
+489: 112F C7        		lam
+490: 1130 26951E0B  		de	d1pkt	;Position system tape to that file
+491: 1134 461B18    		call cpfn$
+492: 1137 26951E0B  		de	d1pkt
+493: 113B 461218    		call pbof$
+repfil = 113E
+494: 113E 26A11E0B  repfil:	de	objpkt	;Read an input record
+495: 1142 460018    		call snfr$
+496: 1145 605A11    		jtc	repend	;Catch end of file
+497: 1148 C6        		lal			;Calculate the length
+498: 1149 1402      		su	tfrbuf
+499: 114B 36982E0B  		hl	d1pkt+3
+500: 114F F8        		lma
+501: 1150 26951E0B  		de	d1pkt
+502: 1154 460618    		call sbfw$	;Write the record
+503: 1157 443E11    		jmp	repfil	;Do the next record
+repend = 115A
+505: 115A 0620      repend:	la	32		;Follow the file by file markers
+506: 115C 467C13    		call d1fnw	;32 and 127
+507: 115F 067F      		la	127
+508: 1161 467C13    		call d1fnw
+509: 1164 442C13    		jmp	upcat	;Update the catalogue
+delcmd = 1167
+513: 1167 46AD0B    delcmd:	call getnam	;Get the named file
+514: 116A E0        		lea			;Save it
+515: 116B 368A2E0D  		hl	entsav	;Save the catalogue entry address
+516: 116F F8        		lma
+517: 1170 46A50B    		call ncalc	;Calculate the physical file number
+518: 1173 368B2E0D  		hl	pfnsel	;Save it
+519: 1177 F8        		lma
+520: 1178 36792E1F  		hl	alpfn	;Kill auto ptr if it is pointing
+521: 117C 97        		sum			;to the file to be deleted
+522: 117D 488411    		jfz	deldec
+523: 1180 F8        		lma
+524: 1181 448B11    		jmp	delaut
+deldec = 1184
+526: 1184 508B11    deldec:	jfs	delaut	;Deleted file after auto-pointed file
+527: 1187 C7        		lam			;Else bump down the auto pointer
+528: 1188 1401      		su	1		;to correspond to catalogue shift
+529: 118A F8        		lma
+delaut = 118B
+530: 118B C4        delaut:	lae			;See if an entry follows
+531: 118C 0408      		ad	8
+532: 118E 2E1F      		lh	cat>8
+533: 1190 F0        		lla
+534: 1191 C7        		lam
+535: 1192 3C20      		cp	' '
+536: 1194 68BD11    		jtz	delast	;Take special action if not
+537: 1197 3C2A      		cp	'*'
+538: 1199 68BD11    		jtz	delast
+delmov = 119C
+539: 119C 1608      delmov:	lc	8		;Shift down the catalogue
+540: 119E 46E51F    		cal blktfr
+541: 11A1 C7        		lam
+542: 11A2 3C20      		cp	' '
+543: 11A4 68AC11    		jtz	delend	;Done when no next entry
+544: 11A7 3C2A      		cp	'*'
+545: 11A9 489C11    		jfz	delmov	;Or at catalogue stop entry
+delend = 11AC
+546: 11AC F4        delend:	lle			;Clear the last entry vacated
+547: 11AD 0620      		la	' '		;by the move
+548: 11AF F8        		lma
+549: 11B0 463B13    		call precmd	;Prep the data tape
+550: 11B3 26A11E0B  		de	objpkt	;Position front deck to object file
+551: 11B7 461218    		call pbof$
+552: 11BA 443612    		jmp	update	;And do the normal update
+delast = 11BD
+554: 11BD 368B2E0D  delast:	hl	pfnsel	;Scrog the last file
+555: 11C1 C7        		lam			;Position the system tape to the
+556: 11C2 1401      		su	1		;selected file minus one
+557: 11C4 26951E0B  		de	d1pkt
+558: 11C8 461B18    		call cpfn$
+559: 11CB 26951E0B  		de	d1pkt
+560: 11CF 461218    		call pbof$
+561: 11D2 26951E0B  		de	d1pkt	;Position to the end of the file
+562: 11D6 460F18    		call peof$
+563: 11D9 368A2E0D  		hl	entsav	;Delete the entry from the catalog
+564: 11DD F7        		llm
+565: 11DE 2E1F      		lh	cat>8
+566: 11E0 0620      		la	' '
+567: 11E2 F8        		lma
+568: 11E3 445A11    		jmp	repend	;Terminate tape and update catalogue
+updat0 = 11E6
+572: 11E6 368C2E0D  updat0:	hl	pfnctr	;Write the current PFN on deck two
+573: 11EA C7        		lam			;Increment the current PFN
+574: 11EB 0401      		ad	1
+575: 11ED F8        		lma
+576: 11EE 26991E0B  		de	d2pkt
+577: 11F2 461B18    		call cpfn$
+578: 11F5 26991E0B  		de	d2pkt	;Write it on deck 2
+579: 11F9 462418    		call tfnw$
+updat1 = 11FC
+580: 11FC 26951E0B  updat1:	de	d1pkt	;Read a record from deck 1
+581: 1200 460018    		call snfr$
+582: 1203 601812    		jtc	updat2	;Catch EOF
+583: 1206 C6        		lal			;Calculate it's length
+584: 1207 1402      		su	tfrbuf
+585: 1209 369C2E0B  		hl	d2pkt+3	;and put it in the write packet
+586: 120D F8        		lma
+587: 120E 26991E0B  		de	d2pkt
+588: 1212 460618    		call sbfw$	;Write the record including parities
+589: 1215 44FC11    		jmp updat1	;Do the next record
+updat2 = 1218
+591: 1218 26951E0B  updat2:	de	d1pkt	;Read file number from deck 1
+592: 121C 462118    		call tfnr$
+593: 121F C2        		lac
+594: 1220 3C20      		cp	32
+595: 1222 70E611    		jts	updat0	;More to go if less than 32
+596: 1225 0620      		la	32		;Else put file marker 32 on deck 2
+597: 1227 26991E0B  		de	d2pkt
+598: 122B 461B18    		call cpfn$
+599: 122E 26991E0B  		de	d2pkt
+600: 1232 462418    		call tfnw$
+601: 1235 07        		ret
+update = 1236
+603: 1236 368B2E0D  update:	hl	pfnsel	;Get the selected physical file number
+604: 123A C7        		lam
+605: 123B 368C2E0D  		hl	pfnctr	;Initialize the PFN counter
+606: 123F F8        		lma
+607: 1240 0401      		ad	1
+608: 1242 26951E0B  		de	d1pkt	;Position to the file after the one selected
+609: 1246 461B18    		call cpfn$
+610: 1249 26951E0B  		de	d1pkt
+611: 124D 461218    		call pbof$
+612: 1250 46FC11    		call updat1	;Copy system tape to data tape
+613: 1253 26A11E0B  		de	objpkt	;Position data tape to the object file
+614: 1257 461218    		call pbof$
+615: 125A 368B2E0D  		hl	pfnsel	;Re-initialize the file counter
+616: 125E C7        		lam
+617: 125F 368C2E0D  		hl	pfnctr
+618: 1263 F8        		lma
+619: 1264 26951E0B  		de	d1pkt	;Position deck 1 to selected file
+620: 1268 461B18    		call cpfn$
+621: 126B 26951E0B  		de	d1pkt
+622: 126F 461218    		call pbof$
+623: 1272 447C12    		jmp	updat4
+updat3 = 1275
+625: 1275 26951E0B  updat3:	de	d1pkt	;Write a file number on deck 1
+626: 1279 462418    		call tfnw$
+updat4 = 127C
+627: 127C 26991E0B  updat4:	de	d2pkt	;Read a record from deck 2
+628: 1280 460018    		call snfr$
+629: 1283 609812    		jtc	updat6	;Catch EOF
+630: 1286 C6        		lal			;Calculate it's length
+631: 1287 1402      		su	tfrbuf
+632: 1289 36982E0B  		hl	d1pkt+3	;Put it in the write packet
+633: 128D F8        		lma
+634: 128E 26951E0B  		de	d1pkt	;Write the file
+635: 1292 460618    		call sbfw$	;Including the parity characters
+636: 1295 447C12    		jmp	updat4	;Do the next record
+updat6 = 1298
+638: 1298 368C2E0D  updat6:	hl	pfnctr	;Increment the current PFN counter
+639: 129C C7        		lam
+640: 129D 0401      		ad	1
+641: 129F F8        		lma
+642: 12A0 26951E0B  		de	d1pkt	;Change the packet number
+643: 12A4 461B18    		call cpfn$
+644: 12A7 26991E0B  		de	d2pkt	;Raed the next file number from deck 2
+645: 12AB 462118    		call tfnr$
+646: 12AE C2        		lac
+647: 12AF 3C20      		cp	32
+648: 12B1 707512    		jts	updat3	;Do the next file if it is less than 32
+649: 12B4 445A11    		jmp	repend	;Else terminate tape and update catalogue
+runcmd = 12B7
+653: 12B7 46CE0B    runcmd:	call getsym	;Get the file name
+654: 12BA 3C2A      		cp	'*'		;Load object file if *
+655: 12BC 68C912    		jtz	runobj
+656: 12BF 46B00B    		call getnan	;Else look up name
+657: 12C2 46A50B    		call ncalc	;Calculate the PFN
+658: 12C5 C8        		lba			;Run it
+659: 12C6 44811F    		jmp	mauto$
+runobj = 12C9
+661: 12C9 367A      runobj:	ll	symbol	;Make sure there
+662: 12CB C7        		lam		;was no name besides *
+663: 12CC 3C20      		cp	' '
+664: 12CE 489F0A    		jfz	badnam
+665: 12D1 26A11E0B  		de	objpkt	;Position the file for the loader
+666: 12D5 461218    		call pbof$
+667: 12D8 26991E0B  		de	d2pkt
+668: 12DC 461518    		call bsp$
+669: 12DF 0E01      		lb	1		;Run the object file
+670: 12E1 448A1F    		jmp	maut2$	;on the front deck
+autcmd = 12E4
+674: 12E4 36792E1F  autcmd:	hl	alpfn	;Get the pointer
+675: 12E8 C7        		lam
+676: 12E9 B0        		ora
+677: 12EA 48FF12    		jfz	autdup	;Error if already set
+678: 12ED 46AD0B    		call getnam	;Else get the name
+679: 12F0 1408      		su	cat		;Calculate the file number
+680: 12F2 0A        		src
+681: 12F3 0A        		src
+682: 12F4 0A        		src
+683: 12F5 0402      		ad	2
+684: 12F7 36792E1F  		hl	alpfn	;And set the pointer
+685: 12FB F8        		lma
+686: 12FC 442C13    		jmp	upcat	;And update the catalogue
+autdup = 12FF
+688: 12FF 1402      autdup:	su	2		;Calculate table address
+689: 1301 02        		slc
+690: 1302 02        		slc
+691: 1303 02        		slc
+692: 1304 0408      		ad	cat
+693: 1306 F0        		lla
+694: 1307 2E1F      		lh	cat>8
+695: 1309 266F1E0B  		de	autent
+696: 130D 1606      		lc	6
+697: 130F 46E51F    		call blktfr	;Put table entry in string
+698: 1312 36632E0B  		hl	autmsg
+699: 1316 44B80A    		jmp	badspl	;And print it
+mancmd = 1319
+703: 1319 36792E1F  mancmd:	hl	alpfn
+704: 131D C7        		lam
+705: 131E B0        		ora
+706: 131F 36562E0B  		hl	noamsg
+707: 1323 68B80A    		jtz	badspl	;Auto is not set
+708: 1326 36792E1F  		hl	alpfn
+709: 132A A8        		xra
+710: 132B F8        		lma
+upcat = 132C
+714: 132C 269D1E0B  upcat:	de	catpak
+715: 1330 461218    		call pbof$
+716: 1333 269D1E0B  		de	catpak
+717: 1337 460918    		call snfw$
+718: 133A 07        		ret
+precmd = 133B
+722: 133B 36762E0B  precmd:	hl	cbtmsg	;Wait for black tape
+723: 133F 46691E    		call dsply$
+724: 1342 69        		ex	beep
+725: 1343 FF        		halt
+726: 1344 26991E0B  		de	d2pkt	;Rewind the data tape
+727: 1348 461E18    		call trw$
+728: 134B 26991E0B  		de	d2pkt	;Write a file number 0 on it
+729: 134F 0600      		la	0
+730: 1351 461B18    		call cpfn$
+731: 1354 26991E0B  		de	d2pkt
+732: 1358 462418    		call tfnw$
+733: 135B 26991E0B  		de	d2pkt	;Write a file number on it
+734: 135F 0601      		la	1
+735: 1361 461B18    		call cpfn$
+736: 1364 26991E0B  		de	d2pkt
+737: 1368 462418    		call tfnw$
+738: 136B 067F      		la	127
+739: 136D 26991E0B  		de	d2pkt	;Write a file number 127 on it
+740: 1371 461B18    		call cpfn$
+741: 1374 26991E0B  		de	d2pkt
+742: 1378 462418    		call tfnw$
+743: 137B 07        		ret
+d1fnw = 137C
+747: 137C 26951E0B  d1fnw:	de	d1pkt
+748: 1380 461B18    		call cpfn$
+749: 1383 26951E0B  		de	d1pkt
+750: 1387 462418    		call tfnw$
+751: 138A 07        		ret
+wblok = 138B
+755: 138B 73        wblok:	ex	wbk		;Fire up the write
+wnext = 138C
+756: 138C CF        wnext:	lbm			;Get the data character
+wwait = 138D
+757: 138D 53        wwait:	ex	status	;Wait for write ready
+758: 138E 41        		in
+759: 138F 2408      		nd	010
+760: 1391 688D13    		jtz	wwait
+761: 1394 C1        		lab			;Write the data character
+762: 1395 57        		ex	write
+763: 1396 C6        		lal			;Bump the memory pointer
+764: 1397 0401      		ad	1
+765: 1399 F0        		lla
+766: 139A C5        		lah
+767: 139B 0C00      		ac	0
+768: 139D E8        		lha
+769: 139E BB        		cpd			;See if at end of block yet
+770: 139F 488C13    		jfz	wnext	;No chance
+771: 13A2 C6        		lal
+772: 13A3 BC        		cpe			;Try lsb
+773: 13A4 488C13    		jfz	wnext
+774: 13A7 07        		ret			;Else we are done
+hexcmd = 13A8
+778: 13A8 46C00F    hexcmd:	call inget	;Do the part that is like incmd
+779: 13AB 26991E0B  		de	d2pkt
+780: 13AF 461E18    		call trw$
+hexasr = 13B2
+781: 13B2 466F14    hexasr:	call hexrbk	;Search for the first starting address
+782: 13B5 3607      		ll	hexbuf+1
+783: 13B7 C7        		lam
+784: 13B8 3C2B      		cp	'+'		;The first character must be a +
+785: 13BA 48B213    		jfz	hexasr
+hexgad = 13BD
+787: 13BD 3608      hexgad:	ll	hexbuf+2	;Get the starting address
+788: 13BF 46AE14    		call hexcon
+789: 13C2 605314    		jtc	hexerr	;It must be four good hex characters
+790: 13C5 D1        		lcb			;Save msb
+791: 13C6 46AE14    		call hexcon
+792: 13C9 605314    		jtc	hexerr
+793: 13CC 3604      		ll	hexadr	;Save the address
+794: 13CE FA        		lmc
+795: 13CF 3605      		ll	hexadr+1
+796: 13D1 F9        		lmb
+hexrec = 13D2
+798: 13D2 466F14    hexrec:	call hexrbk	;Load a record
+799: 13D5 3606      		ll	hexbuf	;Get the first character
+800: 13D7 C7        		lam
+801: 13D8 3C0A      		cp	012		;It must be a line feed
+802: 13DA 485314    		jfz	hexerr
+803: 13DD 3607      		ll	hexbuf+1	;Get the second character
+804: 13DF C7        		lam
+805: 13E0 3C2A      		cp	'*'		;Ignore record if *
+806: 13E2 68D213    		jtz	hexrec
+807: 13E5 3C2B      		cp	'+'		;Get address if +
+808: 13E7 68BD13    		jtz	hexgad
+812: 13EA 3C23      		cp	'#'		;End of file if #
+813: 13EC 685A11    		jtz	repend
+814: 13EF 364C      		ll	hexwbp	;Convert the hex in hexbuf
+815: 13F1 E7        		lem			;to binary in hexwbf
+816: 13F2 3607      		ll	hexbuf+1
+hexcl = 13F4
+817: 13F4 46AE14    hexcl:	call hexcon
+818: 13F7 600614    		jtc	hexec	;Quit aif nen-hex character
+819: 13FA C6        		lal			;Swap E and L
+820: 13FB F4        		lle
+821: 13FC E0        		lea
+822: 13FD F9        		lmb			;Store binary number
+823: 13FE C6        		lal			;Increment and swap L and E
+824: 13FF 0401      		ad	1
+825: 1401 F4        		lle
+826: 1402 E0        		lea
+827: 1403 44F413    		jmp	hexcl	;Do next hex pair
+hexec = 1406
+829: 1406 C7        hexec:	lam			;Terminating char must be 023
+830: 1407 3C13      		cp	023
+831: 1409 681714    		jtz	hexwrt
+832: 140C 3C2B      		cp	'+'		;Unless this block is to be continued
+833: 140E 485314    		jfz	hexerr
+834: 1411 364C      		ll	hexwbp	;In which case, just update
+835: 1413 FC        		lme			;the write buffer pointer
+836: 1414 44D213    		jmp	hexrec
+hexwrt = 1417
+838: 1417 364C      hexwrt:	ll	hexwbp	;Else reset the write buffer ptr
+839: 1419 1E53      		ld	hexwbf+4
+840: 141B FB        		lmd
+841: 141C 3604      		ll	hexadr	;Put the starting address in buffer
+842: 141E C7        		lam
+843: 141F 364F      		ll	hexwbf
+844: 1421 F8        		lma
+845: 1422 2CFF      		xr	0377
+846: 1424 3651      		ll	hexwbf+2
+847: 1426 F8        		lma
+848: 1427 3605      		ll	hexadr+1
+849: 1429 C7        		lam
+850: 142A 3650      		ll	hexwbf+1
+851: 142C F8        		lma
+852: 142D 2CFF      		xr	0377
+853: 142F 3652      		ll	hexwbf+3
+854: 1431 F8        		lma
+855: 1432 C4        		lae			;Calculate the core block length
+856: 1433 1453      		su	hexwbf+4
+857: 1435 E0        		lea
+858: 1436 3605      		ll	hexadr+1	;Update the core address
+859: 1438 C7        		lam
+860: 1439 84        		ade
+861: 143A F8        		lma
+862: 143B 3604      		ll	hexadr
+863: 143D C7        		lam
+864: 143E 0C00      		ac	0
+865: 1440 F8        		lma
+866: 1441 C4        		lae			;Calculate the write block length
+867: 1442 0404      		ad	4		;Compensate for HL given twice
+868: 1444 36032E15  		hl	hexpkt+3	;Put the length in the packet
+869: 1448 F8        		lma
+870: 1449 26001E15  		de	hexpkt	;Write the buffer
+871: 144D 460918    		call snfw$
+872: 1450 44D213    		jmp	hexrec	;And do the next record
+hexerr = 1453
+874: 1453 466614    hexerr:	call dwait	;Try that record again
+875: 1456 77        		ex	bsp
+876: 1457 466614    		call dwait
+877: 145A 06E1      		la	0341	;Unless keyboard switch depressed
+878: 145C 51        		ex	adr
+879: 145D 41        		in
+880: 145E 2404      		nd	4
+881: 1460 68D213    		jtz	hexrec
+882: 1463 445A11    		jmp	repend
+dwait = 1466
+884: 1466 1601      dwait:	lc	1		;Deck wait loop
+twait = 1468
+885: 1468 53        twait:	ex	status
+886: 1469 41        		in
+887: 146A A2        		ndc
+888: 146B 686814    		jtz	twait
+889: 146E 07        		ret
+hexrbk = 146F
+891: 146F 06F0      hexrbk:	la	0360	;Make sure the cassette is addressed
+892: 1471 51        		ex	adr
+893: 1472 466614    		call dwait	;Read a block
+894: 1475 6F        		ex	deck2	;from deck 2
+895: 1476 466614    		call dwait
+896: 1479 36062E15  		hl	hexbuf	;into hexbuf
+897: 147D 71        		ex	rbk
+hexrnx = 147E
+898: 147E 1614      hexrnx:	lc	024		;Wait for IRG or data
+899: 1480 466814    		call twait
+900: 1483 2410      		nd	020
+901: 1485 486614    		jfz	dwait	;Quit if IRG
+902: 1488 55        		ex	data	;Else put data into buffer
+903: 1489 41        		in
+904: 148A 247F      		nd	0177	;Strip the parity
+905: 148C F8        		lma
+906: 148D C6        		lal			;Bump the memory pointer
+907: 148E 0401      		ad	1
+908: 1490 F0        		lla
+909: 1491 447E14    		jmp	hexrnx
+hexget = 1494
+911: 1494 1430      hexget:	su	'0'		;Convert hex to 4-bit binary
+912: 1496 70AA14    		jts	hexcen
+913: 1499 3C0A      		cp	10
+914: 149B 70A814    		jts	hexlow
+915: 149E 1407      		su	7
+916: 14A0 70AA14    		jts	hexcen
+917: 14A3 3C10      		cp	16
+918: 14A5 50AA14    		jfs	hexcen
+hexlow = 14A8
+919: 14A8 B0        hexlow:	ora			;Clear the carry tiggle
+920: 14A9 07        		ret
+hexcen = 14AA
+921: 14AA 3401      hexcen:	or	1		;Set the carry tiggle
+922: 14AC 0A        		src
+923: 14AD 07        		ret
+hexcon = 14AE
+925: 14AE C7        hexcon:	lam			;Get the first character
+926: 14AF 469414    		call hexget	;Convert it to binary
+927: 14B2 23        		rtc			;Quit if not hex
+928: 14B3 0A        		src			;Put it in left half of byte
+929: 14B4 0A        		src
+930: 14B5 0A        		src
+931: 14B6 0A        		src
+932: 14B7 C8        		lba			;Save it
+933: 14B8 C6        		lal			;Bump the memory pointer
+934: 14B9 0401      		ad	1
+935: 14BB F0        		lla
+936: 14BC C7        		lam			;Get the second character
+937: 14BD 469414    		call hexget	;Convert it to binary
+938: 14C0 23        		rtc			;Quit if not hex
+939: 14C1 B1        		orb			;Merge the two halves
+940: 14C2 C8        		lba			;Leave result in B register
+941: 14C3 C6        		lal			;Bump the memory pointer again
+942: 14C4 0401      		ad	1
+943: 14C6 F0        		lla
+944: 14C7 07        		ret
+946: 1500           		tp
+hexpkt = 1500
+947: 1500 01        hexpkt:	dc	1		;Output file is logical file one
+948: 1501 4F15      		da	hexwbf	;Write from write buffer
+949: 1503 00        		dc	0
+hexadr = 1504
+950: 1504 0000      hexadr:	da	0		;Current core address
+hexbuf = 1506
+951: 154C           hexbuf:	skip 70
+hexwbp = 154C
+952: 154C 53        hexwbp:	dc	hexwbf+4	;Write buffer pointer
+953: 154D 0000      		dc	0,0		;Room for parity checks
+hexwbf = 154F
+954: 154F 00000000  hexwbf:	dc	0,0,0,0	;Room for H and L
+955: 15D3           		skip 128	;Room for the data
+                    hexwbe:	equ	$
+958: 1600           		set	013000	;Room for the boot block
+boots = 1600
+959: 1800           boots:	skip 01000
+                    boote:	equ	$
+Assembly successful
+2899 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_MaiNSection.bin

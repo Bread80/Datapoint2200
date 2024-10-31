@@ -1,0 +1,690 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_FileHandling.asm
+                    dsply$               equ 7785
+                    inchl                equ 7915
+                    dechl                equ 7924
+                    keyin$               equ 7680
+                    		include "OS_KeyboardDisplay.sym"
+                    load$                equ 64
+                    run$                 equ 61
+                    boot$                equ 52
+                    load2$               equ 74
+                    		include "OS_Loader.sym"
+7: 1800             		set	014000
+snfr$ = 1800
+11: 1800 442A18     snfr$*	jmp	snfrx
+ssfr$ = 1803
+12: 1803 449818     ssfr$*	jmp	ssfrx
+sbfw$ = 1806
+13: 1806 44FE18     sbfw$*	jmp	sbfwx
+snfw$ = 1809
+14: 1809 440519     snfw$*	jmp	snfwx
+ssfw$ = 180C
+15: 180C 443A19     ssfw$*	jmp	ssfwx
+peof$ = 180F
+16: 180F 44F619     peof$*	jmp	peofx
+pbof$ = 1812
+17: 1812 44FD19     pbof$*	jmp	pbofx
+bsp$ = 1815
+18: 1815 44041A     bsp$*	jmp	bspx
+cpdn$ = 1818
+19: 1818 440E1A     cpdn$*	jmp	cpdnx
+cpfn$ = 181B
+20: 181B 44181A     cpfn$*	jmp	cpfnx
+trw$ = 181E
+22: 181E 443D1C     trw$*	jmp	trwx
+tfnr$ = 1821
+23: 1821 444C1C     tfnr$*	jmp	tfnrx
+tfnw$ = 1824
+24: 1824 44571C     tfnw$*	jmp	tfnwx
+err$ = 1827
+26: 1827 44441A     err$*	jmp	errx
+snfrx = 182A
+30: 182A 46ED19     snfrx:	call rtci	;Initialize the retry count
+snfrs = 182D
+31: 182D 466A1A     snfrs:	call getpkt	;Get the packet parameters
+32: 1830 46171B     		call rbk$	;Start reading the file
+33: 1833 46F31A     		call read$	;Get the record type
+34: 1836 D8         		lda			;Save it
+35: 1837 46F31A     		call read$	;Get the record type complemented
+36: 183A 2CFF       		xr	0377	;Uncomplement it
+37: 183C BB         		cpd			;Make sure they match
+38: 183D 488F18     		jfz	snfrr	;Try again if they don't
+39: 1840 3C81       		cp	0201	;See if it is a file header
+40: 1842 68321A     		jtz	feact	;Quit if it is
+41: 1845 3CE7       		cp	0347	;See if it is a symbolic record
+42: 1847 683C1A     		jtz	teact	;Type error if it is
+43: 184A 3CC3       		cp	0303	;Make sure it is a numeric record
+44: 184C 488F18     		jfz	snfrr
+45: 184F 46F31A     		call read$	;Get the parity checks
+46: 1852 D8         		lda
+47: 1853 F8         		lma			;Store parity in first byte of buffer
+48: 1854 C6         		lal
+49: 1855 0401       		ad	1
+50: 1857 F0         		lla
+51: 1858 C5         		lah
+52: 1859 0C00       		ac	0
+53: 185B E8         		lha
+54: 185C 46F31A     		call read$
+55: 185F 608F18     		jtc	snfrr	;Try again if record over already
+56: 1862 E0         		lea
+57: 1863 F8         		lma			;Tore parity in second byte of buffer
+58: 1864 C6         		lal
+59: 1865 0401       		ad	1
+60: 1867 F0         		lla
+61: 1868 C5         		lah
+62: 1869 0C00       		ac	0
+63: 186B E8         		lha
+snfrl = 186C
+64: 186C 46F31A     snfrl:	call read$	;Read the rest of the record
+65: 186F 608518     		jtc	snfre	;Quit at the end of record
+66: 1872 F8         		lma			;Store the byte of data
+67: 1873 D0         		lca			;Save it
+68: 1874 AB         		xrd			;Accumulate the parities
+69: 1875 D8         		lda
+70: 1876 C2         		lac
+71: 1877 AC         		xre
+72: 1878 0A         		src
+73: 1879 E0         		lea
+74: 187A C6         		lal			;Bump the memory pointer
+75: 187B 0401       		ad	1
+76: 187D F0         		lla
+77: 187E C5         		lah
+78: 187F 0C00       		ac	0
+79: 1881 E8         		lha
+80: 1882 446C18     		jmp	snfrl	;Do the next byte
+snfre = 1885
+82: 1885 C3         snfre:	lad			;Check the parity totals
+83: 1886 B4         		ore
+84: 1887 488F18     		jfz	snfrr	;Try again if they aren't both zero
+85: 188A 460E1B     		call wait$	;Else wait for the operation to be completed
+86: 188D A8         		xra			;Clear the carry tiggle
+87: 188E 07         		ret			;And return
+snfrr = 188F
+89: 188F 46D419     snfrr:	call decrtc	;Back up try again
+90: 1892 502D18     		jfs	snfrs	;Unless rtc is negative
+91: 1895 44421A     		jmp	peact	;In which case, parity error exit
+ssfrx = 1898
+95: 1898 46ED19     ssfrx:	call rtci	;Initialize the retry count
+ssfrs = 189B
+96: 189B 466A1A     ssfrs:	call getpkt	;Get packet parameters
+97: 189E 46171B     		call rbk$	;Start the read
+98: 18A1 46F31A     		call read$	;Get the record type
+99: 18A4 D8         		lda			;Save it
+100: 18A5 46F31A    		call read$	;Get the record type complemented
+101: 18A8 2CFF      		xr	0377	;Un-complement it
+102: 18AA BB        		cpd			;They must match
+103: 18AB 48F518    		jfz	ssfrr
+104: 18AE 3C81      		cp	0201	;Quit if it is an EOF record
+105: 18B0 68321A    		jtz	feact
+106: 18B3 3CC3      		cp	0303	;Type error if it is a numeric record
+107: 18B5 683C1A    		jtz	teact
+108: 18B8 3CE7      		cp	0347	;Make sure it is a symbolic record
+109: 18BA 48F518    		jfz	ssfrr
+110: 18BD 46F31A    		call read$	;Initialize the parity accumulators
+111: 18C0 D8        		lda
+112: 18C1 46F31A    		call read$
+113: 18C4 E0        		lea
+114: 18C5 60F518    		jtc	ssfrr	;Try again if the record is over already
+ssfrl = 18C8
+115: 18C8 46F31A    ssfrl:	call read$	;Read the rest of the record
+116: 18CB 60E818    		jtc	ssfre	;Quit if the record is ended
+117: 18CE B0        		ora			;Check the vertical parity
+118: 18CF 58F518    		jfp	ssfrr	;Try again if it is false
+119: 18D2 D0        		lca			;Save the byte
+120: 18D3 247F      		nd	0177	;Strip the vertical parity
+121: 18D5 F8        		lma			;Store the byte
+122: 18D6 C2        		lac			;Accumulate the parities
+123: 18D7 AB        		xrd
+124: 18D8 D8        		lda
+125: 18D9 C2        		lac
+126: 18DA AC        		xre
+127: 18DB 0A        		src
+128: 18DC E0        		lea
+129: 18DD C6        		lal			;Bump the memory pointer
+130: 18DE 0401      		ad	1
+131: 18E0 F0        		lla
+132: 18E1 C5        		lah
+133: 18E2 0C00      		ac	0
+134: 18E4 E8        		lha
+135: 18E5 44C818    		jmp	ssfrl	;Do the next character
+ssfre = 18E8
+137: 18E8 060D      ssfre:	la	015		;Terminate string with an 015
+138: 18EA F8        		lma
+139: 18EB C3        		lad			;Check the parity sums
+140: 18EC B4        		ore
+141: 18ED 48F518    		jfz	ssfrr	;Try again if both aren't zero
+142: 18F0 460E1B    		call wait$	;Else wait for the operation to complete
+143: 18F3 A8        		xra			;Clear the carry toggle
+144: 18F4 07        		ret			;and return
+ssfrr = 18F5
+146: 18F5 46D419    ssfrr:	call decrtc	;Back up and try again
+147: 18F8 509B18    		jfs	ssfrs	;Unless rtc is negative
+148: 18FB 44421A    		jmp	peact	;In which case, parity error exit
+sbfwx = 18FE
+152: 18FE 466A1A    sbfwx:	call getpkt
+153: 1901 E2        		lec			;Put the length in the E register
+154: 1902 441619    		jmp	sbfwe
+snfwx = 1905
+158: 1905 466A1A    snfwx:	call getpkt	;Get the packet parameters
+159: 1908 46BF1A    		call savhl	;Save the buffer starting address
+160: 190B 1E00      		ld	0		;Initialize the parity accumulators
+161: 190D 2600      		le	0
+snfwpg = 190F
+162: 190F C7        snfwpg:	lam			;Generate the parity totals
+163: 1910 468B19    		call pargen
+164: 1913 480F19    		jfz	snfwpg
+sbfwe = 1916
+165: 1916 461C1B    sbfwe:	call wbk$	;Start up the write
+166: 1919 1EC3      		ld	0303	;Write out record type numeric
+167: 191B 46021B    		call write$
+168: 191E 1E3C      		ld	074		;Write out it's complement
+169: 1920 46021B    		call write$
+snfwl = 1923
+170: 1923 DF        snfwl:	ldm			;Write out the rest of the record
+171: 1924 46021B    		call write$
+172: 1927 C6        		lal			;Bump the memory pointer
+173: 1928 0401      		ad	1
+174: 192A F0        		lla
+175: 192B C5        		lah
+176: 192C 0C00      		ac	0
+177: 192E E8        		lha
+178: 192F C4        		lae			;Decrement the buffer length count
+179: 1930 1401      		su	1
+180: 1932 E0        		lea
+181: 1933 482319    		jfz	snfwl
+182: 1936 460E1B    		call wait$	;Wait for the operation to be complete
+183: 1939 07        		ret
+ssfwx = 193A
+187: 193A 466A1A    ssfwx:	call getpkt	;Get the packet parameters
+188: 193D 46BF1A    		call savhl	;Save the start of buffer address
+189: 1940 1E00      		ld	0		;Initialize the parity accumulators
+190: 1942 2600      		le	0
+ssfwpg = 1944
+191: 1944 C7        ssfwpg:	lam			;Generate the parity totals
+192: 1945 3C0D      		cp	015		;Check for end of buffer
+193: 1947 685919    		jtz	ssfwps
+194: 194A B0        		ora			;Generate the vertical parity bit
+195: 194B 785019    		jtp	ssfwpt
+196: 194E 2C80      		xr	0200
+ssfwpt = 1950
+197: 1950 F8        ssfwpt:	lma			;Write out correctly paritied char
+198: 1951 1602      		lc	2		;FAke out pargen length counter
+199: 1953 468B19    		call pargen
+200: 1956 444419    		jmp	ssfwpg
+ssfwps = 1959
+201: 1959 469A19    ssfwps:	call parsto
+202: 195C 461C1B    		call wbk$	;Start up the write
+203: 195F 1EE7      		ld	0347	;Put out record type symbolic
+204: 1961 46021B    		call write$
+205: 1964 1E18      		ld	030		;Put out the type complemented
+206: 1966 46021B    		call write$
+207: 1969 2602      		le	2		;Don't check for 015 in 1st two parity bytes
+ssfwl = 196B
+208: 196B C4        ssfwl:	lae
+209: 196C 1401      		su	1		;Decrement fudge counter
+210: 196E E0        		lea
+211: 196F C7        		lam			;Get character from buffer
+212: 1970 507C19    		jfs	ssfww	;Ereg not neg so don't check for 015
+213: 1973 3C0D      		cp	015		;Check for end of string
+214: 1975 487C19    		jfz	ssfww	;Not end of string so write it out
+215: 1978 460E1B    		call wait$	;It's a 015 so end of string
+216: 197B 07        		ret			;So return
+ssfww = 197C
+218: 197C D8        ssfww:	lda			;Write the buffered character
+219: 197D 46021B    		call write$
+220: 1980 C6        		lal			;Bump the memory pointer
+221: 1981 0401      		ad	1
+222: 1983 F0        		lla
+223: 1984 C5        		lah
+224: 1985 0C00      		ac	0
+225: 1987 E8        		lha
+226: 1988 446B19    		jmp	ssfwl	;Do the next character
+pargen = 198B
+228: 198B C8        pargen:	lba			;Save the byte
+229: 198C AB        		xrd
+230: 198D D8        		lda
+231: 198E C1        		lab
+232: 198F AC        		xre
+233: 1990 0A        		src
+234: 1991 E0        		lea
+235: 1992 46EB1E    		call inchl
+236: 1995 C2        		lac			;Decrement the buffer length count
+237: 1996 1401      		su	1
+238: 1998 D0        		lca
+239: 1999 0B        		rfz			;Do next byte if not zero
+parsto = 199A
+240: 199A C6        parsto:	lal			;Calculate number of shift mod 8
+241: 199B 36DB2E1A  		hl	hlsav+1
+242: 199F 97        		sum
+243: 19A0 2407      		nd	7
+244: 19A2 D0        		lca
+psloop = 19A3
+245: 19A3 C2        psloop:	lac			;Shift circulating parity back that many
+246: 19A4 1401      		su	1
+247: 19A6 D0        		lca
+248: 19A7 70B019    		jts	pstore
+249: 19AA C4        		lae
+250: 19AB 02        		slc
+251: 19AC E0        		lea
+252: 19AD 44A319    		jmp	psloop
+pstore = 19B0
+254: 19B0 46CE1A    pstore:	call reshl	;Store the circ. parity
+255: 19B3 46F41E    		call dechl
+256: 19B6 FC        		lme
+257: 19B7 46F41E    		call dechl	;Store the xor parity
+258: 19BA FB        		lmd
+259: 19BB 36AC2E1A  		hl	pktadr	;Get the packet parameters again
+260: 19BF E7        		lem
+261: 19C0 36AD2E1A  		hl	pktadr+1
+262: 19C4 DF        		ldm
+263: 19C5 466A1A    		call getpkt
+264: 19C8 C2        		lac			;Init the buffer length
+265: 19C9 0402      		ad	2		;Compensate for the two parity accums
+266: 19CB E0        		lea			;Put length in E register
+267: 19CC 46F41E    		call dechl	;Back up buffer pointer to parity accums
+268: 19CF 46F41E    		call dechl
+269: 19D2 A8        		xra			;Return with zero condition true
+270: 19D3 07        		ret
+decrtc = 19D4
+274: 19D4 46211B    decrtc:	call bksp$	;Back up one record
+dccrtc = 19D7
+275: 19D7 460E1B    dccrtc:	call wait$	;Wait for it
+276: 19DA 36F52E19  		hl	rtc		;Decrement the retry count
+277: 19DE C7        		lam
+278: 19DF 1401      		su	1
+279: 19E1 F8        		lma
+280: 19E2 36AC2E1A  		hl	pktadr	;Restore the packet address
+281: 19E6 E7        		lem
+282: 19E7 36AD2E1A  		hl	pktadr+1
+283: 19EB DF        		ldm
+284: 19EC 07        		ret
+rtci = 19ED
+288: 19ED 36F52E19  rtci:	hl	rtc		;Set the retry count to three
+289: 19F1 0603      		la	3
+290: 19F3 F8        		lma
+291: 19F4 07        		ret
+rtc = 19F5
+293: 19F5 00        rtc:	dc	0		;Retry count storage
+peofx = 19F6
+297: 19F6 466A1A    peofx:	call getpkt
+298: 19F9 46C81B    		call pef$
+299: 19FC 07        		ret
+pbofx = 19FD
+303: 19FD 466A1A    pbofx:	call getpkt
+304: 1A00 462E1B    		call pbf$
+305: 1A03 07        		ret
+bspx = 1A04
+309: 1A04 466A1A    bspx:	call getpkt
+310: 1A07 46211B    		call bksp$
+311: 1A0A 460E1B    		call wait$
+312: 1A0D 07        		ret
+cpdnx = 1A0E
+316: 1A0E D0        cpdnx:	lca			;Save the pen
+317: 1A0F EB        		lhd
+318: 1A10 F4        		lle
+319: 1A11 26AF1E1A  		de	lft		;Init the LFT index
+320: 1A15 441F1A    		jmp	clft	;The rest if like cpfn$
+cpfnx = 1A18
+324: 1A18 D0        cpfnx:	lca			;Save the PFN
+325: 1A19 EB        		lhd
+326: 1A1A F4        		lle
+327: 1A1B 26B01E1A  		de	lft+1	;Init the LFT index
+clft = 1A1F
+328: 1A1F C7        clft:	lam			;Get the logical file number
+329: 1A20 B0        		ora
+330: 1A21 70A71A    		jts	gdfner	;Check it's range
+331: 1A24 3C08      		cp	8
+332: 1A26 50A71A    		jfs	gdfner
+333: 1A29 02        		slc			;Index into the LFT
+334: 1A2A 84        		ade
+335: 1A2B F0        		lla
+336: 1A2C C3        		lad
+337: 1A2D 0C00      		ac	0
+338: 1A2F E8        		lha
+339: 1A30 FA        		lmc			;Change the PFN
+340: 1A31 07        		ret
+feact = 1A32
+344: 1A32 46211B    feact:	call bksp$	;BAck up to the end of file
+345: 1A35 460E1B    		call wait$	;Wait for it
+346: 1A38 3401      		or	1		;Set the carry toggle
+347: 1A3A 0A        		src
+348: 1A3B 07        		ret
+teact = 1A3C
+350: 1A3C 460E1B    teact:	call wait$	;Wait for record to finish
+351: 1A3F 3401      		or	1		;Type error returns non-zero
+352: 1A41 07        		ret
+peact = 1A42
+354: 1A42 0604      peact:	la	4		;Internal error D if parity error
+errx = 1A44
+358: 1A44 36682E1A  errx:	hl	errs
+359: 1A48 0440      		ad	'A'-1
+360: 1A4A F8        		lma
+361: 1A4B 36552E1A  		hl	errmsg
+362: 1A4F 46691E    		call dsply$
+363: 1A52 443400    		jmp	boot$
+errmsg = 1A55
+365: 1A55 09000B0B 494E5445 524E414C 20455252 4F5220errmsg:	dc	011,0,013,11,'INTERNAL ERROR '
+errs = 1A68
+366: 1A68 200D      errs:	dc	' ',015
+getpkt = 1A6A
+373: 1A6A 36AC2E1A  getpkt:	hl	pktadr	;Save the packet address
+374: 1A6E FC        		lme
+375: 1A6F 36AD2E1A  		hl	pktadr+1
+376: 1A73 FB        		lmd
+377: 1A74 EB        		lhd			;Get the logical file number
+378: 1A75 F4        		lle
+379: 1A76 C7        		lam
+380: 1A77 B0        		ora			;Catch logical file number out of range
+381: 1A78 70A71A    		jts	gdfner
+382: 1A7B 3C08      		cp	8
+383: 1A7D 50A71A    		jfs	gdfner
+384: 1A80 02        		slc			;Index into logical file table
+385: 1A81 04AF      		ad	lft
+386: 1A83 F0        		lla
+387: 1A84 061A      		la	lft>8
+388: 1A86 0C00      		ac	0
+389: 1A88 E8        		lha
+390: 1A89 CF        		lbm			;Get the device number in the B register
+391: 1A8A 46EB1E    		call inchl
+392: 1A8D D7        		lcm			;Get the physical file nr in the C reg
+393: 1A8E 36AE2E1A  		hl	pfn		;Save it in core
+394: 1A92 FA        		lmc
+395: 1A93 EB        		lhd			;Get the buffer starting address
+396: 1A94 F4        		lle
+397: 1A95 46EB1E    		call inchl
+398: 1A98 E7        		lem
+399: 1A99 46EB1E    		call inchl
+400: 1A9C DF        		ldm
+401: 1A9D 46EB1E    		call inchl
+402: 1AA0 D7        		lcm			;Get the length
+403: 1AA1 EB        		lhd			;Put the BSA in HL
+404: 1AA2 F4        		lle
+405: 1AA3 46DC1A    		call adr$	;Select the proper physical device
+406: 1AA6 07        		ret
+gdfner = 1AA7
+408: 1AA7 0608      gdfner:	la	8		;Logical file number out of range nets
+409: 1AA9 442718    		jmp	err$	;you an internal error number 8
+pktadr = 1AAC
+411: 1AAC 0000      pktadr:	da	0		;Current packet address storage
+pfn = 1AAE
+412: 1AAE 00        pfn:	dc	0		;Current physical file number
+lft = 1AAF
+416: 1AAF 0000      lft:	dc	0,0		;LF0 is a null device
+417: 1AB1 0100      		dc	1,0		;LF1 for deck 1
+418: 1AB3 0200      		dc	2,0		;LF2 for deck 2
+419: 1AB5 0101      		dc	1,1		;LF3 is CTOS catalog
+420: 1AB7 0200      		dc	2,0		;LF4 is CTOS data source file
+421: 1AB9 0201      		dc	2,1		;LF5 is CTOS object file
+422: 1ABB 0000      		dc	0,0
+423: 1ABD 0120      		dc	1,32	;LF7 is asm object scratch file
+savhl = 1ABF
+427: 1ABF C5        savhl:	lah
+428: 1AC0 CE        		lbl
+429: 1AC1 36DA2E1A  		hl	hlsav
+430: 1AC5 F8        		lma
+431: 1AC6 36DB2E1A  		hl	hlsav+1
+432: 1ACA F9        		lmb
+433: 1ACB F1        		llb
+434: 1ACC E8        		lha
+435: 1ACD 07        		ret
+reshl = 1ACE
+437: 1ACE 36DA2E1A  reshl:	hl	hlsav
+438: 1AD2 C7        		lam
+439: 1AD3 36DB2E1A  		hl	hlsav+1
+440: 1AD7 F7        		llm
+441: 1AD8 E8        		lha
+442: 1AD9 07        		ret
+hlsav = 1ADA
+444: 1ADA 0000      hlsav:	da	0
+adr$ = 1ADC
+448: 1ADC 06F0      adr$	la	0360	;Address the cassette mechanism
+449: 1ADE 51        		ex	adr
+450: 1ADF C1        		lab			;Select the proper deck
+451: 1AE0 3C01      		cp	1
+452: 1AE2 68EF1A    		jtz	dek1ad
+453: 1AE5 3C02      		cp	2
+454: 1AE7 68F11A    		jtz	dek2ad
+455: 1AEA 0601      		la	1		;Bad device number is error 'A'
+456: 1AEC 442718    		jmp	err$
+dek1ad = 1AEF
+458: 1AEF 6D        dek1ad:	ex	deck1	;Select deck one
+459: 1AF0 07        		ret
+dek2ad = 1AF1
+461: 1AF1 6F        dek2ad:	ex	deck2	;Select deck two
+462: 1AF2 07        		ret
+                    read$:
+dekred = 1AF3
+467: 1AF3 53        dekred:	ex	status	;Wait for IRG or read ready
+468: 1AF4 41        		in
+469: 1AF5 2414      		nd	024
+470: 1AF7 68F31A    		jtz	dekred
+471: 1AFA 02        		slc
+472: 1AFB 02        		slc
+473: 1AFC 02        		slc
+474: 1AFD 02        		slc
+475: 1AFE 23        		rtc			;Quit if inter-record gap
+476: 1AFF 55        		ex	data	;Else get the character
+477: 1B00 41        		in
+478: 1B01 07        		ret
+                    write$:
+dekwrt = 1B02
+483: 1B02 53        dekwrt:	ex	status
+484: 1B03 41        		in
+485: 1B04 2409      		nd	011
+486: 1B06 68021B    		jtz	dekwrt
+487: 1B09 0A        		src
+488: 1B0A 23        		rtc			;Error if deck ready
+489: 1B0B C3        		lad			;Write the data
+490: 1B0C 57        		ex	write
+491: 1B0D 07        		ret
+                    wait$:
+dekwat = 1B0E
+494: 1B0E 1601      dekwat:	lc	1		;Wait for deck ready
+wait = 1B10
+495: 1B10 53        wait:	ex	status
+496: 1B11 41        		in
+497: 1B12 A2        		ndc
+498: 1B13 68101B    		jtz	wait
+499: 1B16 07        		ret
+                    rbk$:
+dekrbk = 1B17
+504: 1B17 460E1B    dekrbk:	call dekwat	;Wait for the deck to be ready
+505: 1B1A 71        		ex	rbk		;Fire up the read block
+506: 1B1B 07        		ret
+                    wbk$:
+dekwbk = 1B1C
+511: 1B1C 460E1B    dekwbk:	call dekwat	;Wait for the deck to be ready
+512: 1B1F 73        		ex	wbk		;Fire up the write block
+513: 1B20 07        		ret
+                    bksp$:
+dekbsp = 1B21
+518: 1B21 460E1B    dekbsp:	call dekwat
+519: 1B24 77        		ex	bsp
+520: 1B25 07        		ret
+                    rewnd$:
+dekrew = 1B26
+525: 1B26 460E1B    dekrew:	call dekwat
+526: 1B29 7D        		ex	rewnd
+527: 1B2A 460E1B    		call dekwat
+528: 1B2D 07        		ret
+                    pbf$:
+dekpbf = 1B2E
+533: 1B2E 460E1B    dekpbf:	call dekwat	;Wait for any previous operations
+534: 1B31 36AE2E1A  		hl	pfn		;Get the desired file number
+535: 1B35 CF        		lbm
+536: 1B36 7B        		ex	sb		;Start searching backwards
+537: 1B37 44591B    		jmp	bwait
+bback = 1B3A
+539: 1B3A 46DB1B    bback:	call dekstp	;Stop the tape
+540: 1B3D 46ED1B    		call dekfns	;Search for a file marker
+541: 1B40 44491B    		jmp	fskip
+fnext = 1B43
+543: 1B43 46ED19    fnext:	call rtci	;Initialize the retry count
+544: 1B46 46FD1B    		call dekfnn	;Search for next file marker
+fskip = 1B49
+545: 1B49 C3        fskip:	lad			;See if we are there yet
+546: 1B4A B9        		cpb
+547: 1B4B 70431B    		jts	fnext	;Still further to go
+548: 1B4E 68BC1B    		jtz	dekthe	;We are there
+549: 1B51 46DB1B    		call dekstp	;Else stop the tape
+550: 1B54 0607      		la	7		;Error exit seven
+551: 1B56 442718    		jmp	err$
+bwait = 1B59
+553: 1B59 46ED19    bwait:	call rtci	;Initialize the retry count
+554: 1B5C 1606      		lc	6		;Wait for read ready or leader
+555: 1B5E 46101B    		call wait
+556: 1B61 2402      		nd	2
+557: 1B63 48AE1B    		jfz	bstop	;Catch leader
+bread = 1B66
+558: 1B66 F5        bread:	llh			;Push the character onto the stack
+559: 1B67 EC        		lhe
+560: 1B68 E3        		led
+561: 1B69 D8        		lda
+562: 1B6A 46F31A    		call dekred	;Get the next record character
+563: 1B6D 40661B    		jfc	bread
+564: 1B70 C4        		lae			;Get the second record character
+565: 1B71 2CFF      		xr	0377	;Un-complement it
+566: 1B73 BB        		cpd			;See if it matches the first
+567: 1B74 48AE1B    		jfz	bstop
+568: 1B77 3CC3      		cp	0303	;Ignore numeric records
+569: 1B79 68591B    		jtz	bwait
+570: 1B7C 3CE7      		cp	0347	;Ignore symbolic records
+571: 1B7E 68591B    		jtz	bwait
+572: 1B81 3C81      		cp	0201	;Else it must be a file marker
+573: 1B83 48AE1B    		jfz	bstop
+574: 1B86 C6        		lal			;Get the file number complemented
+575: 1B87 2CFF      		xr	0377
+576: 1B89 BD        		cph			;It must match the file number
+577: 1B8A 48AE1B    		jfz	bstop
+578: 1B8D 2600      		le	0		;Flip over the file number
+579: 1B8F 1E08      		ld	8
+flip = 1B91
+580: 1B91 C5        flip:	lah
+581: 1B92 0A        		src
+582: 1B93 E8        		lha
+583: 1B94 C4        		lae
+584: 1B95 88        		aca
+585: 1B96 E0        		lea
+586: 1B97 C3        		lad
+587: 1B98 1401      		su	1
+588: 1B9A D8        		lda
+589: 1B9B 48911B    		jfz	flip
+590: 1B9E C4        		lae			;Compare it to the desired file number
+591: 1B9F B9        		cpb
+592: 1BA0 703A1B    		jts	bback	;We must go in the other direction
+593: 1BA3 48591B    		jfz	bwait	;We aren't back far enough
+594: 1BA6 46DB1B    		call dekstp	;Else stop the tape
+595: 1BA9 71        		ex	rbk		;Position to after the file label
+596: 1BAA 460E1B    		call dekwat	;Wait for it
+597: 1BAD 07        		ret			;And quit
+bstop = 1BAE
+599: 1BAE 46DB1B    bstop:	call dekstp	;Stop the tape
+600: 1BB1 71        		ex	rbk		;Try that record again
+601: 1BB2 46E11B    		call dckrtc	;Decrement the retry count
+602: 1BB5 70381C    		jts	dekbad	;Quit if too many retries
+603: 1BB8 7B        		ex	sb		;Reinitialize backward motion
+604: 1BB9 44661B    		jmp	bread
+dekthe = 1BBC
+606: 1BBC 46DB1B    dekthe:	call dekstp	;Stop the tape
+607: 1BBF 77        		ex	bsp		;Approach the gap from forward direction
+608: 1BC0 460E1B    		call dekwat
+609: 1BC3 71        		ex	rbk
+610: 1BC4 460E1B    		call dekwat
+611: 1BC7 07        		ret			;And quit
+                    pef$:
+dekpef = 1BC8
+616: 1BC8 46ED1B    dekpef:	call dekfns	;Search for the next file marker
+617: 1BCB 46DB1B    		call dekstp	;Stop the tape
+618: 1BCE 77        		ex	bsp		;Position it to after the last record
+619: 1BCF 460E1B    		call dekwat	;In a forward direction
+620: 1BD2 77        		ex	bsp
+621: 1BD3 460E1B    		call dekwat
+622: 1BD6 71        		ex	rbk
+623: 1BD7 460E1B    		call dekwat
+624: 1BDA 07        		ret
+dekstp = 1BDB
+628: 1BDB 7F        dekstp:	ex	tstop	;Stop the tape
+629: 1BDC 460E1B    		call dekwat	;Wait for it to stop
+630: 1BDF 07        		ret
+dekrtc = 1BE0
+634: 1BE0 77        dekrtc:	ex	bsp
+dckrtc = 1BE1
+635: 1BE1 460E1B    dckrtc:	call dekwat
+636: 1BE4 36F52E19  		hl	rtc
+637: 1BE8 C7        		lam
+638: 1BE9 1401      		su	1
+639: 1BEB F8        		lma
+640: 1BEC 07        		ret
+dekfns = 1BED
+644: 1BED 46ED19    dekfns:	call rtci	;Initiate the retry count
+dekfna = 1BF0
+645: 1BF0 460E1B    dekfna:	call dekwat	;Wait for the deck to be ready
+646: 1BF3 79        		ex	sf		;Start forward motion
+647: 1BF4 44FD1B    		jmp	dekfnn	;Inspect the next record
+dekfnw = 1BF7
+649: 1BF7 46F31A    dekfnw:	call dekred	;Wait for block to be over
+650: 1BFA 40F71B    		jfc	dekfnw
+dekfnn = 1BFD
+651: 1BFD 1604      dekfnn:	lc	4		;Wait for data
+652: 1BFF 46101B    		call wait
+653: 1C02 46F31A    		call dekred	;Get the record type
+654: 1C05 D8        		lda			;Save the character
+655: 1C06 46F31A    		call dekred	;Get the record type complemented
+656: 1C09 2CFF      		xr	0377	;Un-complement
+657: 1C0B BB        		cpd			;They must match
+658: 1C0C 482F1C    		jfz	dekfne
+659: 1C0F 3CC3      		cp	0303	;Ignore non-file markers
+660: 1C11 68F71B    		jtz	dekfnw
+661: 1C14 3CE7      		cp	0347
+662: 1C16 68F71B    		jtz	dekfnw
+663: 1C19 3C81      		cp	0201	;Else it must be a file marker
+664: 1C1B 482F1C    		jfz	dekfne
+665: 1C1E 46F31A    		call dekred	;Get the file marker
+666: 1C21 D8        		lda			;Save it
+667: 1C22 46F31A    		call dekred	;Get the file number complemented
+668: 1C25 2CFF      		xr	0377	;Un-complement it
+669: 1C27 BB        		cpd			;They must match
+670: 1C28 482F1C    		jfz	dekfne
+671: 1C2B 46F31A    		call dekred	;This must be the end of the record
+672: 1C2E 23        		rtc
+dekfne = 1C2F
+673: 1C2F 46DB1B    dekfne:	call dekstp	;Stop the tape
+674: 1C32 46E01B    		call dekrtc	;Back up and count try
+675: 1C35 50F01B    		jfs	dekfna	;Try again if not already too many
+dekbad = 1C38
+676: 1C38 0602      dekbad:	la	2		;Else unloadable record
+677: 1C3A 442718    		jmp	err$
+trwx = 1C3D
+681: 1C3D 466A1A    trwx:	call getpkt	;Rewind the tape
+682: 1C40 C1        		lab
+683: 1C41 3C02      		cp	2
+684: 1C43 0601      		la	1
+685: 1C45 482718    		jfz	err$	;Only rewind the front deck
+686: 1C48 46261B    		call rewnd$
+687: 1C4B 07        		ret
+tfnrx = 1C4C
+689: 1C4C 466A1A    tfnrx:	call getpkt	;Read a file number
+trwfnr = 1C4F
+690: 1C4F 46ED1B    trwfnr:	call dekfns	;Find a file marker
+691: 1C52 46DB1B    		call dekstp	;Stop the tape after it
+692: 1C55 D3        		lcd			;Put the file number in the C register
+693: 1C56 07        		ret
+tfnwx = 1C57
+695: 1C57 466A1A    tfnwx:	call getpkt	;Write a file number
+696: 1C5A 460E1B    		call dekwat
+697: 1C5D 73        		ex	wbk		;Fire up a write
+698: 1C5E 1E81      		ld	0201	;Write out the file marker
+699: 1C60 46021B    		call dekwrt
+700: 1C63 1E7E      		ld	0176	;Write out it's complement
+701: 1C65 46021B    		call dekwrt
+702: 1C68 36AE2E1A  		hl	pfn
+703: 1C6C DF        		ldm			;Write out teh file number
+704: 1C6D 46021B    		call dekwrt
+705: 1C70 C3        		lad			;Write out it's complement
+706: 1C71 2CFF      		xr	0377
+707: 1C73 D8        		lda
+708: 1C74 46021B    		call dekwrt
+709: 1C77 460E1B    		call dekwat	;Terminate the write operation
+710: 1C7A 07        		ret
+Assembly successful
+1147 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_FileHandling.bin

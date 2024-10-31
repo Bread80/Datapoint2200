@@ -11,6 +11,7 @@ Hex Oct Opcode/8008 Opcode
 00  000 HALT/HLT    ;Halt
 01  001 HALT/HLT
 02  002 SLC/RLC     ;Shift left circular/Rotate accumulator left
+					;Bit 7 to Carry flag. Bit 7 to Bit 0.
 03  003 RFC         ;Return if not carry
 04  004 AD n/ADI n  ;Add immediate
 05  005 /RST &00    ;Call &0000
@@ -20,6 +21,7 @@ Hex Oct Opcode/8008 Opcode
 08  010 /INB        ;Inc B (Note: there is no INA or INM opcode)
 09  011 /DCB        ;Dec B (Note: there is no DCA or DCM opcode)
 0A  012 SRC/RRC     ;Shift right circular (through carry)/Rotate accumulator right
+					;Bit 0 to Carry flag, Bit 0 to Bit 7.
 0B  013 RFZ         ;Return if not zero
 0C  014 AC n/ACI n  ;Add immediate with carry
 0D  015 /RST &08    ;Call &0008
@@ -63,8 +65,8 @@ Hex Oct Opcode/8008 Opcode
 33  063 RTS         ;Return if sign
 34  064 OR n/ORI n  ;OR immediate
 35  065 /RST &30    ;Call &0030
+36  066 LL n/LLI n  ;Load L immediate
 
-37  067 LL n/LLI n  ;Load L immediate
 38  070 PUSH/       ;Push HL. Version 2 only
 
 3B  073 RTP         ;Return if parity

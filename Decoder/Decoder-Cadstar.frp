@@ -1,0 +1,1263 @@
+.HEA
+.TIM 31/12/2023 21:16:46
+.APP "Eeschema (5.1.10)-1"
+.TYP FULL
+
+.ADD_COM     C5     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C15     "6V47u"     "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+.ADD_COM     C4     "6V47u"     "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+.ADD_COM     C6     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C8     "6V47u"     "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+.ADD_COM     C7     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C11     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C9     "6V47u"     "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+.ADD_COM     C12     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C14     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C26     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C16     ".1"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C20     "6V47u"     "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+.ADD_COM     C24     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C13     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C19     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C17     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C25     ".1u"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     J4A1     "EdgeTop"     "Datapoint2200:EdgeConn_28_Pin_Pitch_3.96mm"
+.ADD_COM     J4B1     "EdgeBottom"     "Datapoint2200:EdgeConn_28_Pin_Pitch_3.96mm"
+.ADD_COM     H902     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H903     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H904     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H901     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H907     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H908     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     Y1     "9.8400MHz"     "Crystal:Crystal_HC49-U_Horizontal"
+.ADD_COM     C1     "160p"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C2     "160p"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     R1     "1k5"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R2     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     Q1     "2N2369A"     "Package_TO_SOT_THT:TO-18-3"
+.ADD_COM     C3     "51p"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     R3     "1k"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R4     "560"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R5     "1k"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R6     "1k"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     L1     "120uH_75mA"     "Inductor_THT:L_Axial_L9.5mm_D4.0mm_P12.70mm_Horizontal_Fastron_SMCC"
+.ADD_COM     Q2     "2N2369A"     "Package_TO_SOT_THT:TO-18-3"
+.ADD_COM     Z11     "7474"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z16     "7474"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z6     "7402"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z18     "7493"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     R28     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     Z13     "7404"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z2     "7490"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z12     "7404"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z19     "7402"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z8     "7408"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z3     "7402"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z7     "7400"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z17     "7400"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z15     "7407"     "$noname"
+.ADD_COM     JP901     "CLK_SRC"     "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+.ADD_COM     H905     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     H906     "MountingHole"     "MountingHole:MountingHole_3.2mm_M3"
+.ADD_COM     U901     "74HCT245"     "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm"
+.ADD_COM     U902     "74HCT245"     "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm"
+.ADD_COM     R901     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R909     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R908     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R911     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R907     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R906     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R902     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R904     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R905     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R903     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R912     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R915     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R914     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R910     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R913     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R917     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R916     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R920     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R918     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R919     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R921     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     D901     "9.84MHz"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D909     "PHASE_CLK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D908     "T0"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D911     "T1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D907     "T2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D906     "T3"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D902     "C3"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D904     "C2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D905     "C1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D903     "C0"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D912     "INH_MEM"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D913     "DIV64_CLK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D915     "PHI1_MEM"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D914     "PHI2_MEM"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D917     "EN_COMP"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D910     "PHI1_REG"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D916     "STROBE1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D920     "STROBE2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D918     "STROBE3"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D919     "STROBE4"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D921     "INT_FACE_CLK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     Q901     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     Q902     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     Q903     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     Q904     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     Q905     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     U981     "RP2040_Stamp"     "RP2040Stamp:RP2040_Stamp_SMD"
+.ADD_COM     J981     "USB_B"     "Connector_USB:USB_B_Lumberg_2411_02_Horizontal"
+.ADD_COM     SW982     "RUN_STOP"     "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS"
+.ADD_COM     SW983     "+/T"     "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS"
+.ADD_COM     U982     "74LVC245"     "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm"
+.ADD_COM     SW984     "-/S"     "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS"
+.ADD_COM     SW981     "BOOTSEL"     "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm"
+.ADD_COM     Q906     "2N7002"     "Package_TO_SOT_SMD:SOT-23"
+.ADD_COM     J902     "~WORD_SELECT"     "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Horizontal"
+.ADD_COM     Z14     "74154"     "Package_DIP:DIP-24_W15.24mm_Socket"
+.ADD_COM     Z10     "7407"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     R12     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R16     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R15     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R14     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R13     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R17     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R18     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R11     "470"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     Z22     "7407"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z21     "74154"     "Package_DIP:DIP-24_W15.24mm_Socket"
+.ADD_COM     R19     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R20     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R21     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R22     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R23     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R26     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R24     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R27     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R25     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     Z5     "7410"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     U944     "74LS04"     "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+.ADD_COM     U943     "74LS04"     "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+.ADD_COM     U941     "74LS04"     "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+.ADD_COM     U942     "74LS04"     "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+.ADD_COM     R957     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R958     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R959     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R960     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R961     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R962     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R963     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R964     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R941     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R942     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R943     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R944     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R945     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R946     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R947     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R948     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R956     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R955     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R954     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R953     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R952     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R951     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R950     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     R949     "470"     "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+.ADD_COM     D957     "ADDR"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D958     "STATUS"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D959     "DATA"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D960     "WRITE"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D961     "COM1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D962     "COM2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D963     "COM3"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D964     "COM4"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D956     "T_STOP"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D955     "REWIND"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D954     "SLEWBCK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D953     "SLEWFWD"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D952     "BACKSP"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D951     "WR_EOF"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D950     "WR_BLK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D949     "RD_BLK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D948     "DECK2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D947     "DECK1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D946     "CLICK"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D945     "BEEP"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D944     "PORT3"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D943     "PORT2"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D942     "PORT1"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     D941     "PORT0"     "Datapoint2200:LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm"
+.ADD_COM     Z9     "7400"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     Z1     "7474"     "Package_DIP:DIP-14_W7.62mm_Socket"
+.ADD_COM     C21     ".001u_200V"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C22     ".001u_200V"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     C10     ".01u_50V"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     R10     "10k"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     CR2     "1N914"     "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal"
+.ADD_COM     C23     ".001u_200V"     "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
+.ADD_COM     CR1     "1N914"     "Diode_THT:D_DO-34_SOD68_P7.62mm_Horizontal"
+.ADD_COM     R9     "2k2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R7     "5.1"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     R8     "1.2"     "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+.ADD_COM     Z4     "75451"     "Package_DIP:DIP-8_W7.62mm_Socket"
+.ADD_COM     Z20     "75451"     "Package_DIP:DIP-8_W7.62mm_Socket"
+
+
+.ADD_TER   Z11   2     "+5V"
+.TER       Z11   3
+            Z2   5
+            R28   2
+            Z14   24
+            Z11   10
+            Z11   13
+            Z16   10
+            Z18   5
+            R4   1
+            R5   2
+            R23   1
+            R26   1
+            R24   1
+            R27   1
+            R25   1
+            R13   1
+            R12   1
+            R16   1
+            R15   1
+            R14   1
+            R17   1
+            R18   1
+            R11   1
+            Z10   14
+            Z15   14
+            Z22   14
+            Z13   14
+            Z13   1
+            Z16   14
+            Z17   14
+            Z12   14
+            Z7   14
+            Z19   14
+            Z11   14
+            Z8   14
+            Z6   14
+            Z16   4
+            Z16   13
+            Z16   1
+            Z3   14
+            Z3   2
+            Z3   3
+            D913   2
+            U981   33
+            D912   2
+            D910   2
+            CR2   1
+            C22   2
+            U982   1
+            U941   14
+            U944   14
+            U943   14
+            U942   14
+            C23   1
+            U902   1
+            U902   20
+            U901   20
+            U901   1
+            D909   2
+            D901   2
+            Z1   14
+            Z20   8
+            Z4   8
+            Z5   14
+            Z9   14
+            Z1   4
+            Z1   10
+            R21   1
+            Z21   24
+            R19   1
+            R20   1
+            R22   1
+            C8   1
+            J4B1   1
+            C6   2
+            C14   2
+            C26   2
+            C16   1
+            C7   2
+            J4B1   28
+            C20   1
+            C4   1
+            C11   2
+            C12   2
+            C17   1
+            C15   1
+            C5   2
+            C24   1
+            C25   1
+            C13   1
+            C19   1
+            C9   1
+
+.ADD_TER   U941   13     "/IODecoder/~BEEP"
+.TER       Z21   5
+            Z9   5
+
+.ADD_TER   Z21   6     "/IODecoder/~CLICK"
+.TER       U941   11
+            Z9   2
+
+.ADD_TER   D905   1     "GND"
+.TER       D903   1
+            SW981   1
+            Q906   2
+            SW984   1
+            C19   2
+            C13   2
+            U901   10
+            U901   19
+            C24   2
+            U902   10
+            U902   19
+            C20   2
+            Q901   2
+            D918   1
+            D914   1
+            D917   1
+            C16   2
+            D920   1
+            Z3   7
+            D919   1
+            D921   1
+            D916   1
+            D907   1
+            D906   1
+            D902   1
+            D904   1
+            Q904   2
+            Q902   2
+            D915   1
+            Q903   2
+            Z13   7
+            J4A1   28
+            C11   1
+            CR1   2
+            Q2   1
+            Z14   12
+            Z21   12
+            C7   1
+            C6   1
+            Z2   6
+            Z2   7
+            C4   2
+            C15   2
+            C5   1
+            Z2   2
+            C9   2
+            Z2   10
+            Z2   3
+            Z18   10
+            SW983   1
+            U982   10
+            U982   19
+            SW982   1
+            Z18   2
+            Z18   3
+            U981   31
+            J981   4
+            J981   5
+            C2   2
+            C8   2
+            Y1   1
+            C26   1
+            C14   1
+            C12   1
+            C21   1
+            Z5   7
+            Z4   4
+            Z20   4
+            Z1   7
+            Z9   7
+            J4A1   1
+            R6   1
+            L1   2
+            Z10   7
+            Z12   7
+            Z6   7
+            Z7   7
+            Z17   7
+            Z8   7
+            Z11   7
+            Z19   7
+            D952   1
+            D950   1
+            U942   7
+            U943   7
+            U944   7
+            D953   1
+            U941   7
+            C25   2
+            D908   1
+            Z16   7
+            D951   1
+            D964   1
+            D956   1
+            D955   1
+            D954   1
+            Q905   2
+            D945   1
+            D946   1
+            Z22   7
+            D957   1
+            D958   1
+            D959   1
+            D960   1
+            D961   1
+            D962   1
+            D963   1
+            C17   2
+            Z15   7
+            D947   1
+            D942   1
+            D943   1
+            D941   1
+            D944   1
+            D948   1
+            D949   1
+            D911   1
+
+.ADD_TER   J4A1   21     "I4"
+.TER       Z21   20
+            Z14   20
+            Z13   13
+
+.ADD_TER   R16   2     "~COM_3"
+.TER       Z10   2
+            J4B1   27
+
+.ADD_TER   R12   2     "~COM_4"
+.TER       J4B1   23
+            Z10   10
+
+.ADD_TER   J4A1   23     "~BACK_SPACE_STB"
+.TER       R23   2
+            Z22   2
+
+.ADD_TER   J4A1   27     "~T_STOP_STB"
+.TER       R19   2
+            Z15   8
+
+.ADD_TER   J4B1   16     "~DECK_1_STB"
+.TER       R25   2
+            Z22   4
+
+.ADD_TER   R27   2     "~DECK_2_STB"
+.TER       J4B1   18
+            Z22   8
+
+.ADD_TER   J4A1   16     "~READ_BLK_STB"
+.TER       Z22   6
+            R24   2
+
+.ADD_TER   Z22   10     "~WRITE_BLK_STB"
+.TER       J4B1   17
+            R26   2
+
+.ADD_TER   R20   2     "~RWD_STB"
+.TER       Z15   10
+            J4A1   26
+
+.ADD_TER   J4A1   25     "~SLEW_REV_STB"
+.TER       Z15   6
+            R21   2
+
+.ADD_TER   Z22   12     "~SLEW_FWB_STB"
+.TER       J4A1   24
+            R22   2
+
+.ADD_TER   Z8   10     "~ADDRESS"
+.TER       J4B1   14
+
+.ADD_TER   U943   13     "~WRITE_EOF_STB"
+.TER       J4A1   17
+            Z21   11
+
+.ADD_TER   J4A1   22     "~ENABLE_2"
+.TER       Z21   18
+
+.ADD_TER   Z10   4     "~COM_2"
+.TER       R15   2
+            J4B1   26
+
+.ADD_TER   Z14   21     "I3"
+.TER       Z5   9
+            J4A1   20
+            Z21   21
+
+.ADD_TER   Z21   23     "I1"
+.TER       Z14   23
+            J4A1   18
+
+.ADD_TER   Z14   22     "I2"
+.TER       J4A1   19
+            Z21   22
+            Z13   11
+
+.ADD_TER   J4B1   22     "~ENABLE_1"
+.TER       Z14   18
+            Z14   19
+
+.ADD_TER   J4B1   10     "INH_MEM"
+.TER       Z3   9
+            Q904   1
+
+.ADD_TER   Z20   5     "220_R1"
+.TER       J4B1   12
+
+.ADD_TER   J4A1   11     "220_R2"
+.TER       Z20   3
+
+.ADD_TER   Z20   7     "REWIND"
+.TER       J4B1   13
+            Z20   2
+
+.ADD_TER   Z20   6     "DECK_1"
+.TER       Z13   9
+            J4A1   12
+
+.ADD_TER   Z7   1     "~DIV64_CLK"
+.TER       J4A1   5
+            Z13   4
+
+.ADD_TER   Z11   8     "PHASE_CLK"
+.TER       Z11   12
+            Q902   1
+            J4A1   4
+            Z8   1
+
+.ADD_TER   U902   9     "INT_FACE_CLK"
+.TER       J4B1   11
+            R28   1
+            Z18   8
+
+.ADD_TER   Z15   12     "DIV64_CLK"
+.TER       J4B1   5
+
+.ADD_TER   J4B1   6     "1.2MHz"
+.TER       Z12   2
+
+.ADD_TER   R8   2     "SPEAKER"
+.TER       R7   2
+            J4A1   14
+
+.ADD_TER   Z17   6     "PHI2_MEM"
+.TER       J4B1   7
+            U902   2
+
+.ADD_TER   U902   5     "EN_COMP"
+.TER       Z19   10
+            J4B1   9
+
+.ADD_TER   Z19   4     "STROBE_2"
+.TER       J4B1   8
+            U902   8
+
+.ADD_TER   J4B1   21     "~ADR_STB"
+.TER       R11   2
+            Z10   8
+
+.ADD_TER   Z15   4     "~SENSE_STATUS_STB"
+.TER       R18   2
+            J4B1   20
+
+.ADD_TER   R17   2     "~SENSE_DATA_STB"
+.TER       Z15   2
+            J4B1   19
+
+.ADD_TER   R13   2     "~WRITE_STB"
+.TER       Z10   12
+            J4B1   24
+
+.ADD_TER   J4B1   25     "~COM_1"
+.TER       R14   2
+            Z10   6
+
+.ADD_TER   Z19   13     "STROBE_1"
+.TER       J4A1   9
+            U902   4
+
+.ADD_TER   U902   7     "STROBE_4"
+.TER       J4A1   8
+            Z19   1
+
+.ADD_TER   U902   3     "PHI1_MEM"
+.TER       J4A1   7
+            Z17   8
+
+.ADD_TER   J4A1   3     "STROBE_3"
+.TER       Z11   6
+            U902   6
+
+.ADD_TER   Z12   6     "PHI1_REG"
+.TER       Q903   1
+            Z12   4
+            J4A1   6
+
+.ADD_TER   Z12   12     "~T1"
+.TER       J4A1   10
+            Z19   9
+            Z19   5
+
+.ADD_TER   J4B1   3     "BEEP"
+.TER       Z9   8
+            Z4   2
+            Z4   1
+
+.ADD_TER   J4A1   13     "1.5KC"
+.TER       R9   1
+
+.ADD_TER   Z5   1     "~POR"
+.TER       J4B1   15
+            Z1   13
+            Z1   1
+            Z5   4
+            C22   1
+
+.ADD_TER   J4A1   15     "7.5CPS"
+.TER       Z1   3
+            C21   2
+
+.ADD_TER   Z11   4     "/Scheduler/~STEP8or9_T2"
+.TER       Z7   6
+
+.ADD_TER   Z19   3     "/Scheduler/~T3"
+.TER       Z19   11
+            Z12   8
+
+.ADD_TER   Z17   2     "/Scheduler/STEPS1TO8"
+.TER       Z8   6
+
+.ADD_TER   Z12   10     "Net-(Z12-Pad10)"
+.TER       Z17   13
+
+.ADD_TER   Z17   11     "/Scheduler/~STEP8"
+.TER       Z19   12
+
+.ADD_TER   Z19   2     "~STEP9"
+.TER       Z7   8
+            Z8   5
+            Z19   6
+
+.ADD_TER   Z3   13     "Net-(Z3-Pad13)"
+.TER       Z7   12
+
+.ADD_TER   Z7   3     "Net-(Z11-Pad1)"
+.TER       Z11   1
+
+.ADD_TER   U901   12     "/Scheduler/StampClock/T1"
+.TER       R911   2
+            U982   8
+
+.ADD_TER   U901   11     "/Scheduler/StampClock/T0"
+.TER       R908   2
+            U982   9
+
+.ADD_TER   Z17   12     "C3"
+.TER       Z15   13
+            Q905   1
+            Z7   9
+            Z2   11
+            Z3   8
+            U901   5
+            Z13   3
+            Z7   4
+            Z3   6
+
+.ADD_TER   U982   2     "/Scheduler/StampClock/C3"
+.TER       R902   2
+            U901   15
+
+.ADD_TER   U982   4     "/Scheduler/StampClock/C1"
+.TER       U901   17
+            R905   2
+
+.ADD_TER   U901   16     "/Scheduler/StampClock/C2"
+.TER       U982   3
+            R904   2
+
+.ADD_TER   R906   2     "/Scheduler/StampClock/T3"
+.TER       U982   6
+            U901   14
+
+.ADD_TER   U901   13     "/Scheduler/StampClock/T2"
+.TER       R907   2
+            U982   7
+
+.ADD_TER   R903   2     "/Scheduler/StampClock/C0"
+.TER       U901   18
+            U982   5
+
+.ADD_TER   JP901   3     "RP_CLK"
+.TER       U981   11
+
+.ADD_TER   U901   7     "T2"
+.TER       Z6   1
+            Z7   5
+
+.ADD_TER   Z17   9     "T3"
+.TER       Z6   13
+            U901   6
+            Z12   9
+
+.ADD_TER   U901   3     "C1"
+.TER       Z2   9
+            Z3   11
+
+.ADD_TER   Z3   5     "C2"
+.TER       U901   4
+            Z2   8
+
+.ADD_TER   Q2   3     "9.84MHz"
+.TER       R5   1
+            JP901   1
+
+.ADD_TER   Q901   1     "SYS_CLK"
+.TER       JP901   2
+            Z11   11
+
+.ADD_TER   Z6   9     "Net-(Z16-Pad2)"
+.TER       Z16   9
+            Z6   5
+            Z16   2
+
+.ADD_TER   Z11   9     "Net-(Z11-Pad9)"
+.TER       Z16   11
+            Z16   3
+
+.ADD_TER   Z18   12     "Net-(Z18-Pad1)"
+.TER       Z18   1
+
+.ADD_TER   Z6   2     "Net-(Z16-Pad8)"
+.TER       Z16   8
+            Z6   11
+
+.ADD_TER   Z6   3     "Net-(Z16-Pad5)"
+.TER       Z16   5
+            Z6   8
+
+.ADD_TER   Z6   12     "Net-(Z16-Pad12)"
+.TER       Z16   6
+            Z16   12
+            Z6   6
+
+.ADD_TER   R4   2     "Net-(C3-Pad2)"
+.TER       Q1   3
+            R2   1
+            R3   2
+            C3   2
+
+.ADD_TER   R1   1     "Net-(C1-Pad1)"
+.TER       C1   1
+            Y1   2
+            R2   2
+            Q1   2
+
+.ADD_TER   Q1   1     "Net-(C1-Pad2)"
+.TER       R1   2
+            C2   1
+            C1   2
+            L1   1
+
+.ADD_TER   R3   1     "Net-(C3-Pad1)"
+.TER       C3   1
+            R6   2
+            Q2   2
+
+.ADD_TER   Z8   3     "Net-(Z17-Pad1)"
+.TER       Z17   1
+
+.ADD_TER   Z12   3     "Net-(Z12-Pad3)"
+.TER       Z17   3
+            Z12   5
+
+.ADD_TER   Z3   4     "Net-(Z3-Pad4)"
+.TER       Z7   13
+
+.ADD_TER   Z19   8     "/Scheduler/~C0"
+.TER       Z7   11
+            Z8   4
+
+.ADD_TER   Z17   5     "Net-(Z17-Pad10)"
+.TER       Z17   10
+            Z3   10
+
+.ADD_TER   Z6   4     "T0"
+.TER       U901   9
+            Z8   2
+            Z13   5
+
+.ADD_TER   Z2   14     "/Scheduler/~T0"
+.TER       Z13   6
+            Z7   2
+
+.ADD_TER   Z2   12     "C0"
+.TER       Z3   12
+            Z7   10
+            Z12   11
+            Z2   1
+            U901   2
+
+.ADD_TER   U901   8     "T1"
+.TER       Z12   1
+            Z12   13
+            Z18   14
+            Z6   10
+            Z17   4
+
+.ADD_TER   Z21   19     "Net-(Z21-Pad19)"
+.TER       Z8   8
+
+.ADD_TER   Z5   8     "Net-(Z5-Pad8)"
+.TER       Z8   9
+
+.ADD_TER   Z13   10     "Net-(Z13-Pad10)"
+.TER       Z5   10
+
+.ADD_TER   Z21   2     "~PORT1"
+.TER       U941   3
+
+.ADD_TER   Z5   11     "Net-(Z13-Pad12)"
+.TER       Z13   12
+
+.ADD_TER   Z21   4     "~PORT3"
+.TER       U941   9
+
+.ADD_TER   Z21   10     "~WRITE_BLK"
+.TER       Z22   11
+            U942   1
+
+.ADD_TER   Z21   3     "~PORT2"
+.TER       U941   5
+
+.ADD_TER   Z22   5     "~READ_BLK"
+.TER       U942   11
+            Z21   9
+
+.ADD_TER   U942   9     "~BACK_SPACE"
+.TER       Z21   13
+            Z22   1
+
+.ADD_TER   Z21   14     "~SLEW_FWB"
+.TER       U942   5
+            Z22   13
+
+.ADD_TER   U943   5     "~SLEW_REV"
+.TER       Z21   15
+            Z15   5
+
+.ADD_TER   Z15   11     "~RWD"
+.TER       U943   3
+            Z21   16
+
+.ADD_TER   Z15   9     "~T_STOP"
+.TER       U943   1
+            Z21   17
+
+.ADD_TER   U942   3     "~DECK_1"
+.TER       Z22   3
+            Z21   7
+
+.ADD_TER   U942   13     "~DECK_2"
+.TER       Z21   8
+            Z22   9
+
+.ADD_TER   U943   9     "~SENSE_DATA"
+.TER       Z14   11
+            Z15   1
+
+.ADD_TER   Z15   3     "~SENSE_STATUS"
+.TER       Z14   10
+            U943   11
+
+.ADD_TER   Z14   9     "~ADR"
+.TER       Z10   9
+            U944   1
+
+.ADD_TER   U944   3     "~COM4"
+.TER       Z10   11
+            Z14   17
+
+.ADD_TER   Z10   13     "~WRITE"
+.TER       Z14   13
+            U944   5
+
+.ADD_TER   Z10   5     "~COM1"
+.TER       U944   13
+            Z14   14
+
+.ADD_TER   Z10   3     "~COM2"
+.TER       Z14   15
+            U944   11
+
+.ADD_TER   U941   1     "~PORT0"
+.TER       Z21   1
+
+.ADD_TER   U944   9     "~COM3"
+.TER       Z10   1
+            Z14   16
+
+.ADD_TER   Z4   6     "Net-(Z4-Pad6)"
+.TER       Z4   7
+            Z9   11
+
+.ADD_TER   Z20   1     "Net-(Z13-Pad8)"
+.TER       Z13   8
+
+.ADD_TER   Z9   12     "Net-(Z1-Pad5)"
+.TER       Z1   5
+
+.ADD_TER   Z1   9     "Net-(Z1-Pad9)"
+.TER       Z9   10
+            Z9   9
+
+.ADD_TER   Z4   3     "/Speaker_Tape/SP2"
+.TER       R8   1
+
+.ADD_TER   Z4   5     "/Speaker_Tape/SP1"
+.TER       R7   1
+
+.ADD_TER   Z1   6     "Net-(Z1-Pad6)"
+.TER       Z5   13
+
+.ADD_TER   Z5   5     "Net-(Z1-Pad12)"
+.TER       Z9   3
+            Z1   12
+
+.ADD_TER   Z5   2     "Net-(Z1-Pad2)"
+.TER       Z9   6
+            Z1   2
+
+.ADD_TER   Z9   1     "Net-(Z5-Pad6)"
+.TER       Z5   6
+
+.ADD_TER   Z1   8     "Net-(Z1-Pad8)"
+.TER       Z5   3
+
+.ADD_TER   Z9   4     "Net-(Z5-Pad12)"
+.TER       Z5   12
+
+.ADD_TER   Z8   11     "Net-(C10-Pad1)"
+.TER       Z9   13
+            R10   1
+            Z1   11
+            C10   1
+
+.ADD_TER   C10   2     "Net-(C10-Pad2)"
+.TER       CR2   2
+            C23   2
+            CR1   1
+            R9   2
+            R10   2
+            Z8   12
+            Z8   13
+
+.ADD_TER   U981   35     "Net-(J981-Pad2)"
+.TER       J981   2
+
+.ADD_TER   J981   3     "Net-(J981-Pad3)"
+.TER       U981   36
+
+.ADD_TER   U981   28     "Net-(SW982-Pad2)"
+.TER       SW982   2
+
+.ADD_TER   U982   12     "Net-(U981-Pad19)"
+.TER       U981   19
+
+.ADD_TER   SW983   2     "Net-(SW983-Pad2)"
+.TER       U981   29
+
+.ADD_TER   U982   11     "Net-(U981-Pad20)"
+.TER       U981   20
+
+.ADD_TER   U981   18     "Net-(U981-Pad18)"
+.TER       U982   13
+
+.ADD_TER   U982   14     "Net-(U981-Pad17)"
+.TER       U981   17
+
+.ADD_TER   U981   16     "Net-(U981-Pad16)"
+.TER       U982   15
+
+.ADD_TER   U981   15     "Net-(U981-Pad15)"
+.TER       U982   16
+
+.ADD_TER   U982   17     "Net-(U981-Pad14)"
+.TER       U981   14
+
+.ADD_TER   U982   18     "Net-(U981-Pad13)"
+.TER       U981   13
+
+.ADD_TER   U981   40     "Net-(SW981-Pad2)"
+.TER       SW981   2
+
+.ADD_TER   U981   10     "WORD_SELECT"
+.TER       Q906   3
+
+.ADD_TER   SW984   2     "Net-(SW984-Pad2)"
+.TER       U981   30
+
+.ADD_TER   U982   20     "+3V3"
+.TER       U981   34
+
+.ADD_TER   Q906   1     "Net-(J902-Pad1)"
+.TER       J902   1
+
+.ADD_TER   R908   1     "Net-(D908-Pad2)"
+.TER       D908   2
+
+.ADD_TER   D907   2     "Net-(D907-Pad2)"
+.TER       R907   1
+
+.ADD_TER   D906   2     "Net-(D906-Pad2)"
+.TER       R906   1
+
+.ADD_TER   D905   2     "Net-(D905-Pad2)"
+.TER       R905   1
+
+.ADD_TER   R904   1     "Net-(D904-Pad2)"
+.TER       D904   2
+
+.ADD_TER   R903   1     "Net-(D903-Pad2)"
+.TER       D903   2
+
+.ADD_TER   R902   1     "Net-(D902-Pad2)"
+.TER       D902   2
+
+.ADD_TER   D918   2     "Net-(D918-Pad2)"
+.TER       R918   1
+
+.ADD_TER   D911   2     "Net-(D911-Pad2)"
+.TER       R911   1
+
+.ADD_TER   D914   2     "Net-(D914-Pad2)"
+.TER       R914   1
+
+.ADD_TER   D915   2     "Net-(D915-Pad2)"
+.TER       R915   1
+
+.ADD_TER   D916   2     "Net-(D916-Pad2)"
+.TER       R916   1
+
+.ADD_TER   D919   2     "Net-(D919-Pad2)"
+.TER       R919   1
+
+.ADD_TER   D917   2     "Net-(D917-Pad2)"
+.TER       R917   1
+
+.ADD_TER   D920   2     "Net-(D920-Pad2)"
+.TER       R920   1
+
+.ADD_TER   R921   1     "Net-(D921-Pad2)"
+.TER       D921   2
+
+.ADD_TER   D912   1     "Net-(D912-Pad1)"
+.TER       R912   2
+
+.ADD_TER   D910   1     "Net-(D910-Pad1)"
+.TER       R910   2
+
+.ADD_TER   R909   2     "Net-(D909-Pad1)"
+.TER       D909   1
+
+.ADD_TER   Q902   3     "Net-(Q902-Pad3)"
+.TER       R909   1
+
+.ADD_TER   Q904   3     "Net-(Q904-Pad3)"
+.TER       R912   1
+
+.ADD_TER   Q903   3     "Net-(Q903-Pad3)"
+.TER       R910   1
+
+.ADD_TER   R901   2     "Net-(D901-Pad1)"
+.TER       D901   1
+
+.ADD_TER   R901   1     "Net-(Q901-Pad3)"
+.TER       Q901   3
+
+.ADD_TER   U902   11     "Net-(R921-Pad2)"
+.TER       R921   2
+
+.ADD_TER   R914   2     "Net-(R914-Pad2)"
+.TER       U902   18
+
+.ADD_TER   R915   2     "Net-(R915-Pad2)"
+.TER       U902   17
+
+.ADD_TER   R916   2     "Net-(R916-Pad2)"
+.TER       U902   16
+
+.ADD_TER   U902   15     "Net-(R917-Pad2)"
+.TER       R917   2
+
+.ADD_TER   U902   14     "Net-(R918-Pad2)"
+.TER       R918   2
+
+.ADD_TER   U902   13     "Net-(R919-Pad2)"
+.TER       R919   2
+
+.ADD_TER   U902   12     "Net-(R920-Pad2)"
+.TER       R920   2
+
+.ADD_TER   R913   2     "Net-(D913-Pad1)"
+.TER       D913   1
+
+.ADD_TER   Q905   3     "Net-(Q905-Pad3)"
+.TER       R913   1
+
+.ADD_TER   R963   1     "Net-(D963-Pad2)"
+.TER       D963   2
+
+.ADD_TER   R964   1     "Net-(D964-Pad2)"
+.TER       D964   2
+
+.ADD_TER   D941   2     "Net-(D941-Pad2)"
+.TER       R941   1
+
+.ADD_TER   D942   2     "Net-(D942-Pad2)"
+.TER       R942   1
+
+.ADD_TER   D943   2     "Net-(D943-Pad2)"
+.TER       R943   1
+
+.ADD_TER   R944   1     "Net-(D944-Pad2)"
+.TER       D944   2
+
+.ADD_TER   R945   1     "Net-(D945-Pad2)"
+.TER       D945   2
+
+.ADD_TER   R946   1     "Net-(D946-Pad2)"
+.TER       D946   2
+
+.ADD_TER   R959   2     "Net-(R959-Pad2)"
+.TER       U943   8
+
+.ADD_TER   R959   1     "Net-(D959-Pad2)"
+.TER       D959   2
+
+.ADD_TER   R949   1     "Net-(D949-Pad2)"
+.TER       D949   2
+
+.ADD_TER   D957   2     "Net-(D957-Pad2)"
+.TER       R957   1
+
+.ADD_TER   D958   2     "Net-(D958-Pad2)"
+.TER       R958   1
+
+.ADD_TER   D950   2     "Net-(D950-Pad2)"
+.TER       R950   1
+
+.ADD_TER   R960   1     "Net-(D960-Pad2)"
+.TER       D960   2
+
+.ADD_TER   R961   1     "Net-(D961-Pad2)"
+.TER       D961   2
+
+.ADD_TER   D962   2     "Net-(D962-Pad2)"
+.TER       R962   1
+
+.ADD_TER   R947   1     "Net-(D947-Pad2)"
+.TER       D947   2
+
+.ADD_TER   R951   1     "Net-(D951-Pad2)"
+.TER       D951   2
+
+.ADD_TER   R952   1     "Net-(D952-Pad2)"
+.TER       D952   2
+
+.ADD_TER   U942   6     "Net-(R953-Pad2)"
+.TER       R953   2
+
+.ADD_TER   D953   2     "Net-(D953-Pad2)"
+.TER       R953   1
+
+.ADD_TER   R954   2     "Net-(R954-Pad2)"
+.TER       U943   6
+
+.ADD_TER   D954   2     "Net-(D954-Pad2)"
+.TER       R954   1
+
+.ADD_TER   U943   4     "Net-(R955-Pad2)"
+.TER       R955   2
+
+.ADD_TER   D955   2     "Net-(D955-Pad2)"
+.TER       R955   1
+
+.ADD_TER   D956   2     "Net-(D956-Pad2)"
+.TER       R956   1
+
+.ADD_TER   D948   2     "Net-(D948-Pad2)"
+.TER       R948   1
+
+.ADD_TER   U944   8     "Net-(R963-Pad2)"
+.TER       R963   2
+
+.ADD_TER   U944   2     "Net-(R957-Pad2)"
+.TER       R957   2
+
+.ADD_TER   U944   4     "Net-(R964-Pad2)"
+.TER       R964   2
+
+.ADD_TER   U944   6     "Net-(R960-Pad2)"
+.TER       R960   2
+
+.ADD_TER   R948   2     "Net-(R948-Pad2)"
+.TER       U942   12
+
+.ADD_TER   R949   2     "Net-(R949-Pad2)"
+.TER       U942   10
+
+.ADD_TER   R952   2     "Net-(R952-Pad2)"
+.TER       U942   8
+
+.ADD_TER   R947   2     "Net-(R947-Pad2)"
+.TER       U942   4
+
+.ADD_TER   U942   2     "Net-(R950-Pad2)"
+.TER       R950   2
+
+.ADD_TER   R945   2     "Net-(R945-Pad2)"
+.TER       U941   12
+
+.ADD_TER   R946   2     "Net-(R946-Pad2)"
+.TER       U941   10
+
+.ADD_TER   R956   2     "Net-(R956-Pad2)"
+.TER       U943   2
+
+.ADD_TER   U941   8     "Net-(R944-Pad2)"
+.TER       R944   2
+
+.ADD_TER   U941   6     "Net-(R943-Pad2)"
+.TER       R943   2
+
+.ADD_TER   R942   2     "Net-(R942-Pad2)"
+.TER       U941   4
+
+.ADD_TER   U941   2     "Net-(R941-Pad2)"
+.TER       R941   2
+
+.ADD_TER   U944   12     "Net-(R961-Pad2)"
+.TER       R961   2
+
+.ADD_TER   U944   10     "Net-(R962-Pad2)"
+.TER       R962   2
+
+.ADD_TER   U943   12     "Net-(R951-Pad2)"
+.TER       R951   2
+
+.ADD_TER   U943   10     "Net-(R958-Pad2)"
+.TER       R958   2
+
+.END

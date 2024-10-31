@@ -1,0 +1,178 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Datapoint2200:74ALVC7804 U?
+U 1 1 66791A59
+P 3950 2050
+F 0 "U?" H 4200 2100 50  0000 C CNN
+F 1 "74ALVC7804" H 4350 2000 50  0000 C CNN
+F 2 "" H 3950 -1300 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/sn74alvc7804.pdf" H 3950 -1300 50  0001 C CNN
+	1    3950 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS573 U?
+U 1 1 667938C7
+P 5850 4100
+F 0 "U?" H 5850 5081 50  0000 C CNN
+F 1 "74HCT573" H 5850 4990 50  0000 C CNN
+F 2 "" H 5850 4100 50  0001 C CNN
+F 3 "74xx/74hc573.pdf" H 5850 4100 50  0001 C CNN
+	1    5850 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 66794570
+P 3850 2000
+F 0 "#PWR?" H 3850 1850 50  0001 C CNN
+F 1 "+3.3V" H 3865 2173 50  0000 C CNN
+F 2 "" H 3850 2000 50  0001 C CNN
+F 3 "" H 3850 2000 50  0001 C CNN
+	1    3850 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 2000 3850 2100
+Wire Wire Line
+	3850 2100 3950 2100
+Wire Wire Line
+	4050 2100 4050 2200
+Connection ~ 3850 2100
+Wire Wire Line
+	3850 2100 3850 2200
+Wire Wire Line
+	3950 2100 3950 2200
+Connection ~ 3950 2100
+Wire Wire Line
+	3950 2100 4050 2100
+$Comp
+L power:+3.3V #PWR?
+U 1 1 66795782
+P 3450 4600
+F 0 "#PWR?" H 3450 4450 50  0001 C CNN
+F 1 "+3.3V" H 3300 4650 50  0000 C CNN
+F 2 "" H 3450 4600 50  0001 C CNN
+F 3 "" H 3450 4600 50  0001 C CNN
+	1    3450 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 4600 3550 4600
+$Comp
+L power:GND #PWR?
+U 1 1 66796716
+P 3800 5800
+F 0 "#PWR?" H 3800 5550 50  0001 C CNN
+F 1 "GND" H 3805 5627 50  0001 C CNN
+F 2 "" H 3800 5800 50  0001 C CNN
+F 3 "" H 3800 5800 50  0001 C CNN
+	1    3800 5800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 5600 3800 5700
+Wire Wire Line
+	3800 5700 3900 5700
+Wire Wire Line
+	4100 5700 4100 5600
+Connection ~ 3800 5700
+Wire Wire Line
+	3800 5700 3800 5800
+Wire Wire Line
+	4000 5600 4000 5700
+Connection ~ 4000 5700
+Wire Wire Line
+	4000 5700 4100 5700
+Wire Wire Line
+	3900 5600 3900 5700
+Connection ~ 3900 5700
+Wire Wire Line
+	3900 5700 4000 5700
+$Comp
+L power:GND #PWR?
+U 1 1 66797863
+P 3450 4950
+F 0 "#PWR?" H 3450 4700 50  0001 C CNN
+F 1 "GND" H 3455 4777 50  0001 C CNN
+F 2 "" H 3450 4950 50  0001 C CNN
+F 3 "" H 3450 4950 50  0001 C CNN
+	1    3450 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 4950 3550 4950
+NoConn ~ 4350 4500
+NoConn ~ 4350 4600
+NoConn ~ 4350 4700
+Text Notes 6900 5650 0    50   ~ 0
+Read and latch data when FIFO becomes full.
+Text Notes 2900 4500 0    50   ~ 0
+POR needed! (?)
+$Comp
+L 74xx:74LS04 U?
+U 1 1 66798CE6
+P 4750 4800
+F 0 "U?" H 4750 5117 50  0000 C CNN
+F 1 "74LVC04" H 4750 5026 50  0000 C CNN
+F 2 "" H 4750 4800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 4750 4800 50  0001 C CNN
+	1    4750 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 4800 4350 4800
+Wire Wire Line
+	5050 4800 5150 4800
+Wire Wire Line
+	5150 4800 5150 4500
+Wire Wire Line
+	5150 4500 5350 4500
+$Comp
+L power:GND #PWR?
+U 1 1 6679B8E8
+P 5250 4600
+F 0 "#PWR?" H 5250 4350 50  0001 C CNN
+F 1 "GND" H 5255 4427 50  0001 C CNN
+F 2 "" H 5250 4600 50  0001 C CNN
+F 3 "" H 5250 4600 50  0001 C CNN
+	1    5250 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6679BCF6
+P 5850 4900
+F 0 "#PWR?" H 5850 4650 50  0001 C CNN
+F 1 "GND" H 5855 4727 50  0001 C CNN
+F 2 "" H 5850 4900 50  0001 C CNN
+F 3 "" H 5850 4900 50  0001 C CNN
+	1    5850 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 4600 5250 4600
+Wire Wire Line
+	5150 4800 5150 6000
+Wire Wire Line
+	5150 6000 3350 6000
+Wire Wire Line
+	3350 6000 3350 4850
+Wire Wire Line
+	3350 4850 3550 4850
+Connection ~ 5150 4800
+$EndSCHEMATC

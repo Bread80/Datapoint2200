@@ -4,6 +4,58 @@ $CMP 1405
 D Intel 1405 512-bit (512 x 1) Dymanic Recirculating Shift Register (Shift Memory)
 $ENDCMP
 #
+$CMP 74ALVC7804
+D 512 × 18 FIFO Memory
+F https://www.ti.com/lit/ds/symlink/sn74alvc7804.pdf
+$ENDCMP
+#
+$CMP 74LCX07
+D CMOS hex buffer (open drain) with 5V tolerant inputs
+K CMOS hex buffer
+F www.st.com/resource/en/datasheet/74lcx07.pdf
+$ENDCMP
+#
+$CMP 74LS03
+D Quad 2-input NAND open collector
+K TTL Nand2 OpenColl
+F http://www.ti.com/lit/gpn/sn74LS03
+$ENDCMP
+#
+$CMP 74LS05
+D Inverter Open Collect
+K TTL not inv OpenCol
+F http://www.ti.com/lit/gpn/sn74LS05
+$ENDCMP
+#
+$CMP 74LS06
+D Inverter Open Collect
+K TTL not inv OpenCol
+F http://www.ti.com/lit/gpn/sn74LS06
+$ENDCMP
+#
+$CMP 74LS06N
+D Inverter Open Collect
+K TTL not inv OpenCol
+F http://www.ti.com/lit/gpn/sn74LS06N
+$ENDCMP
+#
+$CMP 74LS07
+D Hex Buffers and Drivers With Open Collector High Voltage Outputs
+K TTL hex buffer OpenCol
+F www.ti.com/lit/ds/symlink/sn74ls07.pdf
+$ENDCMP
+#
+$CMP 74LS150
+D 16 to 1 multiplexer with enable and inverted low output.
+F https://www.ti.com/lit/ds/symlink/sn54s151.pdf?ts=1722639662049&ref_url=https%253A%252F%252Fwww.google.com%252F
+$ENDCMP
+#
+$CMP 74LS85
+D 4-bit Comparator
+K TTL COMP ARITH
+F http://www.ti.com/lit/gpn/sn74LS85
+$ENDCMP
+#
 $CMP 74LS89
 D 64-bit (16x4) static RAM with inverting outputs [obsolete]
 F https://datasheetspdf.com/pdf-file/504528/FairchildSemiconductor/74LS89/1
@@ -12,6 +64,28 @@ $ENDCMP
 $CMP 75451
 D Dual-Peripheral Drivers for High-Current, High-Speed Switching
 F https://www.ti.com/lit/ds/symlink/sn75451b.pdf
+$ENDCMP
+#
+$CMP CG4103
+D Character generator ROM, 5x7 matrix, 64 characters. Power supplies: +14V, -14V or +12V, -12V, or +5V, -12V
+K TMS4103, MK2002, S8499
+F http://www.bitsavers.org/components/standardMicrosystems/_dataBooks/1982_StandardMicrosystems.pdf
+$ENDCMP
+#
+$CMP NH0013C
+D Unknown device - datasheet appears to be unavailable. IM5012C-TC is a substitute.
+$ENDCMP
+#
+$CMP SN74LS07
+D Hex Buffers and Drivers With Open Collector High Voltage Outputs
+K TTL hex buffer OpenCol
+F www.ti.com/lit/ds/symlink/sn74ls07.pdf
+$ENDCMP
+#
+$CMP SN74LS07N
+D Hex Buffers and Drivers With Open Collector High Voltage Outputs
+K TTL hex buffer OpenCol
+F www.ti.com/lit/ds/symlink/sn74ls07.pdf
 $ENDCMP
 #
 $CMP TL720

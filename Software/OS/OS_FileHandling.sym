@@ -1,0 +1,14 @@
+tfnr$                equ 6177
+ssfr$                equ 6147
+trw$                 equ 6174
+cpfn$                equ 6171
+ssfw$                equ 6156
+peof$                equ 6159
+err$                 equ 6183
+tfnw$                equ 6180
+snfw$                equ 6153
+cpdn$                equ 6168
+snfr$                equ 6144
+bsp$                 equ 6165
+sbfw$                equ 6150
+pbof$                equ 6162

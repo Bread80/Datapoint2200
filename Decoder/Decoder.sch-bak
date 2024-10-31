@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 7
-Title "Datapoint 2200 Decoder I"
+Title "Datapoint 2200 Decoder I (A4)"
 Date ""
 Rev "1"
 Comp ""
@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 3400 1350 1050 3000
+S 3400 1350 1050 1900
 U 627A4461
 F0 "Scheduler" 50
 F1 "Scheduler.sch" 50
@@ -35,7 +35,7 @@ F15 "STROBE1" O R 4450 2350 50
 F16 "DIV64CLK" O R 4450 2950 50 
 $EndSheet
 $Sheet
-S 6050 1350 1150 4400
+S 6050 1350 1150 3600
 U 628221FF
 F0 "IODecoder" 50
 F1 "IODecoder.sch" 50
@@ -58,10 +58,10 @@ F17 "~DECK_2_STB" O R 7200 3150 50
 F18 "~DECK_1_STB" O R 7200 3000 50 
 F19 "~WRITE_EOF_STB" O R 7200 2850 50 
 F20 "~ENABLE_2" I L 6050 1600 50 
-F21 "~I4" I L 6050 2250 50 
-F22 "~I3" I L 6050 2100 50 
-F23 "~I2" I L 6050 1950 50 
-F24 "~I1" I L 6050 1800 50 
+F21 "I4" I L 6050 2250 50 
+F22 "I3" I L 6050 2100 50 
+F23 "I2" I L 6050 1950 50 
+F24 "I1" I L 6050 1800 50 
 F25 "~ENABLE_1" I L 6050 1450 50 
 F26 "~ADDRESS" I L 6050 2450 50 
 F27 "~CLICK" O R 7200 1550 50 
@@ -131,13 +131,13 @@ Text GLabel 2150 3650 2    50   Output ~ 0
 Text Notes 2050 3650 0    50   ~ 0
 Z
 Text GLabel 1200 3350 0    50   Output ~ 0
-~I2
+I2
 Text GLabel 1200 3250 0    50   Output ~ 0
-~I1
+I1
 Text GLabel 1200 3450 0    50   Output ~ 0
-~I3
+I3
 Text GLabel 1200 3550 0    50   Output ~ 0
-~I4
+I4
 Text GLabel 1200 3650 0    50   Output ~ 0
 ~ENABLE_2
 Text GLabel 1200 3150 0    50   Input ~ 0
@@ -217,7 +217,7 @@ STROBE_3
 Text GLabel 2150 2150 2    50   Input ~ 0
 PHI2_MEM
 Text Notes 2050 2150 0    50   ~ 0
-K
+H
 Text GLabel 1200 2150 0    50   Input ~ 0
 PHI1_MEM
 Text GLabel 1200 2350 0    50   Input ~ 0
@@ -271,13 +271,13 @@ Text GLabel 7300 4800 2    50   Output ~ 0
 Text GLabel 7300 2850 2    50   Output ~ 0
 ~WRITE_EOF_STB
 Text GLabel 5950 1800 0    50   Input ~ 0
-~I1
+I1
 Text GLabel 5950 1950 0    50   Input ~ 0
-~I2
+I2
 Text GLabel 5950 2100 0    50   Input ~ 0
-~I3
+I3
 Text GLabel 5950 2250 0    50   Input ~ 0
-~I4
+I4
 Text GLabel 5950 1600 0    50   Input ~ 0
 ~ENABLE_2
 Text GLabel 7300 4500 2    50   Output ~ 0
@@ -969,45 +969,45 @@ Wire Wire Line
 $Comp
 L Mechanical:MountingHole H902
 U 1 1 64063A5C
-P 1900 6800
-F 0 "H902" H 2000 6846 50  0000 L CNN
-F 1 "MountingHole" H 2000 6755 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 1900 6800 50  0001 C CNN
-F 3 "~" H 1900 6800 50  0001 C CNN
-	1    1900 6800
+P 4450 6700
+F 0 "H902" H 4550 6746 50  0000 L CNN
+F 1 "MountingHole" H 4550 6655 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 4450 6700 50  0001 C CNN
+F 3 "~" H 4450 6700 50  0001 C CNN
+	1    4450 6700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H903
 U 1 1 64063E0C
-P 1900 7100
-F 0 "H903" H 2000 7146 50  0000 L CNN
-F 1 "MountingHole" H 2000 7055 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 1900 7100 50  0001 C CNN
-F 3 "~" H 1900 7100 50  0001 C CNN
-	1    1900 7100
+P 4450 7000
+F 0 "H903" H 4550 7046 50  0000 L CNN
+F 1 "MountingHole" H 4550 6955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 4450 7000 50  0001 C CNN
+F 3 "~" H 4450 7000 50  0001 C CNN
+	1    4450 7000
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H904
 U 1 1 6406407C
-P 1900 7400
-F 0 "H904" H 2000 7446 50  0000 L CNN
-F 1 "MountingHole" H 2000 7355 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 1900 7400 50  0001 C CNN
-F 3 "~" H 1900 7400 50  0001 C CNN
-	1    1900 7400
+P 4450 7300
+F 0 "H904" H 4550 7346 50  0000 L CNN
+F 1 "MountingHole" H 4550 7255 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 4450 7300 50  0001 C CNN
+F 3 "~" H 4450 7300 50  0001 C CNN
+	1    4450 7300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H901
 U 1 1 640643AA
-P 1900 6500
-F 0 "H901" H 2000 6546 50  0000 L CNN
-F 1 "MountingHole" H 2000 6455 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 1900 6500 50  0001 C CNN
-F 3 "~" H 1900 6500 50  0001 C CNN
-	1    1900 6500
+P 4450 6400
+F 0 "H901" H 4550 6446 50  0000 L CNN
+F 1 "MountingHole" H 4550 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 4450 6400 50  0001 C CNN
+F 3 "~" H 4450 6400 50  0001 C CNN
+	1    4450 6400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1024,4 +1024,32 @@ $EndComp
 Connection ~ 2300 1550
 Wire Wire Line
 	2300 1550 2050 1550
+Text Notes 600  6250 0    50   ~ 0
+History\nRev 1: Original\nRev 2: Fixed footprints for Z14, Z21. Added WORD_SELECT input.\n\nToDo:\nRevise mounting hole positions to better fit processor board.
+$Comp
+L Mechanical:MountingHole H907
+U 1 1 643EDBD3
+P 5450 6400
+F 0 "H907" H 5550 6446 50  0000 L CNN
+F 1 "MountingHole" H 5550 6355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 5450 6400 50  0001 C CNN
+F 3 "~" H 5450 6400 50  0001 C CNN
+	1    5450 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H908
+U 1 1 643EE025
+P 5450 6700
+F 0 "H908" H 5550 6746 50  0000 L CNN
+F 1 "MountingHole" H 5550 6655 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 5450 6700 50  0001 C CNN
+F 3 "~" H 5450 6700 50  0001 C CNN
+	1    5450 6700
+	1    0    0    -1  
+$EndComp
+Text Notes 1000 4950 0    50   ~ 0
+Recommended connector:\nEDAC 305-056-521-202\n3.56mm row spacing\n-056- if pin count\n-521- is pin type (520 is longer, fatter, pins)\n-202 is mounting style. x02 is 3.25mm (.128") dia holes
+Text Notes 1350 1100 0    50   ~ 0
+Edge connector
 $EndSCHEMATC

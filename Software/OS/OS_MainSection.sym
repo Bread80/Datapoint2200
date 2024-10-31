@@ -1,0 +1,2 @@
+getnam               equ 2989
+os$                  equ 2594

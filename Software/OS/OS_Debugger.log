@@ -1,0 +1,256 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Debugger.asm
+                    dsply$               equ 7785
+                    inchl                equ 7915
+                    dechl                equ 7924
+                    keyin$               equ 7680
+                    		include "OS_KeyboardDisplay.sym"
+                    tfnr$                equ 6177
+                    ssfr$                equ 6147
+                    trw$                 equ 6174
+                    cpfn$                equ 6171
+                    ssfw$                equ 6156
+                    peof$                equ 6159
+                    err$                 equ 6183
+                    tfnw$                equ 6180
+                    snfw$                equ 6153
+                    cpdn$                equ 6168
+                    snfr$                equ 6144
+                    bsp$                 equ 6165
+                    sbfw$                equ 6150
+                    pbof$                equ 6162
+                    		include "OS_FileHandling.sym"
+                    load$                equ 64
+                    run$                 equ 61
+                    boot$                equ 52
+                    load2$               equ 74
+                    		include "OS_Loader.sym"
+                    getnam               equ 2989
+                    os$                  equ 2594
+                    		include "OS_MainSection.sym"
+9: 1C80             		set	016200
+debug$ = 1C80
+13: 1C80 36BB2E1D   debug$* hl	curadr
+14: 1C84 E7         		lem
+15: 1C85 36BC       		ll	curadr+1
+16: 1C87 DF         		ldm
+17: 1C88 1605       		lc	5
+18: 1C8A 36C6       		ll	dspadr+4
+19: 1C8C 46961D     		call conbin
+20: 1C8F 36BB       		ll	curadr
+21: 1C91 E7         		lem
+22: 1C92 36BC       		ll	curadr+1
+23: 1C94 EF         		lhm
+24: 1C95 F4         		lle
+25: 1C96 E7         		lem
+26: 1C97 1E00       		ld	0
+27: 1C99 1603       		lc	3
+28: 1C9B 36CB2E1D   		hl	dspdat+2
+29: 1C9F 46961D     		call conbin
+30: 1CA2 36BD       		ll	disp
+31: 1CA4 46691E     		call dsply$
+32: 1CA7 36CD       		ll	inbuf
+33: 1CA9 1608       		lc	8
+34: 1CAB 46001E     		call keyin$
+35: 1CAE 36CD       		ll	inbuf
+36: 1CB0 466D1D     		call conoct
+37: 1CB3 3C0D       		cp	015
+38: 1CB5 6AED1C     		ctz	newadr
+39: 1CB8 3C49       		cp	'I'
+40: 1CBA 6AF41C     		ctz	incadr
+41: 1CBD 3C44       		cp	'D'
+42: 1CBF 6A021D     		ctz	decadr
+43: 1CC2 3C4D       		cp	'M'
+44: 1CC4 6A101D     		ctz	modify
+45: 1CC7 3C2E       		cp	'.'
+46: 1CC9 6A191D     		ctz	enter
+47: 1CCC 3C4C       		cp	'L'
+48: 1CCE 6A511D     		ctz	lsave
+49: 1CD1 3C48       		cp	'H'
+50: 1CD3 6A641D     		ctz	hsave
+51: 1CD6 3C47       		cp	'G'
+52: 1CD8 6A491D     		ctz	get
+53: 1CDB 3C46       		cp	'F'
+54: 1CDD 6A411D     		ctz	front
+55: 1CE0 3C4F       		cp	'O'
+56: 1CE2 68220A     		jtz	os$
+57: 1CE5 3C43       		cp	'C'
+58: 1CE7 68221D     		jtz	goto
+59: 1CEA 44801C     		jmp	debug$
+newadr = 1CED
+61: 1CED 36BB       newadr:	ll	curadr
+62: 1CEF FC         		lme
+63: 1CF0 36BC       		ll	curadr+1
+64: 1CF2 FB         		lmd
+65: 1CF3 07         		ret
+incadr = 1CF4
+67: 1CF4 36BB       incadr:	ll	curadr
+68: 1CF6 C7         		lam
+69: 1CF7 0401       		ad	1
+70: 1CF9 F8         		lma
+71: 1CFA 36BC       		ll	curadr+1
+72: 1CFC C7         		lam
+73: 1CFD 0C00       		ac	0
+74: 1CFF F8         		lma
+75: 1D00 A8         		xra
+76: 1D01 07         		ret
+decadr = 1D02
+78: 1D02 36BB       decadr:	ll	curadr
+79: 1D04 C7         		lam
+80: 1D05 1401       		su	1
+81: 1D07 F8         		lma
+82: 1D08 36BC       		ll	curadr+1
+83: 1D0A C7         		lam
+84: 1D0B 1C00       		sb	0
+85: 1D0D F8         		lma
+86: 1D0E A8         		xra
+87: 1D0F 07         		ret
+modify = 1D10
+89: 1D10 36BB       modify:	ll	curadr
+90: 1D12 DF         		ldm
+91: 1D13 36BC       		ll	curadr+1
+92: 1D15 EF         		lhm
+93: 1D16 F3         		lld
+94: 1D17 FC         		lme
+95: 1D18 07         		ret
+enter = 1D19
+97: 1D19 46101D     enter:	call modify
+98: 1D1C 2E1D       		lh	curadr>8
+99: 1D1E 46F41C     		call incadr
+100: 1D21 07        		ret
+goto = 1D22
+102: 1D22 3629      goto:	ll	branch+1
+103: 1D24 FC        		lme
+104: 1D25 362A      		ll	branch+2
+105: 1D27 FB        		lmd
+branch = 1D28
+106: 1D28 460000    branch:	call 0
+lsavi = 1D2B
+107: 1D2B C0        lsavi:	nop
+hsavi = 1D2C
+108: 1D2C C0        hsavi:	nop
+109: 1D2D 36F82E1D  		hl	asave
+110: 1D31 F8        		lma
+111: 1D32 36F9      		ll	bsave
+112: 1D34 F9        		lmb
+113: 1D35 36FA      		ll	csave
+114: 1D37 FA        		lmc
+115: 1D38 36FB      		ll	dsave
+116: 1D3A FB        		lmd
+117: 1D3B 36FC      		ll	esave
+118: 1D3D FC        		lme
+119: 1D3E 44801C    		jmp	debug$
+front = 1D41
+121: 1D41 0E01      front:	lb	1
+122: 1D43 464A00    		call load2$
+123: 1D46 444D1D    		jmp	getlod
+get = 1D49
+125: 1D49 CC        get:	lbe
+126: 1D4A 464000    		call load$
+getlod = 1D4D
+127: 1D4D 2B        getlod:	rtz
+128: 1D4E 69        		ex	beep
+129: 1D4F A8        		xra
+130: 1D50 07        		ret
+lsave = 1D51
+132: 1D51 362B2E1D  lsave:	hl	lsavi
+133: 1D55 0EC6      		lb	0306
+hlsavm = 1D57
+134: 1D57 C4        hlsavm:	lae
+135: 1D58 2407      		nd	7
+136: 1D5A 02        		slc
+137: 1D5B 02        		slc
+138: 1D5C 02        		slc
+139: 1D5D 3C38      		cp	070
+140: 1D5F 13        		rfs
+141: 1D60 B1        		orb
+142: 1D61 F8        		lma
+143: 1D62 A8        		xra
+144: 1D63 07        		ret
+hsave = 1D64
+146: 1D64 362C2E1D  hsave:	hl	hsavi
+147: 1D68 0EC5      		lb	0305
+148: 1D6A 44571D    		jmp	hlsavm
+conoct = 1D6D
+152: 1D6D 1E00      conoct:	ld	0
+153: 1D6F E3        		led
+conlop = 1D70
+154: 1D70 CF        conlop:	lbm
+155: 1D71 46EB1E    		call inchl
+156: 1D74 C1        		lab
+157: 1D75 3C38      		cp	'8'
+158: 1D77 13        		rfs
+159: 1D78 3C30      		cp	'0'
+160: 1D7A 33        		rts
+161: 1D7B 2407      		nd	7
+162: 1D7D D0        		lca
+163: 1D7E C3        		lad
+164: 1D7F 241F      		nd	037
+165: 1D81 02        		slc
+166: 1D82 02        		slc
+167: 1D83 02        		slc
+168: 1D84 D8        		lda
+169: 1D85 C4        		lae
+170: 1D86 02        		slc
+171: 1D87 02        		slc
+172: 1D88 02        		slc
+173: 1D89 E0        		lea
+174: 1D8A 2407      		nd	7
+175: 1D8C B3        		ord
+176: 1D8D D8        		lda
+177: 1D8E C4        		lae
+178: 1D8F 24F8      		nd	0370
+179: 1D91 B2        		orc
+180: 1D92 E0        		lea
+181: 1D93 44701D    		jmp	conlop
+conbin = 1D96
+185: 1D96 C4        conbin:	lae
+186: 1D97 2407      		nd	7
+187: 1D99 0430      		ad	'0'
+188: 1D9B F8        		lma
+189: 1D9C 46F41E    		call dechl
+190: 1D9F C4        		lae
+191: 1DA0 0A        		src
+192: 1DA1 0A        		src
+193: 1DA2 0A        		src
+194: 1DA3 241F      		nd	037
+195: 1DA5 E0        		lea
+196: 1DA6 C3        		lad
+197: 1DA7 0A        		src
+198: 1DA8 0A        		src
+199: 1DA9 0A        		src
+200: 1DAA D8        		lda
+201: 1DAB 24E0      		nd	0340
+202: 1DAD B4        		ore
+203: 1DAE E0        		lea
+204: 1DAF C3        		lad
+205: 1DB0 241F      		nd	037
+206: 1DB2 D8        		lda
+207: 1DB3 C2        		lac
+208: 1DB4 1401      		su	1
+209: 1DB6 D0        		lca
+210: 1DB7 48961D    		jfz	conbin
+211: 1DBA 07        		ret
+curadr = 1DBB
+215: 1DBB 0000      curadr:	da	0
+disp = 1DBD
+216: 1DBD 09000B0B 11disp:	dc	011,0,013,11,021
+dspadr = 1DC2
+217: 1DC2 20202020 202020dspadr:	dc	'       '
+dspdat = 1DC9
+218: 1DC9 2020200D  dspdat:	dc	'   ',015
+inbuf = 1DCD
+219: 1DCD 20202020 20202020 2020inbuf:	dc	'          '	;(Length illegible on scan)
+221: 1DF8           		set	016770
+asave = 1DF8
+222: 1DF8 00        asave:	dc	0
+bsave = 1DF9
+223: 1DF9 00        bsave:	dc	0
+csave = 1DFA
+224: 1DFA 00        csave:	dc	0
+dsave = 1DFB
+225: 1DFB 00        dsave:	dc	0
+esave = 1DFC
+226: 1DFC 00        esave:	dc	0
+227: 1DFD 0102      		dc	1,2
+Assembly successful
+383 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Debugger.bin

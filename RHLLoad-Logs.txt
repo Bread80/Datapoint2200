@@ -1,0 +1,78 @@
+Name: Processor//AddressReg/S0
+State: Low
+Edge: HighLow
+
+Pins on 'Processor//AddressReg/S0':
+PinNo: 3 Bipolar  State: Low Edge: None  Part: Processor/Z86A  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z85  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z113  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z65  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z84  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z81  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z64  Net: Processor//AddressReg/S0
+PinNo: 14 Input  State: Low Edge: HighLow  Part: Processor/Z80  Net: Processor//AddressReg/S0
+7834046Low
+7830046High
+7Low
+0Unknown
+
+Name: Processor//AddressReg/S1
+State: Low
+Edge: HighLow
+
+Pins on 'Processor//AddressReg/S1':
+PinNo: 6 Bipolar  State: Low Edge: None  Part: Processor/Z86B  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z85  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z113  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z65  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z84  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z81  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z64  Net: Processor//AddressReg/S1
+PinNo: 2 Input  State: Low Edge: HighLow  Part: Processor/Z80  Net: Processor//AddressReg/S1
+7834046Low
+7830046High
+6Low
+0Unknown
+
+Name: Processor/Net-(Z112-Pad15)
+State: High
+Edge: LowHigh
+
+Pins on 'Processor/Net-(Z112-Pad15)':
+PinNo: 7 Tristate  State: High Edge: None  Part: Processor/Z85  Net: Processor/Net-(Z112-Pad15)
+PinNo: 15 Input  State: High Edge: LowHigh  Part: Processor/Z112  Net: Processor/Net-(Z112-Pad15)
+7834146High
+7830146Low
+101High
+0Unknown
+
+Name: Processor//AddrRegAndStackControl/~ADDR.LOAD
+State: High
+Edge: LowHigh
+
+Pins on 'Processor//AddrRegAndStackControl/~ADDR.LOAD':
+PinNo: 4 Bipolar  State: High Edge: None  Part: Processor/Z102B  Net: Processor//AddrRegAndStackControl/~ADDR.LOAD
+PinNo: 11 Input  State: High Edge: LowHigh  Part: Processor/Z112  Net: Processor//AddrRegAndStackControl/~ADDR.LOAD
+PinNo: 11 Input  State: High Edge: LowHigh  Part: Processor/Z111  Net: Processor//AddrRegAndStackControl/~ADDR.LOAD
+PinNo: 11 Input  State: High Edge: LowHigh  Part: Processor/Z110  Net: Processor//AddrRegAndStackControl/~ADDR.LOAD
+PinNo: 11 Input  State: High Edge: LowHigh  Part: Processor/Z109  Net: Processor//AddrRegAndStackControl/~ADDR.LOAD
+7834047High
+7830047Low
+9High
+0Unknown
+
+Name: Processor/A0
+State: High
+Edge: LowHigh
+
+Pins on 'Processor/A0':
+PinNo: 9 Input  State: High Edge: LowHigh  Part: Processor/Z114  Net: Processor/A0
+PinNo: 4 Input  State: High Edge: LowHigh  Part: Processor/Z98  Net: Processor/A0
+PinNo: 3 Bipolar  State: High Edge: None  Part: Processor/Z112  Net: Processor/A0
+5434147High
+5430048Low
+5410076High
+27Low
+2High
+1Low
+0Unknown

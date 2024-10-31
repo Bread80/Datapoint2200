@@ -1,4 +1,4 @@
-19411302015376677
+19414674147771648
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -48769,6 +48769,13 @@ THT ceramic resonator filter DSS6
 3
 3
 DataPoint_2200
+EdgeConn_10_Pin_Pitch_3.96mm
+10-pin edge connector (one side only). 3.96mm pitch
+
+0
+10
+10
+DataPoint_2200
 EdgeConn_28_Pin_Pitch_3.96mm
 28-pin edge connector (one side only). 3.96mm pitch
 
@@ -48789,6 +48796,13 @@ LED_Dialight_597_xxxx_407F_SMT_RA_3mmx2mmx1mm
 0
 3
 3
+DataPoint_2200
+TO-99-10
+
+
+0
+10
+10
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator

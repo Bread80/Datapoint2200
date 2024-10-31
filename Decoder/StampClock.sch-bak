@@ -132,13 +132,13 @@ F 3 "~" H 3950 5450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Text HLabel 4650 1850 1    50   Input ~ 0
-S0
+C0
 Text HLabel 4750 1850 1    50   Input ~ 0
-S1
+C1
 Text HLabel 4850 1850 1    50   Input ~ 0
-S2
+C2
 Text HLabel 4950 1850 1    50   Input ~ 0
-S3
+C3
 Text HLabel 4250 1850 1    50   Input ~ 0
 T0
 Text HLabel 4350 1850 1    50   Input ~ 0
@@ -346,9 +346,7 @@ NoConn ~ 3200 2550
 NoConn ~ 3200 2650
 NoConn ~ 3200 2750
 NoConn ~ 3200 2850
-NoConn ~ 3200 2950
 NoConn ~ 3200 3150
-NoConn ~ 3200 4050
 NoConn ~ 3200 4150
 NoConn ~ 3200 4250
 NoConn ~ 3200 4350
@@ -366,4 +364,54 @@ F 3 "~" H 1900 2650 50  0001 C CNN
 	1    1900 2450
 	1    0    0    -1  
 $EndComp
+$Comp
+L Transistor_FET:2N7002 Q906
+U 1 1 64B6B74A
+P 6850 3350
+F 0 "Q906" H 7055 3396 50  0000 L CNN
+F 1 "2N7002" H 7055 3305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7050 3275 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF" H 6850 3350 50  0001 L CNN
+	1    6850 3350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0904
+U 1 1 64B7371B
+P 6750 3550
+F 0 "#PWR0904" H 6750 3300 50  0001 C CNN
+F 1 "GND" H 6755 3377 50  0001 C CNN
+F 2 "" H 6750 3550 50  0001 C CNN
+F 3 "" H 6750 3550 50  0001 C CNN
+	1    6750 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J902
+U 1 1 64B752BB
+P 7450 3350
+F 0 "J902" H 7422 3276 50  0000 R CNN
+F 1 "~WORD_SELECT" H 7422 3374 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Horizontal" H 7450 3350 50  0001 C CNN
+F 3 "~" H 7450 3350 50  0001 C CNN
+	1    7450 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7250 3350 7050 3350
+Wire Wire Line
+	6750 3050 6750 3150
+Text Notes 5800 4000 0    50   ~ 0
+J902 allows the ~WORD_SELECT~ signal to be fed in from the processor board.\nThis enables the RP2040 to detect when the processor is in the memory alignment\nprocedure and, if it wants, to clock the processor faster during these periods.
+Text GLabel 3300 2950 2    50   Input ~ 0
+WORD_SELECT
+Wire Wire Line
+	3300 2950 3200 2950
+Text GLabel 6650 3050 0    50   Output ~ 0
+WORD_SELECT
+Wire Wire Line
+	6650 3050 6750 3050
+NoConn ~ 3200 4050
+Text Notes 4550 5300 0    50   ~ 0
+Buttons used:\nPTS645VH58-2 LFS
 $EndSCHEMATC

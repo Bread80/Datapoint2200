@@ -1,0 +1,212 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 2
+Title "Datapoint 2200 Keyboard (PCB A6)"
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 4000 2200 1200 1900
+U 66ADE533
+F0 "Main" 50
+F1 "Main.sch" 50
+F2 "~RNL" I L 4000 2300 50 
+F3 "~HLL" I L 4000 2400 50 
+F4 "~PPL" I L 4000 2600 50 
+F5 "AB4" I L 4000 2950 50 
+F6 "AB3" I L 4000 3050 50 
+F7 "AB2" I L 4000 3150 50 
+F8 "AB1" I L 4000 3250 50 
+F9 "111" O R 5200 2950 50 
+F10 "011" O R 5200 3050 50 
+F11 "SIO" O R 5200 3250 50 
+F12 "110" O R 5200 3150 50 
+F13 "RESTART" O R 5200 2300 50 
+F14 "RUN" O R 5200 2400 50 
+F15 "STOP" O R 5200 2500 50 
+F16 "KEYBOARD" O R 5200 2600 50 
+F17 "DISPLAY" O R 5200 2700 50 
+F18 "=" O R 5200 2800 50 
+F19 "SHIFT_LOCK" O R 5200 3400 50 
+F20 "SHIFT" O R 5200 3500 50 
+F21 "NUM" O R 5200 3600 50 
+F22 "SPACE" O R 5200 3700 50 
+F23 "CANCEL" O R 5200 3800 50 
+F24 "ENTER" O R 5200 3900 50 
+F25 "BACKSPACE" O R 5200 4000 50 
+F26 "~KBL" I L 4000 2500 50 
+$EndSheet
+$Comp
+L Connector:Conn_01x37_Female J6
+U 1 1 6FEBCF12
+P 700 3150
+F 0 "J6" H 600 5200 50  0000 C CNN
+F 1 "37-pin DSub Female (?)" H 600 5100 50  0000 C CNN
+F 2 "Connector_Dsub:DSUB-37_Female_Vertical_P2.77x2.84mm_MountingHoles" H 700 3150 50  0001 C CNN
+F 3 "~" H 700 3150 50  0001 C CNN
+	1    700  3150
+	-1   0    0    -1  
+$EndComp
+Text GLabel 1000 1550 2    50   Output ~ 0
+~KBL
+Text GLabel 1000 1850 2    50   Output ~ 0
+~RNL
+Text GLabel 1000 1650 2    50   Output ~ 0
+~HLL
+Text GLabel 1000 1750 2    50   Output ~ 0
+~PPL
+Text GLabel 1000 2850 2    50   Output ~ 0
+AB4
+Text GLabel 1000 4050 2    50   Output ~ 0
+AB3
+Text GLabel 1000 4150 2    50   Output ~ 0
+AB2
+Text GLabel 1000 4250 2    50   Output ~ 0
+AB1
+Text GLabel 1000 2150 2    50   Input ~ 0
+111
+Text GLabel 1000 2350 2    50   Input ~ 0
+011
+Text GLabel 1000 3350 2    50   Input ~ 0
+SIO
+Text GLabel 1000 3650 2    50   Input ~ 0
+110
+Text GLabel 1000 1450 2    50   Input ~ 0
+RESTART
+Text GLabel 1000 2550 2    50   Input ~ 0
+RUN
+Text GLabel 1000 2050 2    50   Input ~ 0
+STOP
+Text GLabel 1000 2650 2    50   Input ~ 0
+KEYBOARD
+Text GLabel 1000 2450 2    50   Input ~ 0
+DISPLAY
+Text GLabel 1000 3450 2    50   Input ~ 0
+=
+Text GLabel 1000 4550 2    50   Input ~ 0
+SHIFT_LOCK
+Text GLabel 1000 3950 2    50   Input ~ 0
+SHIFT
+Text GLabel 1000 3750 2    50   Input ~ 0
+NUM
+Text GLabel 1000 4450 2    50   Input ~ 0
+SPACE
+Text GLabel 1000 1950 2    50   Input ~ 0
+CANCEL
+Text GLabel 1000 3850 2    50   Input ~ 0
+ENTER
+Text GLabel 1000 3550 2    50   Input ~ 0
+BACKSPACE
+$Comp
+L power:+5V #PWR?
+U 1 1 6FEC0876
+P 1000 1350
+F 0 "#PWR?" H 1000 1200 50  0001 C CNN
+F 1 "+5V" H 1100 1400 50  0000 C CNN
+F 2 "" H 1000 1350 50  0001 C CNN
+F 3 "" H 1000 1350 50  0001 C CNN
+	1    1000 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6FEC09E4
+P 1000 3250
+F 0 "#PWR?" H 1000 3100 50  0001 C CNN
+F 1 "+5V" H 1100 3300 50  0000 C CNN
+F 2 "" H 1000 3250 50  0001 C CNN
+F 3 "" H 1000 3250 50  0001 C CNN
+	1    1000 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6FEC139E
+P 1000 5000
+F 0 "#PWR?" H 1000 4750 50  0001 C CNN
+F 1 "GND" H 1005 4827 50  0001 C CNN
+F 2 "" H 1000 5000 50  0001 C CNN
+F 3 "" H 1000 5000 50  0001 C CNN
+	1    1000 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  4850 1000 4850
+Wire Wire Line
+	1000 4850 1000 4950
+Wire Wire Line
+	900  4950 1000 4950
+Connection ~ 1000 4950
+Wire Wire Line
+	1000 4950 1000 5000
+Wire Wire Line
+	1000 4550 900  4550
+Wire Wire Line
+	900  4450 1000 4450
+Wire Wire Line
+	1000 4250 900  4250
+Wire Wire Line
+	900  4150 1000 4150
+Wire Wire Line
+	1000 4050 900  4050
+Wire Wire Line
+	900  3950 1000 3950
+Wire Wire Line
+	1000 3850 900  3850
+Wire Wire Line
+	900  3750 1000 3750
+Wire Wire Line
+	1000 3650 900  3650
+Wire Wire Line
+	900  3550 1000 3550
+Wire Wire Line
+	1000 3450 900  3450
+Wire Wire Line
+	900  3350 1000 3350
+Wire Wire Line
+	1000 3250 900  3250
+Wire Wire Line
+	900  2850 1000 2850
+Wire Wire Line
+	1000 2650 900  2650
+Wire Wire Line
+	900  2550 1000 2550
+Wire Wire Line
+	1000 2450 900  2450
+Wire Wire Line
+	900  2350 1000 2350
+Wire Wire Line
+	1000 2150 900  2150
+Wire Wire Line
+	900  2050 1000 2050
+Wire Wire Line
+	1000 1950 900  1950
+Wire Wire Line
+	900  1850 1000 1850
+Wire Wire Line
+	1000 1750 900  1750
+Wire Wire Line
+	900  1650 1000 1650
+Wire Wire Line
+	1000 1550 900  1550
+Wire Wire Line
+	900  1450 1000 1450
+Wire Wire Line
+	1000 1350 900  1350
+NoConn ~ 900  2250
+NoConn ~ 900  2750
+NoConn ~ 900  2950
+NoConn ~ 900  3050
+NoConn ~ 900  3150
+NoConn ~ 900  4350
+NoConn ~ 900  4650
+NoConn ~ 900  4750
+$EndSCHEMATC

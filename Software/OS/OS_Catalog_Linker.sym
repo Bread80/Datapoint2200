@@ -1,0 +1,10 @@
+incswp               equ 8181
+symbol               equ 8058
+cat                  equ 7944
+alpfn                equ 8057
+maut2$               equ 8074
+catw                 equ 7940
+lookup               equ 8116
+mload$               equ 8080
+mauto$               equ 8065
+blktfr               equ 8165

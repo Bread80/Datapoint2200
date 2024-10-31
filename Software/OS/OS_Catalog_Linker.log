@@ -1,0 +1,103 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Catalog_Linker.asm
+                    load$                equ 64
+                    run$                 equ 61
+                    boot$                equ 52
+                    load2$               equ 74
+                    		include "OS_Loader.sym"
+8: 1F04             		set	017404
+catw = 1F04
+9: 1F04 1F          catw*	dc	037		;Starting address for loader
+10: 1F05 08         		dc	010
+11: 1F06 E0         		dc	0340	;Starting address complemented
+12: 1F07 F7         		dc	0367
+cat = 1F08
+                    cat*	rpt	14		;Space for 14 entries
+14: 1F08 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020 20202020		dc	'        '
+15: 1F78 2A         		dc	'*'
+alpfn = 1F79
+17: 1F79 00         alpfn*	dc	0		;Auto-load physical file number
+symbol = 1F7A
+21: 1F7A 20202020 202020symbol*	dc '       '	;Item symbol storage
+mauto$ = 1F81
+25: 1F81 464000     mauto$*	call load$	;Load the given file
+mauto = 1F84
+26: 1F84 403D00     mauto:	jfc	run$	;Execute it if good load
+27: 1F87 443400     		jmp	boot$	;Else reload the operating system
+maut2$ = 1F8A
+29: 1F8A 464A00     maut2$*	call load2$	;Load deck two file
+30: 1F8D 44841F     		jmp	mauto
+mload$ = 1F90
+34: 1F90 EB         mload$*	lhd			;Get packet address
+35: 1F91 F4         		lle
+36: 1F92 267A1E1F   		de	symbol	;Put the name in the lookup item
+37: 1F96 1606       		lc	6
+38: 1F98 46E51F     		call blktfr 
+39: 1F9B 26081E1F   		de	cat		;Look it up in the library catalogue
+40: 1F9F 46B41F     		call lookup
+41: 1FA2 3C05       		cp	5		;See if it is in the catalogue
+42: 1FA4 0B         		rfz			;Zero flag false if it isn't
+43: 1FA5 C6         		lal			;Calculate the file number
+44: 1FA6 24F8       		nd	0370
+45: 1FA8 1408       		su	cat
+46: 1FAA 0A         		src
+47: 1FAB 0A         		src
+48: 1FAC 0A         		src
+49: 1FAD 0402       		ad	2		;First entry is physical file two
+50: 1FAF C8         		lba
+51: 1FB0 464000     		call load$
+52: 1FB3 07         		ret
+lookup = 1FB4
+56: 1FB4 EB         lookup*	lhd			;Chek first entry in table
+57: 1FB5 F4         		lle
+58: 1FB6 44DC1F     		jmp	lstart
+lookpu = 1FB9
+60: 1FB9 367A2E1F   lookpu:	hl	symbol	;Get the item starting address
+lsloop = 1FBD
+61: 1FBD D7         lsloop:	lcm			;Get the next item character
+62: 1FBE 46F51F     		call incswp	;Get the next table address
+63: 1FC1 C7         		lam			;Get the next table character
+64: 1FC2 BA         		cpc
+65: 1FC3 48D21F     		jfz	ldiff	;They don't match
+66: 1FC6 C6         		lal			;See if at the end of the entry
+67: 1FC7 2407       		nd	7
+68: 1FC9 3C05       		cp	5
+69: 1FCB 2B         		rtz			;the item has been found if so
+70: 1FCC 46F51F     		call incswp	;Get the next item address
+71: 1FCF 44BD1F     		jmp	lsloop	;And try the next character
+ldiff = 1FD2
+73: 1FD2 C6         ldiff:	lal			;Bump the table pointer to next entry
+74: 1FD3 24F8       		nd	0370
+75: 1FD5 0408       		ad	8
+76: 1FD7 F0         		lla
+77: 1FD8 C5         		lah
+78: 1FD9 0C00       		ac	0
+79: 1FDB E8         		lha
+lstart = 1FDC
+80: 1FDC C7         lstart:	lam			;Get the table first character
+81: 1FDD 3C41       		cp	'A'		;End of table if it is not alpha
+82: 1FDF 33         		rts
+83: 1FE0 DD         		ldh			;Save the table address
+84: 1FE1 E6         		lel
+85: 1FE2 44B91F     		jmp	lookpu	;And try next table entry
+blktfr = 1FE5
+89: 1FE5 CF         blktfr*	lbm			;Get a source character
+90: 1FE6 46F51F     		call incswp	;Get next destination location
+91: 1FE9 F9         		lmb			;Put it in a destination location
+92: 1FEA 46F51F     		call incswp	;Get next source address
+93: 1FED C2         		lac			;Decrement the count
+94: 1FEE 1401       		su	1
+95: 1FF0 D0         		lca
+96: 1FF1 48E51F     		jfz blktfr 	;Do next char if not zero
+97: 1FF4 07         		ret
+incswp = 1FF5
+101: 1FF5 C6        incswp*	lal
+102: 1FF6 0401      		ad	1
+103: 1FF8 F4        		lle
+104: 1FF9 E0        		lea
+105: 1FFA C5        		lah
+106: 1FFB 0C00      		ac	0
+107: 1FFD EB        		lhd
+108: 1FFE D8        		lda
+109: 1FFF 07        		ret
+Assembly successful
+252 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Catalog_Linker.bin

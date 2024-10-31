@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 2 7
 Title "Datapoint 2200 Decoder I"
 Date ""
-Rev "1"
+Rev "2"
 Comp ""
 Comment1 "Recreated from original schematics"
 Comment2 "Design not verfified as correct"
@@ -52,7 +52,7 @@ U 1 1 627297AB
 P 1700 6250
 F 0 "R1" V 1600 6250 50  0000 C CNN
 F 1 "1k5" V 1700 6250 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1630 6250 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 1630 6250 50  0001 C CNN
 F 3 "~" H 1700 6250 50  0001 C CNN
 	1    1700 6250
 	0    1    1    0   
@@ -89,7 +89,7 @@ U 1 1 6272A06C
 P 2200 5800
 F 0 "R2" V 2100 5800 50  0000 C CNN
 F 1 "2k2" V 2200 5800 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2130 5800 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2130 5800 50  0001 C CNN
 F 3 "~" H 2200 5800 50  0001 C CNN
 	1    2200 5800
 	0    1    1    0   
@@ -99,14 +99,12 @@ L Device:Q_NPN_EBC Q1
 U 1 1 6272A76E
 P 2350 6250
 F 0 "Q1" H 2540 6296 50  0000 L CNN
-F 1 "2N23694" H 2540 6205 50  0000 L CNN
+F 1 "2N2369A" H 2540 6205 50  0000 L CNN
 F 2 "Package_TO_SOT_THT:TO-18-3" H 2550 6350 50  0001 C CNN
 F 3 "~" H 2350 6250 50  0001 C CNN
 	1    2350 6250
 	1    0    0    -1  
 $EndComp
-Text Notes 2550 6600 0    50   ~ 0
-Possibly a \n2N2369A\nCheck pinout
 Wire Wire Line
 	2150 6250 1950 6250
 Connection ~ 1950 6250
@@ -136,7 +134,7 @@ U 1 1 6272B40D
 P 2700 5500
 F 0 "R3" V 2600 5500 50  0000 C CNN
 F 1 "1k" V 2700 5500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2630 5500 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2630 5500 50  0001 C CNN
 F 3 "~" H 2700 5500 50  0001 C CNN
 	1    2700 5500
 	0    1    1    0   
@@ -147,7 +145,7 @@ U 1 1 6272B608
 P 2700 5100
 F 0 "R4" V 2600 5100 50  0000 C CNN
 F 1 "560" V 2700 5100 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2630 5100 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2630 5100 50  0001 C CNN
 F 3 "~" H 2700 5100 50  0001 C CNN
 	1    2700 5100
 	0    1    1    0   
@@ -158,7 +156,7 @@ U 1 1 6272B8A0
 P 3600 5350
 F 0 "R5" V 3500 5350 50  0000 C CNN
 F 1 "1k" V 3600 5350 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3530 5350 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3530 5350 50  0001 C CNN
 F 3 "~" H 3600 5350 50  0001 C CNN
 	1    3600 5350
 	-1   0    0    1   
@@ -169,7 +167,7 @@ U 1 1 6272BC53
 P 3150 6150
 F 0 "R6" V 3050 6150 50  0000 C CNN
 F 1 "1k" V 3150 6150 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3080 6150 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3080 6150 50  0001 C CNN
 F 3 "~" H 3150 6150 50  0001 C CNN
 	1    3150 6150
 	-1   0    0    1   
@@ -217,7 +215,7 @@ L Device:Q_NPN_EBC Q2
 U 1 1 6272E856
 P 3500 5900
 F 0 "Q2" H 3690 5946 50  0000 L CNN
-F 1 "2N23694" H 3690 5855 50  0000 L CNN
+F 1 "2N2369A" H 3690 5855 50  0000 L CNN
 F 2 "Package_TO_SOT_THT:TO-18-3" H 3700 6000 50  0001 C CNN
 F 3 "~" H 3500 5900 50  0001 C CNN
 	1    3500 5900
@@ -605,7 +603,7 @@ U 1 1 62774F02
 P 9400 7900
 F 0 "R28" V 9300 7900 50  0000 C CNN
 F 1 "470" V 9400 7900 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 9330 7900 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 9330 7900 50  0001 C CNN
 F 3 "~" H 9400 7900 50  0001 C CNN
 	1    9400 7900
 	-1   0    0    1   
@@ -977,7 +975,7 @@ Wire Wire Line
 	10300 5250 10400 5250
 Text HLabel 11200 5050 2    50   Output ~ 0
 ~DIV64CLK
-Text Label 10300 4850 1    50   ~ 0
+Text Label 10300 5100 1    50   ~ 0
 DIV64
 $Comp
 L 74xx:74LS00 Z7
@@ -1226,7 +1224,7 @@ Wire Wire Line
 Wire Wire Line
 	12700 8250 12700 8350
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 6 1 62AE9C50
 P 10700 8850
 F 0 "Z15" H 10700 9167 50  0000 C CNN
@@ -1408,7 +1406,7 @@ High on Step 9 T3
 Text Notes 12850 1700 0    50   ~ 0
 High on step 9, T1
 Text Notes 12850 2200 0    50   ~ 0
-High on step 0, T0
+High on step 0, T1
 Text Label 12600 2550 0    50   ~ 0
 STEPS1TO8
 Wire Wire Line
@@ -1781,18 +1779,16 @@ Text GLabel 1200 2350 0    50   Input ~ 0
 PHI1_MEM
 Text GLabel 1200 2550 0    50   Input ~ 0
 PHI1_REG
-Text GLabel 1200 2650 0    50   Input ~ 0
-DIV64_CLK
 Text GLabel 1200 3050 0    50   Input ~ 0
 STROBE_3
 Text GLabel 1200 1850 0    50   Input ~ 0
-S0
+C0
 Text GLabel 1200 1950 0    50   Input ~ 0
-S1
+C1
 Text GLabel 1200 2050 0    50   Input ~ 0
-S2
+C2
 Text GLabel 1200 2150 0    50   Input ~ 0
-S3
+C3
 Text GLabel 1200 3250 0    50   Input ~ 0
 INT_FACE_CLK
 $Sheet
@@ -1806,10 +1802,10 @@ F4 "T0" I L 1300 1450 50
 F5 "T1" I L 1300 1550 50 
 F6 "T2" I L 1300 1650 50 
 F7 "T3" I L 1300 1750 50 
-F8 "S0" I L 1300 1850 50 
-F9 "S1" I L 1300 1950 50 
-F10 "S2" I L 1300 2050 50 
-F11 "S3" I L 1300 2150 50 
+F8 "C0" I L 1300 1850 50 
+F9 "C1" I L 1300 1950 50 
+F10 "C2" I L 1300 2050 50 
+F11 "C3" I L 1300 2150 50 
 F12 "INH_MEM" I L 1300 2250 50 
 F13 "PHI1_MEM" I L 1300 2350 50 
 F14 "PHI2_MEM" I L 1300 2450 50 
@@ -1821,10 +1817,10 @@ F19 "STROBE2" I L 1300 2950 50
 F20 "STROBE3" I L 1300 3050 50 
 F21 "STROBE4" I L 1300 3150 50 
 F22 "INT_FACE_CLK" I L 1300 3250 50 
-F23 "S0B" O R 2400 1650 50 
-F24 "S3B" O R 2400 1950 50 
-F25 "S1B" O R 2400 1750 50 
-F26 "S2B" O R 2400 1850 50 
+F23 "C0B" O R 2400 1650 50 
+F24 "C3B" O R 2400 1950 50 
+F25 "C1B" O R 2400 1750 50 
+F26 "C2B" O R 2400 1850 50 
 F27 "T3B" O R 2400 1500 50 
 F28 "T2B" O R 2400 1400 50 
 F29 "T0B" O R 2400 1200 50 
@@ -1893,13 +1889,13 @@ T2
 Text GLabel 8100 5750 2    50   Output ~ 0
 T3
 Text GLabel 10250 3300 2    50   Output ~ 0
-S0
+C0
 Text GLabel 10350 3850 2    50   Output ~ 0
-S1
+C1
 Text GLabel 10400 3950 2    50   Output ~ 0
-S2
+C2
 Text GLabel 10400 4350 2    50   Output ~ 0
-S3
+C3
 Wire Wire Line
 	3600 5600 3800 5600
 Text GLabel 4650 1200 2    50   Output ~ 0
@@ -1955,10 +1951,10 @@ S 3450 1100 1100 1000
 U 63B45FC7
 F0 "StampClock" 50
 F1 "StampClock.sch" 50
-F2 "S0" I L 3450 1650 50 
-F3 "S1" I L 3450 1750 50 
-F4 "S2" I L 3450 1850 50 
-F5 "S3" I L 3450 1950 50 
+F2 "C0" I L 3450 1650 50 
+F3 "C1" I L 3450 1750 50 
+F4 "C2" I L 3450 1850 50 
+F5 "C3" I L 3450 1950 50 
 F6 "T0" I L 3450 1200 50 
 F7 "T1" I L 3450 1300 50 
 F8 "T2" I L 3450 1400 50 
@@ -1967,8 +1963,8 @@ F10 "RP_CLK" O R 4550 1200 50
 $EndSheet
 Wire Wire Line
 	4550 1200 4650 1200
-Text Notes 3700 6250 0    50   ~ 0
-Possibly a \n2N2369A\nCheck pinout
+Text Notes 2800 7950 0    50   ~ 0
+Original schematics show Q1, Q2 as 2N23694,\nbut no such transistor exists. Graphics card uses\n2N2369A for the same circuit. The '4' is probably \na transcription error.
 $Comp
 L Mechanical:MountingHole H905
 U 1 1 6420B806
@@ -1991,4 +1987,8 @@ F 3 "~" H 900 8250 50  0001 C CNN
 	1    900  8250
 	1    0    0    -1  
 $EndComp
+Text Notes 900  8500 0    50   ~ 0
+For crystal
+Text GLabel 1200 2650 0    50   Input ~ 0
+C3
 $EndSCHEMATC

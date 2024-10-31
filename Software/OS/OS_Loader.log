@@ -1,0 +1,309 @@
+Assembling: C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Loader.asm
+ckload = 0000
+7: 0000 36282E00    ckload:	hl 	pstart
+8: 0004 1E00        		ld 	$-$		;Initialize XOR check
+9: 0006 2600        		le 	$-$		;Initialize circle check
+ckloop = 0008
+10: 0008 C7         ckloop:	lam			;Get a byte
+11: 0009 D0         		lca			;Save it
+12: 000A AB         		xrd			;Accumulate the XOR parity
+13: 000B D8         		lda
+14: 000C C2         		lac
+15: 000D AC         		xre			;Accumulate the circle parity
+16: 000E 0A         		src
+17: 000F E0         		lea
+18: 0010 C6         		lal			;Increment HL
+halt = 0011
+19: 0011 0401       halt:	ad 	1
+20: 0013 F0         		lla
+21: 0014 C5         		lah
+22: 0015 0C00       		ac 	0
+23: 0017 E8         		lha
+24: 0018 3C02       		cp 	pend>8	;Stop whe past end
+25: 001A 480800     		jfz	ckloop
+26: 001D C6         		lal
+27: 001E 3C00       		cp	pend
+28: 0020 480800     		jfz	ckloop
+29: 0023 C3         		lad			;Check the parity accumulations
+30: 0024 B4         		ore
+31: 0025 481200     		jfz	halt+1
+pstart = 0028
+32: 0028 362C2E00   pstart:	hl	scloop	;Clear low core to halty short loads
+scloop = 002C
+33: 002C C6         scloop:	lal			;Decrement memory pointer
+34: 002D 1401       		su	1
+35: 002F F0         		lla
+36: 0030 FB         		lmd			;Clear the location
+37: 0031 482C00     		jfz	scloop	;Go until location zero clear
+boot$ = 0034
+41: 0034 0E00       boot$*	lb	0		;Load file zero
+42: 0036 464000     		call load$
+43: 0039 403D00     		jfc run$	;Execute if load was okay
+44: 003C FF         		halt
+run$ = 003D
+45: 003D 443400     run$*	jmp boot$	;Overstored with starting address
+load$ = 0040
+57: 0040 06F0       load$*	la	0360		;Address the cassette mechanism
+58: 0042 51         		ex	adr
+59: 0043 46D201     		call stop		;Stop any tape motion
+60: 0046 6D         		ex	deck1		;Select the system deck
+61: 0047 445100     		jmp load
+load2$ = 004A
+63: 004A 06F0       load2$*	la	0360		;Address the cassette mechanism
+64: 004C 51         		ex adr
+65: 004D 46D201     		call stop		;Stop any tape motion
+66: 0050 6F         		ex	deck2		;Select the data deck
+load = 0051
+67: 0051 46D301     load:	call dwait		;Wait for deck selection
+68: 0054 C1         		lab				;The requested file number must be
+69: 0055 B0         		ora				;positive
+70: 0056 70B801     		jts	argh
+71: 0059 363F2E00   		hl	run$+2		;Initialise the starting location MSB
+72: 005D A8         		xra				;for 'nothing loaded' flag
+73: 005E F8         		lma
+74: 005F 440A01     		jmp fstart
+fwait = 0062
+78: 0062 46F001     fwait:	call getch		;Wait for end of record
+79: 0065 406200     		jfc	fwait
+fnext = 0068
+80: 0068 46E801     fnext:	call rtinit		;Initialize the retry count
+fread = 006B
+81: 006B 1606       fread:	lc	6			;Wait for data or leader
+82: 006D 46D501     		call twait
+83: 0070 2402       		nd	2			;Quit if leader
+84: 0072 48B801     		jfz	argh
+85: 0075 46F001     		call getch		;Get the record type
+86: 0078 D8         		lda				;Save it
+87: 0079 46F001     		call getch		;Get the record type complemented
+88: 007C 2CFF       		xr 	0377		;Un-complement it
+89: 007E BB         		cpd				;The two must match
+90: 007F 48A400     		jfz	fstop
+91: 0082 3CC3       		cp 	0303		;Ignore numeric records
+92: 0084 686200     		jtz fwait
+93: 0087 3CE7       		cp 	0347		;Ignore symbolic records
+94: 0089 686200     		jtz fwait
+95: 008C 3C81       		cp 	0201		;Else if must be an EOF record
+96: 008E 48A400     		jfz	fstop
+97: 0091 46F001     		call getch		;Get the file number
+98: 0094 D8         		lda				;Save it
+99: 0095 46F001     		call getch		;Get the file number complemented
+100: 0098 2CFF      		xr	0377		;Un-complement it
+101: 009A BB        		cpd				;Make sure the two match
+102: 009B 48A400    		jfz	fstop
+103: 009E 46F001    		call getch		;Make sure this is the end of the record
+104: 00A1 60B200    		jtc	wchway
+fstop = 00A4
+105: 00A4 46D201    fstop:	call stop		;Stop the tape
+106: 00A7 77        		ex	bsp			;Back up over the record
+107: 00A8 46DC01    		call decrtc		;Decrement the retry count
+108: 00AB 70B801    		jts	argh		;Quit if too many retries
+109: 00AE 79        		ex	sf			;Re-initiate forward motion
+110: 00AF 446B00    		jmp	fread
+wchway = 00B2
+112: 00B2 C3        wchway:	lad				;See if we are there yet
+113: 00B3 B9        		cpb
+114: 00B4 706800    		jts	fnext		;Keep going if not far enough
+115: 00B7 681F01    		jtz	nxtrec		;Start loading if there
+116: 00BA 46D201    		call stop		;Else stop the tape
+117: 00BD 7B        		ex	sb			;And start searching backward
+bwait = 00BE
+118: 00BE 46E801    bwait:	call rtinit		;Initiate the retry count
+119: 00C1 1606      		lc	6			;Wait for data or leader
+120: 00C3 46D501    		call twait
+121: 00C6 2402      		nd 	2			;Quit if leader
+122: 00C8 48B801    		jfz	argh
+bread = 00CB
+123: 00CB F5        bread:	llh				;Push the char onto the stack
+124: 00CC EC        		lhe
+125: 00CD E3        		led
+126: 00CE D8        		lda
+127: 00CF 46F001    		call getch		;Get the next record character
+128: 00D2 40CB00    		jfc	bread
+129: 00D5 C4        		lae				;Get the record type complemented
+130: 00D6 2CFF      		xr	0377		;Un-complement it
+131: 00D8 BB        		cpd				;It must match the type
+132: 00D9 481101    		jfz	bstop
+133: 00DC 3CC3      		cp	0303		;Ignore numeric records
+134: 00DE 68BE00    		jtz	bwait
+135: 00E1 3CE7      		cp	0347		;Ignore symbolic records
+136: 00E3 68BE00    		jtz	bwait
+137: 00E6 3C81      		cp	0201		;Else it must be an EOF record
+138: 00E8 481101    		jfz	bstop
+139: 00EB C6        		lal				;Get the file number complemented
+140: 00EC 2CFF      		xr	0377		;Un-complement it
+141: 00EE 95        		suh				;Make sure it matches the file number
+142: 00EF 481101    		jfz	bstop
+143: 00F2 E0        		lea				;Flip over the file number
+144: 00F3 1608      		lc	8
+flip = 00F5
+145: 00F5 C5        flip:	lah
+146: 00F6 0A        		src
+147: 00F7 E8        		lha
+148: 00F8 C4        		lae
+149: 00F9 88        		aca
+150: 00FA E0        		lea
+151: 00FB C2        		lac
+152: 00FC 1401      		su	1
+153: 00FE D0        		lca
+154: 00FF 48F500    		jfz	flip
+155: 0102 C4        		lae				;Compare it to the desired file number
+156: 0103 B9        		cpb
+157: 0104 70B801    		jts	argh		;It aint there
+158: 0107 48BE00    		jfz	bwait		;We haven't gone back far enough
+fstart = 010A
+159: 010A 46D201    fstart:	call stop		;Else stop the tape
+160: 010D 79        		ex	sf			;And start going forward again
+161: 010E 446800    		jmp	fnext
+bstop = 0111
+163: 0111 46D201    bstop:	call stop		;Try that record in reverse again
+164: 0114 71        		ex	rbk
+165: 0115 46DC01    		call decrtc		;Decrement the retry count
+166: 0118 70B801    		jts	argh		;Quit if too many retries
+167: 011B 7B        		ex	sb			;Re-initiate the backward motion
+168: 011C 44CB00    		jmp	bread
+nxtrec = 011F
+172: 011F 46E801    nxtrec:	call rtinit		;Initialise the retry count
+nxtwat = 0122
+173: 0122 1610      nxtwat:	lc	020			;Wait for IRG
+174: 0124 46D501    		call twait
+nextry = 0127
+175: 0127 46F001    nextry:	call getch		;Get the record type
+176: 012A 602701    		jtc nextry		;Wait for data
+177: 012D D8        		lda				;Save the record type
+178: 012E 46F001    		call getch		;Get the record type complemented
+179: 0131 2CFF      		xr	0377		;Un-complement it
+180: 0133 BB        		cpd				;The two must match
+181: 0134 48C401    		jfz again
+182: 0137 3CE7      		cp	0347		;Ignore symbolicn records
+183: 0139 682201    		jtz	nxtwat
+184: 013C 3CC3      		cp	0303		;Load numeric records
+185: 013E 685801    		jtz	nxtone
+186: 0141 3C81      		cp	0201		;Quit on EOF marker
+187: 0143 48C401    		jfz	again
+188: 0146 46D201    		call stop		;Stop the tape
+189: 0149 77        		ex	bsp			;Back up to the end of the file
+190: 014A 46D301    		call dwait
+191: 014D 363F2E00  		hl	run$+2		;Make sure something was loaded
+192: 0151 C7        		lam
+193: 0152 B0        		ora
+194: 0153 68B801    		jtz	argh		;Error exit if not
+195: 0156 A8        		xra				;Else set the zero condition
+196: 0157 07        		ret				;And quit
+nxtone = 0158
+197: 0158 46F001    nxtone:	call getch		;Get the parity initialization values
+198: 015B E8        		lha				;in H (XP) and L (CP)
+199: 015C 46F001    		call getch
+200: 015F F0        		lla
+201: 0160 46F001    		call getch		;Get the starting address in DE
+202: 0163 D8        		lda
+203: 0164 46F001    		call getch
+204: 0167 E0        		lea
+205: 0168 46F001    		call getch		;Get it again for a check
+206: 016B 2CFF      		xr	0377		;It is complemented this time
+207: 016D BB        		cpd
+208: 016E 48C401    		jfz	again
+209: 0171 46F001    		call getch
+210: 0174 60C401    		jtc again		;Catch the record being over already
+211: 0177 2CFF      		xr	0377		;Un-complement it
+212: 0179 BC        		cpe
+213: 017A 48C401    		jfz	again
+214: 017D C6        		lal				;Save the parity accumulators
+215: 017E D5        		lch
+216: 017F 363E2E00  		hl	run$+1		;Store the starting address in run$ jump
+217: 0183 FC        		lme
+218: 0184 363F      		ll	run$+2
+219: 0186 FB        		lmd
+220: 0187 EB        		lhd				;Set storage pointer to starting address
+221: 0188 F4        		lle
+222: 0189 DA        		ldc				;Restore the parity accumulators
+223: 018A AD        		xrh				;Accumulate in the starting address
+224: 018B 0A        		src
+225: 018C AE        		xrl
+226: 018D 0A        		src
+227: 018E AD        		xrh
+228: 018F 0A        		src
+229: 0190 AE        		xrl
+230: 0191 0A        		src
+231: 0192 E0        		lea
+232: 0193 C5        		lah
+nxtbyt = 0194
+236: 0194 46F001    nxtbyt:	call getch		;Get a byte of data
+237: 0197 60BF01    		jtc	eor			;Catch end of record
+238: 019A D0        		lca				;Else save it
+239: 019B AB        		xrd				;Accumulate the parities
+240: 019C D8        		lda
+241: 019D C2        		lac
+242: 019E AC        		xre
+243: 019F 0A        		src
+244: 01A0 E0        		lea
+245: 01A1 C6        		lal				;Prevent loading into the loader
+246: 01A2 1400      		su	pend
+247: 01A4 C5        		lah
+248: 01A5 1C02      		sb	pend>8
+249: 01A7 70B801    		jts	argh
+250: 01AA FA        		lmc				;Store the data if address okay
+251: 01AB C6        		lal				;Increment the memory address
+252: 01AC 0401      		ad	1
+253: 01AE F0        		lla
+254: 01AF C5        		lah
+255: 01B0 0C00      		ac	0
+256: 01B2 241F      		nd	037			;Do memory wrap-around
+257: 01B4 E8        		lha
+258: 01B5 449401    		jmp	nxtbyt		;Get the next data byte
+argh = 01B8
+260: 01B8 46D201    argh:	call stop		;Stop the tape
+261: 01BB 3401      		or	1			;Indicate the abortive exit with a carry toggle
+262: 01BD 0A        		src
+263: 01BE 07        		ret
+eor = 01BF
+265: 01BF C3        eor:	lad				;Check parity accumulations
+266: 01C0 B4        		ore
+267: 01C1 681F01    		jtz	nxtrec
+again = 01C4
+268: 01C4 46D201    again:	call stop		;Try that record again
+269: 01C7 77        		ex	bsp
+270: 01C8 46DC01    		call decrtc		;Decrement the retry count
+271: 01CB 70B801    		jts	argh		;Quit if too many retries
+272: 01CE 79        		ex	sf			;Reinitiate forward motion
+273: 01CF 442701    		jmp 	nextry	;And try the record again
+stop = 01D2
+277: 01D2 7F        stop:	ex	tstop		;Stop the tape
+dwait = 01D3
+278: 01D3 1601      dwait:	lc	1			;Wait for deck ready
+twait = 01D5
+279: 01D5 53        twait:	ex	status
+waitl = 01D6
+280: 01D6 41        waitl:	in
+281: 01D7 A2        		ndc
+282: 01D8 68D601    		jtz	waitl		;Wait for specified status
+283: 01DB 07        		ret
+decrtc = 01DC
+285: 01DC 46D301    decrtc:	call dwait		;Wait for I/O operation
+286: 01DF 36FF2E01  		hl	rtc			;Decrement the retry count
+287: 01E3 C7        		lam
+288: 01E4 1401      		su	1
+289: 01E6 F8        		lma
+290: 01E7 07        		ret
+rtinit = 01E8
+292: 01E8 36FF2E01  rtinit:	hl	rtc			;Initiate the retry count
+293: 01EC 0603      		la	3			;To try four times
+294: 01EE F8        		lma
+295: 01EF 07        		ret
+getch = 01F0
+297: 01F0 53        getch:	ex	status		;Get a character
+298: 01F1 41        		in
+299: 01F2 2414      		nd	024			;Wait for data or IRG
+300: 01F4 68F001    		jtz	getch
+301: 01F7 02        		slc
+302: 01F8 02        		slc
+303: 01F9 02        		slc
+304: 01FA 02        		slc
+305: 01FB 23        		rtc				;End of record
+306: 01FC 55        		ex	data		;Else get the character
+307: 01FD 41        		in
+308: 01FE 07        		ret
+rtc = 01FF
+312: 01FF 00        rtc:	dc	0			;Retry count
+                    pend:	equ	$			;End of loader location
+Assembly successful
+512 bytes saved to file C:\Dropbox\InfoLaptop\Bread80\Datapoint2200\Software\OS\OS_Loader.bin

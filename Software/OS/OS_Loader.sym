@@ -1,0 +1,4 @@
+load$                equ 64
+run$                 equ 61
+boot$                equ 52
+load2$               equ 74

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name RP2040)(type Legacy)(uri C:/Dropbox/InfoLaptop/Bread80/KicadLibs/rp2040_stamp_footprints/KiCad5/RP2040_Stamp.lib)(options "")(descr ""))
+  (lib (name DataPoint_2200)(type Legacy)(uri C:/Dropbox/InfoLaptop/Bread80/Datapoint2200/Datapoint2200.lib)(options "")(descr ""))
+)

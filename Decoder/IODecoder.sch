@@ -19,13 +19,13 @@ U 1 1 6274A8F2
 P 4200 6050
 F 0 "Z14" H 4350 7050 50  0000 C CNN
 F 1 "74154" H 4400 6950 50  0000 C CNN
-F 2 "Package_DIP:DIP-24_W10.16mm_Socket" H 4200 6050 50  0001 C CNN
+F 2 "Package_DIP:DIP-24_W15.24mm_Socket" H 4200 6050 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS154" H 4200 6050 50  0001 C CNN
 	1    4200 6050
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 4 1 6274B929
 P 6100 4700
 F 0 "Z10" H 6100 4900 50  0000 C CNN
@@ -36,7 +36,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 2 1 6274C9C8
 P 6100 5100
 F 0 "Z15" H 6100 5300 50  0000 C CNN
@@ -47,7 +47,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 5100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 1 1 6274CCAB
 P 6100 5500
 F 0 "Z15" H 6100 5700 50  0000 C CNN
@@ -58,7 +58,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 5500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 6 1 6274CF1A
 P 6100 5900
 F 0 "Z10" H 6100 6100 50  0000 C CNN
@@ -69,7 +69,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 3 1 6274D237
 P 6100 6300
 F 0 "Z10" H 6100 6500 50  0000 C CNN
@@ -80,7 +80,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 6300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 2 1 6274D4E0
 P 6100 6700
 F 0 "Z10" H 6100 6900 50  0000 C CNN
@@ -91,7 +91,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 6700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 1 1 6274D789
 P 6100 7100
 F 0 "Z10" H 6100 7300 50  0000 C CNN
@@ -102,7 +102,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z10
+L Datapoint2200:74LCX07 Z10
 U 5 1 6274DA32
 P 6100 7500
 F 0 "Z10" H 6100 7700 50  0000 C CNN
@@ -158,7 +158,7 @@ U 1 1 628AFC6E
 P 6750 7400
 F 0 "R12" V 6650 7400 50  0000 C CNN
 F 1 "470" V 6750 7400 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 7400 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 7400 50  0001 C CNN
 F 3 "~" H 6750 7400 50  0001 C CNN
 	1    6750 7400
 	0    1    1    0   
@@ -169,7 +169,7 @@ U 1 1 628B02B9
 P 6750 7000
 F 0 "R16" V 6650 7000 50  0000 C CNN
 F 1 "470" V 6750 7000 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 7000 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 7000 50  0001 C CNN
 F 3 "~" H 6750 7000 50  0001 C CNN
 	1    6750 7000
 	0    1    1    0   
@@ -180,7 +180,7 @@ U 1 1 628B03D3
 P 6750 6600
 F 0 "R15" V 6650 6600 50  0000 C CNN
 F 1 "470" V 6750 6600 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 6600 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 6600 50  0001 C CNN
 F 3 "~" H 6750 6600 50  0001 C CNN
 	1    6750 6600
 	0    1    1    0   
@@ -191,7 +191,7 @@ U 1 1 628B04E8
 P 6750 6200
 F 0 "R14" V 6650 6200 50  0000 C CNN
 F 1 "470" V 6750 6200 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 6200 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 6200 50  0001 C CNN
 F 3 "~" H 6750 6200 50  0001 C CNN
 	1    6750 6200
 	0    1    1    0   
@@ -202,7 +202,7 @@ U 1 1 628B05FD
 P 6750 5800
 F 0 "R13" V 6650 5800 50  0000 C CNN
 F 1 "470" V 6750 5800 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 5800 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 5800 50  0001 C CNN
 F 3 "~" H 6750 5800 50  0001 C CNN
 	1    6750 5800
 	0    1    1    0   
@@ -213,7 +213,7 @@ U 1 1 628B0702
 P 6750 5400
 F 0 "R17" V 6650 5400 50  0000 C CNN
 F 1 "470" V 6750 5400 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 5400 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 5400 50  0001 C CNN
 F 3 "~" H 6750 5400 50  0001 C CNN
 	1    6750 5400
 	0    1    1    0   
@@ -224,7 +224,7 @@ U 1 1 628B0807
 P 6750 5000
 F 0 "R18" V 6650 5000 50  0000 C CNN
 F 1 "470" V 6750 5000 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 5000 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 5000 50  0001 C CNN
 F 3 "~" H 6750 5000 50  0001 C CNN
 	1    6750 5000
 	0    1    1    0   
@@ -235,7 +235,7 @@ U 1 1 628B091C
 P 6750 4600
 F 0 "R11" V 6650 4600 50  0000 C CNN
 F 1 "470" V 6750 4600 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 4600 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 4600 50  0001 C CNN
 F 3 "~" H 6750 4600 50  0001 C CNN
 	1    6750 4600
 	0    1    1    0   
@@ -329,7 +329,7 @@ Connection ~ 6500 4700
 Wire Wire Line
 	6500 4700 6400 4700
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 4 1 62A26341
 P 6100 4200
 F 0 "Z15" H 6100 4400 50  0000 C CNN
@@ -340,7 +340,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 4200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 5 1 62A266B1
 P 6100 3800
 F 0 "Z15" H 6100 4000 50  0000 C CNN
@@ -351,7 +351,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 6 1 62A2695A
 P 6100 3000
 F 0 "Z22" H 6100 3200 50  0000 C CNN
@@ -362,7 +362,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z15
+L Datapoint2200:74LCX07 Z15
 U 3 1 62A26CFF
 P 6100 3400
 F 0 "Z15" H 6100 3600 50  0000 C CNN
@@ -373,7 +373,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 1 1 62A26FE2
 P 6100 2600
 F 0 "Z22" H 6100 2800 50  0000 C CNN
@@ -384,7 +384,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 2600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 5 1 62A2728B
 P 6100 2100
 F 0 "Z22" H 6100 2300 50  0000 C CNN
@@ -395,7 +395,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 3 1 62A27534
 P 6100 1700
 F 0 "Z22" H 6100 1900 50  0000 C CNN
@@ -406,7 +406,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 4 1 62A277DD
 P 6100 1300
 F 0 "Z22" H 6100 1500 50  0000 C CNN
@@ -417,7 +417,7 @@ F 3 "www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 6100 1300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS07 Z22
+L Datapoint2200:74LCX07 Z22
 U 2 1 62A27AFF
 P 6100 900
 F 0 "Z22" H 6100 1100 50  0000 C CNN
@@ -433,7 +433,7 @@ U 1 1 62A27DA8
 P 4200 2000
 F 0 "Z21" H 4350 3000 50  0000 C CNN
 F 1 "74154" H 4400 2900 50  0000 C CNN
-F 2 "Package_DIP:DIP-24_W10.16mm_Socket" H 4200 2000 50  0001 C CNN
+F 2 "Package_DIP:DIP-24_W15.24mm_Socket" H 4200 2000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS154" H 4200 2000 50  0001 C CNN
 	1    4200 2000
 	1    0    0    -1  
@@ -462,7 +462,7 @@ U 1 1 62A29767
 P 6750 4100
 F 0 "R19" V 6650 4100 50  0000 C CNN
 F 1 "2k2" V 6750 4100 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 4100 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 4100 50  0001 C CNN
 F 3 "~" H 6750 4100 50  0001 C CNN
 	1    6750 4100
 	0    1    1    0   
@@ -473,7 +473,7 @@ U 1 1 62A298DE
 P 6750 3700
 F 0 "R20" V 6650 3700 50  0000 C CNN
 F 1 "2k2" V 6750 3700 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 3700 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 3700 50  0001 C CNN
 F 3 "~" H 6750 3700 50  0001 C CNN
 	1    6750 3700
 	0    1    1    0   
@@ -484,7 +484,7 @@ U 1 1 62A29A8F
 P 6750 3300
 F 0 "R21" V 6650 3300 50  0000 C CNN
 F 1 "2k2" V 6750 3300 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 3300 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 3300 50  0001 C CNN
 F 3 "~" H 6750 3300 50  0001 C CNN
 	1    6750 3300
 	0    1    1    0   
@@ -495,7 +495,7 @@ U 1 1 62A29BA4
 P 6750 2900
 F 0 "R22" V 6650 2900 50  0000 C CNN
 F 1 "2k2" V 6750 2900 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 2900 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 2900 50  0001 C CNN
 F 3 "~" H 6750 2900 50  0001 C CNN
 	1    6750 2900
 	0    1    1    0   
@@ -506,7 +506,7 @@ U 1 1 62A29CB9
 P 6750 2500
 F 0 "R23" V 6650 2500 50  0000 C CNN
 F 1 "2k2" V 6750 2500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 2500 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 2500 50  0001 C CNN
 F 3 "~" H 6750 2500 50  0001 C CNN
 	1    6750 2500
 	0    1    1    0   
@@ -517,7 +517,7 @@ U 1 1 62A29E02
 P 6750 2000
 F 0 "R26" V 6650 2000 50  0000 C CNN
 F 1 "2k2" V 6750 2000 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 2000 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 2000 50  0001 C CNN
 F 3 "~" H 6750 2000 50  0001 C CNN
 	1    6750 2000
 	0    1    1    0   
@@ -528,7 +528,7 @@ U 1 1 62A29F07
 P 6750 1600
 F 0 "R24" V 6650 1600 50  0000 C CNN
 F 1 "2k2" V 6750 1600 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 1600 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 1600 50  0001 C CNN
 F 3 "~" H 6750 1600 50  0001 C CNN
 	1    6750 1600
 	0    1    1    0   
@@ -539,7 +539,7 @@ U 1 1 62A2A00C
 P 6750 1200
 F 0 "R27" V 6650 1200 50  0000 C CNN
 F 1 "2k2" V 6750 1200 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 1200 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 1200 50  0001 C CNN
 F 3 "~" H 6750 1200 50  0001 C CNN
 	1    6750 1200
 	0    1    1    0   
@@ -550,7 +550,7 @@ U 1 1 62A2A111
 P 6750 800
 F 0 "R25" V 6650 800 50  0000 C CNN
 F 1 "2k2" V 6750 800 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6680 800 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6680 800 50  0001 C CNN
 F 3 "~" H 6750 800 50  0001 C CNN
 	1    6750 800 
 	0    1    1    0   
@@ -785,13 +785,13 @@ Text HLabel 7100 2300 2    50   Output ~ 0
 Text HLabel 3600 1150 1    50   Input ~ 0
 ~ENABLE_2
 Text HLabel 3500 1150 1    50   Input ~ 0
-~I4
+I4
 Text HLabel 3400 1150 1    50   Input ~ 0
-~I3
+I3
 Text HLabel 3300 1150 1    50   Input ~ 0
-~I2
+I2
 Text HLabel 3200 1150 1    50   Input ~ 0
-~I1
+I1
 Text HLabel 3100 1150 1    50   Input ~ 0
 ~ENABLE_1
 Wire Wire Line
@@ -1131,10 +1131,10 @@ F6 "~COM1" I L 1600 8800 50
 F7 "~COM2" I L 1600 8900 50 
 F8 "~COM3" I L 1600 9000 50 
 F9 "~COM4" I L 1600 9100 50 
-F10 "~PORT8" I L 1600 9300 50 
-F11 "~PORT9" I L 1600 9400 50 
-F12 "~PORT10" I L 1600 9500 50 
-F13 "~PORT11" I L 1600 9600 50 
+F10 "~PORT0" I L 1600 9300 50 
+F11 "~PORT1" I L 1600 9400 50 
+F12 "~PORT2" I L 1600 9500 50 
+F13 "~PORT3" I L 1600 9600 50 
 F14 "~BEEP" I L 1600 9700 50 
 F15 "~CLICK" I L 1600 9800 50 
 F16 "~DECK1" I L 1600 9900 50 
@@ -1221,13 +1221,13 @@ Wire Wire Line
 Wire Wire Line
 	1500 10200 1600 10200
 Text GLabel 1500 9300 0    50   Input ~ 0
-~PORT8
+~PORT0
 Text GLabel 1500 9400 0    50   Input ~ 0
-~PORT9
+~PORT1
 Text GLabel 1500 9500 0    50   Input ~ 0
-~PORT10
+~PORT2
 Text GLabel 1500 9600 0    50   Input ~ 0
-~PORT11
+~PORT3
 Wire Wire Line
 	1500 9300 1600 9300
 Wire Wire Line
@@ -1241,13 +1241,13 @@ Wire Wire Line
 Wire Wire Line
 	1600 9800 1500 9800
 Text GLabel 4800 1200 1    50   Output ~ 0
-~PORT8
+~PORT0
 Text GLabel 4900 1200 1    50   Output ~ 0
-~PORT9
+~PORT1
 Text GLabel 5000 1200 1    50   Output ~ 0
-~PORT10
+~PORT2
 Text GLabel 5100 1200 1    50   Output ~ 0
-~PORT11
+~PORT3
 Text GLabel 5600 1650 1    50   Output ~ 0
 ~READ_BLK
 Text GLabel 5700 2650 3    50   Output ~ 0

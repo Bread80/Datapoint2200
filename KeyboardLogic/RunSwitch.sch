@@ -1,0 +1,230 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 8
+Title "Datapoint 2200 Keyboard Logic (A9)"
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 2000 2850 0    50   Input ~ 0
+~RUN_SWITCH
+Text Notes 1900 2800 0    50   ~ 0
+9
+$Comp
+L Device:R R54
+U 1 1 6C585F12
+P 2100 2600
+F 0 "R54" V 2000 2550 50  0000 L CNN
+F 1 "470" V 2100 2500 50  0000 L CNN
+F 2 "" V 2030 2600 50  0001 C CNN
+F 3 "~" H 2100 2600 50  0001 C CNN
+	1    2100 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C69
+U 1 1 6C58618B
+P 2300 2600
+F 0 "C69" H 2415 2646 50  0000 L CNN
+F 1 ".001 1kV" H 2415 2555 50  0000 L CNN
+F 2 "" H 2338 2450 50  0001 C CNN
+F 3 "~" H 2300 2600 50  0001 C CNN
+	1    2300 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R55
+U 1 1 6C5863DB
+P 2300 2200
+F 0 "R55" V 2200 2150 50  0000 L CNN
+F 1 "47" V 2300 2100 50  0000 L CNN
+F 2 "" V 2230 2200 50  0001 C CNN
+F 3 "~" H 2300 2200 50  0001 C CNN
+	1    2300 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6C586BCF
+P 2300 1950
+F 0 "#PWR?" H 2300 1800 50  0001 C CNN
+F 1 "+5V" H 2200 2050 50  0000 C CNN
+F 2 "" H 2300 1950 50  0001 C CNN
+F 3 "" H 2300 1950 50  0001 C CNN
+	1    2300 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6C586E31
+P 2100 2350
+F 0 "#PWR?" H 2100 2200 50  0001 C CNN
+F 1 "+5V" H 2000 2450 50  0000 C CNN
+F 2 "" H 2100 2350 50  0001 C CNN
+F 3 "" H 2100 2350 50  0001 C CNN
+	1    2100 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 1950 2300 2050
+Wire Wire Line
+	2300 2850 2100 2850
+Wire Wire Line
+	2300 2750 2300 2850
+Wire Wire Line
+	2300 2350 2300 2450
+Wire Wire Line
+	2100 2350 2100 2450
+Wire Wire Line
+	2100 2750 2100 2850
+Connection ~ 2100 2850
+Wire Wire Line
+	2100 2850 2000 2850
+$Comp
+L 74xx:74LS74 Z35
+U 2 1 6C5874BE
+P 3100 2850
+F 0 "Z35" H 3250 3250 50  0000 C CNN
+F 1 "7474" H 3250 3150 50  0000 C CNN
+F 2 "" H 3100 2850 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 3100 2850 50  0001 C CNN
+	2    3100 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS74 Z35
+U 1 1 6C587660
+P 3900 2850
+F 0 "Z35" H 4050 3250 50  0000 C CNN
+F 1 "7474" H 4050 3150 50  0000 C CNN
+F 2 "" H 3900 2850 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 3900 2850 50  0001 C CNN
+	1    3900 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 2850 2300 2850
+Connection ~ 2300 2850
+$Comp
+L power:+5V #PWR?
+U 1 1 6C587FBD
+P 3100 2550
+F 0 "#PWR?" H 3100 2400 50  0001 C CNN
+F 1 "+5V" H 3000 2650 50  0000 C CNN
+F 2 "" H 3100 2550 50  0001 C CNN
+F 3 "" H 3100 2550 50  0001 C CNN
+	1    3100 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6C589491
+P 3900 2550
+F 0 "#PWR?" H 3900 2400 50  0001 C CNN
+F 1 "+5V" H 3800 2650 50  0000 C CNN
+F 2 "" H 3900 2550 50  0001 C CNN
+F 3 "" H 3900 2550 50  0001 C CNN
+	1    3900 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2750 3400 2750
+NoConn ~ 3400 2950
+$Comp
+L power:+5V #PWR?
+U 1 1 6C589B68
+P 3750 3200
+F 0 "#PWR?" H 3750 3050 50  0001 C CNN
+F 1 "+5V" H 3650 3300 50  0000 C CNN
+F 2 "" H 3750 3200 50  0001 C CNN
+F 3 "" H 3750 3200 50  0001 C CNN
+	1    3750 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 3200 3900 3200
+Wire Wire Line
+	3900 3200 3900 3150
+Wire Wire Line
+	4200 2950 4300 2950
+Wire Wire Line
+	4300 2950 4300 3300
+Wire Wire Line
+	4300 3300 2700 3300
+Wire Wire Line
+	2700 3300 2700 2750
+Wire Wire Line
+	2700 2750 2800 2750
+$Comp
+L 74xx:74LS00 Z20
+U 4 1 6C58AE26
+P 3900 3800
+F 0 "Z20" H 3900 4125 50  0000 C CNN
+F 1 "7400" H 3900 4034 50  0000 C CNN
+F 2 "" H 3900 3800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 3900 3800 50  0001 C CNN
+	4    3900 3800
+	1    0    0    -1  
+$EndComp
+Text HLabel 2000 3900 0    50   Input ~ 0
+7.5CPS
+Text Notes 1900 3850 0    50   ~ 0
+13
+Wire Wire Line
+	2000 3900 3500 3900
+Wire Wire Line
+	3600 2850 3500 2850
+Connection ~ 3500 3900
+Wire Wire Line
+	3500 3900 3600 3900
+Wire Wire Line
+	3500 3700 3600 3700
+Connection ~ 3500 3700
+Wire Wire Line
+	3500 3700 3500 3900
+$Comp
+L 74xx:74LS00 Z36
+U 3 1 6C58C0D9
+P 4800 2850
+F 0 "Z36" H 4800 3175 50  0000 C CNN
+F 1 "7400" H 4800 3084 50  0000 C CNN
+F 2 "" H 4800 2850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 4800 2850 50  0001 C CNN
+	3    4800 2850
+	1    0    0    -1  
+$EndComp
+Text HLabel 4600 2400 2    50   Output ~ 0
+RUN_SWITCH_GATED
+Wire Wire Line
+	4200 2750 4300 2750
+Wire Wire Line
+	4300 2750 4300 2400
+Wire Wire Line
+	4300 2400 4600 2400
+Wire Wire Line
+	4500 2750 4300 2750
+Connection ~ 4300 2750
+Wire Wire Line
+	4500 2950 4400 2950
+Wire Wire Line
+	4400 3800 4200 3800
+Wire Wire Line
+	5100 2850 5200 2850
+Wire Wire Line
+	5200 2850 5200 3400
+Wire Wire Line
+	5200 3400 3100 3400
+Wire Wire Line
+	3100 3400 3100 3150
+Wire Wire Line
+	3500 2850 3500 3700
+Wire Wire Line
+	4400 2950 4400 3800
+$EndSCHEMATC
