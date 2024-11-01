@@ -70,6 +70,8 @@ The processor itself. The schematic is divided up as follows:
 * Stack: The stack and stack pointer, and memory card selection.
 * Timing: Fetch-execute cycle, memory word sync, HALTing and running, clocking and miscellaneous.
 
+![Render of Processor PCB, WiP](/Processor/Photos/ProcessorWiP_Render1_Small.png)
+
 Status: The design has been tested in a logic emulator and appears to function correctly. A PCB layout has been made up and I'm currently adding LEDs (and establishing which signals should have LEDs) before sending the board for production.
 
 ### Board A6: Keyboard
@@ -112,7 +114,7 @@ Status: Transcribed and checked but not validated.
 ### Boards A11 to A14: Memory cards
 Houses the Intel 1405 shift memories ICs used by the processor and related row and column decoders.
 
-![Decoder revision 1 PCB](/Memory/Photos/MemoryR1_1_Small.jpg)
+![Memory card revision 1 PCB](/Memory/Photos/MemoryR1_1_Small.jpg)
 
 Status: Transcribed and first revision boards manufactured. The recreated PCBs include solder links to enable the memory to be operated at TTL voltage levels.
 Note: The board has not been tested with actual 1405 chips.
