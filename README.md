@@ -112,6 +112,8 @@ Status: Transcribed and checked but not validated.
 ### Boards A11 to A14: Memory cards
 Houses the Intel 1405 shift memories ICs used by the processor and related row and column decoders.
 
+![Decoder revision 1 PCB](/Memory/Photos/MemoryR1_1_Small.jpg)
+
 Status: Transcribed and first revision boards manufactured. The recreated PCBs include solder links to enable the memory to be operated at TTL voltage levels.
 Note: The board has not been tested with actual 1405 chips.
 Note: The 1405 ICs require a lot of power. The original PCBs are heavily engineered to be able to supply this power, and include a pair of bus bars for power distribution. The recreated PCBs have not been engineered to the same standards and shift should *not* be used with shift memories.
