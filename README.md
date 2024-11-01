@@ -50,7 +50,7 @@ The schematic is split into the following files and functional units:
 * IODecoder: Decodes output port (command) addresses into individual signal lines.
 * Speaker_Tape: Generates sound to the speaker (beeps and clicks), and houses some gates spilled over from the tape drive boards.
 
-[[Datapoint2200/Decoder/Photos/DecoderR1_1Small.jpg|Decoder revision 1 PCB]]
+[[Datapoint2200/Decoder/Photos/DecoderR1_1_Small.jpg|Decoder revision 1 PCB]]
 
 Status: A first revision board has been manufactured and works but has a couple of largely cosmetic issues, the worst of which is an incorrect footprint for the wide-body TTL chips. The PCB currently in the repository is the proposed next revision but which has not been tested - I'll have it manufactured when I know it is driving the rest of the system correctly.
 
